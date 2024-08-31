@@ -3,6 +3,7 @@ import FindMyWork from "../components/Home/FindMyWork";
 import Hero from "../components/Home/Hero";
 import HorizontalSkillsWrapper from "../components/Home/HorizontalSkillsWrapper";
 import NumbersAndStats from "../components/Home/Numbers";
+import SearchBar from "../components/Home/SearchBar";
 import Skills from "../components/Home/Skills";
 import WorkCarousel from "../components/Home/WorkCarousel";
 import Navbar from "../components/Navbar/Navbar";
@@ -17,6 +18,7 @@ function Home() {
         <FindMyWork />
         <NumbersAndStats />
         <HorizontalSkillsWrapper />
+        <SearchBar />
         <WorkCarousel />
         <Footer />
         <CarCanvas />
