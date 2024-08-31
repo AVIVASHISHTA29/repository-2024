@@ -71,19 +71,21 @@ const SearchBar: React.FC = () => {
           <FiX
             className={`icon x-icon`}
             onClick={() => {
+              setResults([]);
               setQuery("");
               setFocus(false);
-              setResults([]);
             }}
           />
         </div>
-        <div className="search-results">
-          {results.map((result: any) => (
-            <div key={result.id}>
-              <h2>{result.section}</h2>
-            </div>
-          ))}
-        </div>
+        {results.length > 0 && (
+          <div className="search-results">
+            {results.map((result: any) => (
+              <div key={result.id}>
+                <h2>{result.section}</h2>
+              </div>
+            ))}
+          </div>
+        )}
       </motion.div>
     </div>
   );

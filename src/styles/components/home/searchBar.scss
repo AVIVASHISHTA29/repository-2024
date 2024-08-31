@@ -22,6 +22,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding: 0px 24px;
+    min-height: 55px;
 
     .search-bar-flex {
       cursor: pointer;
@@ -46,6 +48,12 @@
           transition: all 0.2s;
           font-size: 24px;
           cursor: pointer;
+          padding: 4px;
+          border-radius: 50%;
+          &:hover {
+            color: $white;
+            background-color: $black;
+          }
         }
       }
 
@@ -85,6 +93,16 @@
           width: calc(100% - 32px);
         }
       }
+    }
+
+    .search-results {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 24px;
+      width: 100%;
+      margin-top: 24px;
     }
   }
 }
