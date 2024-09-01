@@ -1,3 +1,17 @@
+export type TSearch = {
+  id: number;
+  section: string;
+  keyWords: string[];
+  data: {
+    title: string;
+    desc: string;
+    highlights: string[];
+    skills?: string[];
+    link?: string;
+    timeframe?: string;
+  }[];
+};
+
 export const search = [
   {
     id: 1,
@@ -38,7 +52,7 @@ export const search = [
     keyWords: [
       "work experience",
       "experience",
-      "avi work",
+      "avi's work",
       "career",
       "jobs",
       "avi's job history",
@@ -76,14 +90,10 @@ export const search = [
     keyWords: [
       "projects",
       "avi's projects",
-      "avi's work",
       "avi's apps",
       "applications",
       "websites",
       "portfolio",
-      "avi portfolio",
-      "weather app",
-      "avi's portfolio",
     ],
     data: [
       {

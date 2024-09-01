@@ -39,6 +39,14 @@
       position: relative;
       transition: all 0.3s;
 
+      .animated-placeholder {
+        position: absolute;
+        left: 40px;
+        top: 30%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
       .icon {
         font-size: 18px;
         color: $text-grey;
@@ -103,6 +111,40 @@
       gap: 24px;
       width: 100%;
       margin-top: 24px;
+      overflow-y: scroll;
+      padding-bottom: 32px;
+
+      .result-heading {
+        font-size: 32px;
+        color: var(--black);
+        font-weight: 700;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+      }
+
+      .result-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+
+        .result-item {
+          width: 100%;
+          padding: 0px 16px;
+          .result-sub-heading {
+            font-size: 22px;
+            color: $black;
+            font-weight: 500;
+          }
+
+          .result-sub-desc {
+            font-size: 18px;
+            color: $black;
+          }
+        }
+      }
     }
   }
 }
