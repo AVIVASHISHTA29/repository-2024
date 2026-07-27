@@ -89,5 +89,18 @@
       <category>WebGL</category>
     </item>
 
+    <item>
+      <title>How I Rendered a Rotating 3D ASCII Wordmark That Animates on GitHub (No JavaScript)</title>
+      <link>https://www.avivashishta.com/blog/3d-ascii-wordmark-svg-github-readme</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/3d-ascii-wordmark-svg-github-readme</guid>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Extrude a word into a 3D slab, rasterize it to ASCII, and ship twenty rotated frames as one 38 KB SVG that animates on GitHub with SMIL and no JavaScript — plus the three geometry bugs that looked like rendering faults.</description>
+      <category>SVG</category>
+      <category>ASCII Art</category>
+      <category>Python</category>
+      <category>GitHub</category>
+    </item>
+
   </channel>
 </rss>
