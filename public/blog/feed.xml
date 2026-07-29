@@ -115,5 +115,19 @@
       <category>Prompts</category>
     </item>
 
+    <item>
+      <title>The Prompt I Used to Build a Fluid Ink-Reveal Homepage, with a Higgsfield-Generated Wordmark Video</title>
+      <link>https://www.avivashishta.com/blog/prompt-fluid-ink-reveal-wordmark-higgsfield</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-fluid-ink-reveal-wordmark-higgsfield</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable prompt for a homepage where dragging the cursor spreads ink that punches through the page to a looping video of the same word morphing through 3D materials — a WebGL Navier-Stokes fluid as the mask, and the video generated with the Higgsfield MCP.</description>
+      <category>WebGL</category>
+      <category>Fluid Simulation</category>
+      <category>Higgsfield</category>
+      <category>AI Video</category>
+      <category>Prompts</category>
+    </item>
+
   </channel>
 </rss>
