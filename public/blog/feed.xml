@@ -129,5 +129,18 @@
       <category>Prompts</category>
     </item>
 
+    <item>
+      <title>The Prompt I Used to Build Pin Board, a Single-File Sticky-Notes App (No Backend, No Build Step)</title>
+      <link>https://www.avivashishta.com/blog/prompt-pin-board-sticky-notes-single-file</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-pin-board-sticky-notes-single-file</guid>
+      <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable prompt for a draggable, resizable sticky-notes board with per-note colour, font and checklist modes — one HTML file, vanilla JS, everything persisted to localStorage. Plus why each clause is in the prompt.</description>
+      <category>JavaScript</category>
+      <category>localStorage</category>
+      <category>UI</category>
+      <category>Prompts</category>
+    </item>
+
   </channel>
 </rss>
