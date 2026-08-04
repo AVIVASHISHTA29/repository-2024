@@ -155,5 +155,18 @@
       <category>Projects</category>
     </item>
 
+    <item>
+      <title>The Prompt I Used to Build a Hover-Reveal Spaceship Scanner, with Higgsfield-Generated Hull Layers</title>
+      <link>https://www.avivashishta.com/blog/prompt-hover-reveal-spaceship-scanner-higgsfield</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-hover-reveal-spaceship-scanner-higgsfield</guid>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable prompt for a landing page where the cursor is an X-ray torch — sweep it over a dead, powered-down starship and only that part of the hull lights up with plasma conduits and blazing engine bells. Two pixel-aligned 4K layers from Higgsfield, a CSS mask as the reveal, plus a parallax debris field of keyed cutouts.</description>
+      <category>Prompts</category>
+      <category>Higgsfield</category>
+      <category>CSS</category>
+      <category>Generative AI</category>
+    </item>
+
   </channel>
 </rss>
