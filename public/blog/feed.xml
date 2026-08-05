@@ -168,5 +168,19 @@
       <category>Generative AI</category>
     </item>
 
+    <item>
+      <title>The Prompt I Used to Build a Kinetic Wind Wall in Three.js (2,000 Metal Blades, All Moved in the Vertex Shader)</title>
+      <link>https://www.avivashishta.com/blog/prompt-kinetic-wind-wall-threejs-vertex-shader</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-kinetic-wind-wall-threejs-vertex-shader</guid>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable prompt for a curved wall of ~2,000 metal louvres that ripples with a procedural wind field and parts around the cursor — all motion in an onBeforeCompile patch on MeshPhysicalMaterial, reflections from a runtime PMREM studio, zero texture or HDR files. Plus the three silent bugs that cost me an evening.</description>
+      <category>Three.js</category>
+      <category>WebGL</category>
+      <category>GLSL</category>
+      <category>Shaders</category>
+      <category>Prompts</category>
+    </item>
+
   </channel>
 </rss>
