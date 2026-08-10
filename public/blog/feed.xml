@@ -182,5 +182,18 @@
       <category>Prompts</category>
     </item>
 
+    <item>
+      <title>The Prompt I Used to Build a Punch-Through Ice Wall in Three.js (Voronoi Shatter + Refracted Hero Reveal)</title>
+      <link>https://www.avivashishta.com/blog/prompt-threejs-ice-wall-punch-shatter-hero-reveal</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-threejs-ice-wall-punch-shatter-hero-reveal</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable prompt for a landing page sealed behind frosted mint ice — punch it five times and the wall fractures into ~90 real Voronoi shards that tumble past the camera, refracting the hero text as they fly. Two-pass render-target refraction, hand-rolled fracture, no physics engine.</description>
+      <category>Prompts</category>
+      <category>Three.js</category>
+      <category>WebGL</category>
+      <category>Shaders</category>
+    </item>
+
   </channel>
 </rss>
