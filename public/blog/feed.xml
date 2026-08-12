@@ -195,5 +195,19 @@
       <category>Shaders</category>
     </item>
 
+    <item>
+      <title>The Prompt I Used to Build Hook Lab in Emergent (20 Scored Instagram Hooks, Biased Toward What Already Worked)</title>
+      <link>https://www.avivashishta.com/blog/prompt-hook-lab-instagram-hook-generator-emergent</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-hook-lab-instagram-hook-generator-emergent</guid>
+      <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable Emergent prompt for a full-stack hook-writing app — one line in, 20 tagged and scored hooks out, with a two-second red flag computed in code, a caption generator with per-section regeneration, and a loop that learns which hook formats actually perform on your own account.</description>
+      <category>Prompts</category>
+      <category>Emergent</category>
+      <category>AI Apps</category>
+      <category>Full Stack</category>
+      <category>Content Creation</category>
+    </item>
+
   </channel>
 </rss>
