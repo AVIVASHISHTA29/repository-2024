@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Mar 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -207,6 +207,20 @@
       <category>AI Apps</category>
       <category>Full Stack</category>
       <category>Content Creation</category>
+    </item>
+
+    <item>
+      <title>Turning Yourself Into Spider-Man in React (MediaPipe Pose → a Mixamo Rig in React Three Fiber)</title>
+      <link>https://www.avivashishta.com/blog/turning-yourself-into-spiderman-in-react</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/turning-yourself-into-spiderman-in-react</guid>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Capture a plate of your empty room, walk back in, and Spider-Man is standing exactly where you are — your height, your pose, your fingers. Retargeting MediaPipe pose and hand landmarks onto a Mixamo rig in React Three Fiber: the aim-at solver, a least-squares size fit, frame-independent finger solving, and the five bugs that each looked like something else.</description>
+      <category>React</category>
+      <category>MediaPipe</category>
+      <category>Three.js</category>
+      <category>React Three Fiber</category>
+      <category>Motion Capture</category>
     </item>
 
   </channel>
