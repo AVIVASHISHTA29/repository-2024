@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -221,6 +221,20 @@
       <category>Three.js</category>
       <category>React Three Fiber</category>
       <category>Motion Capture</category>
+    </item>
+
+    <item>
+      <title>The Prompt I Used to Build Lumina, an Interactive Light Gallery on Replit (Pull-Chain Physics, Drag-to-Dim, Hold-to-Ignite)</title>
+      <link>https://www.avivashishta.com/blog/prompt-lumina-interactive-light-gallery-replit</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-lumina-interactive-light-gallery-replit</guid>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable Replit Agent prompt for a pure-black fullscreen gallery of three photoreal lamps, each switched on by a different physical mechanic — a Matter.js pull chain you yank, a paper lantern you drag to dim, and a neon tube you hold until it catches. Edge-masked photos, procedural Web Audio, no sound files.</description>
+      <category>Prompts</category>
+      <category>Replit</category>
+      <category>React</category>
+      <category>Matter.js</category>
+      <category>Web Audio</category>
     </item>
 
   </channel>
