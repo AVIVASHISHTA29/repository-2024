@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -234,6 +234,20 @@
       <category>Replit</category>
       <category>React</category>
       <category>Matter.js</category>
+      <category>Web Audio</category>
+    </item>
+
+    <item>
+      <title>The Prompt I Used to Build the Luma Floor Lamp Hero on Replit (A Brass Switch That Lights the Whole Page)</title>
+      <link>https://www.avivashishta.com/blog/prompt-luma-floor-lamp-lit-hero-replit</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-luma-floor-lamp-lit-hero-replit</guid>
+      <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable Replit Agent prompt for an editorial product hero on pure black — a photoreal floor lamp switched on by a real brass inline switch, a halo behind the shade, a warm bounce on the floor, copy that dims in tiers when the room goes dark, and a pool of warm light that follows your cursor.</description>
+      <category>Prompts</category>
+      <category>Replit</category>
+      <category>React</category>
+      <category>CSS</category>
       <category>Web Audio</category>
     </item>
 
