@@ -5,10 +5,8 @@
   "outputDirectory": "dist",
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/((?!api/).*)",
-      "destination": "/api/notfound"
-    }
+    { "source": "/api/v1/chat", "destination": "/api/chat" },
+    { "source": "/:path*", "destination": "/api/notfound?path=:path*" }
   ],
   "headers": [
     {

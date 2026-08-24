@@ -298,7 +298,103 @@ for (const [path, key] of [
   );
 }
 
-// 15. Core machine-readable files.
+// 15. REST API: typed JSON, rate-limit headers, RFC 9457 errors.
+{
+  for (const [path, shape] of [
+    ["/api/v1/profile", (d) => d.name === "Avi Vashishta"],
+    ["/api/v1/experience", (d) => Array.isArray(d) && d.length > 0],
+    ["/api/v1/skills", (d) => Array.isArray(d.frontend)],
+    ["/api/v1/projects", (d) => Array.isArray(d) && d.length > 0],
+  ]) {
+    const res = await get(path);
+    let body = null;
+    try {
+      body = JSON.parse(await res.text());
+    } catch {
+      /* handled below */
+    }
+    check(
+      `API: GET ${path} returns typed JSON`,
+      res.status === 200 &&
+        (res.headers.get("content-type") || "").includes("application/json") &&
+        body?.apiVersion === "v1" &&
+        shape(body.data),
+      `status ${res.status}, ct=${res.headers.get("content-type")}`
+    );
+    check(
+      `API: ${path} sends RateLimit headers`,
+      res.headers.get("ratelimit-limit") &&
+        res.headers.get("ratelimit-remaining") &&
+        res.headers.get("ratelimit-policy"),
+      `limit=${res.headers.get("ratelimit-limit")} policy=${res.headers.get("ratelimit-policy")}`
+    );
+  }
+
+  // Query filters.
+  const filtered = await (await get("/api/v1/projects?category=ai")).json();
+  check(
+    "API: ?category=ai filters projects",
+    filtered.data.every((p) => p.category === "ai") && filtered.data.length > 0,
+    `got ${filtered.data.length} items`
+  );
+
+  // Typed error model (RFC 9457).
+  const bad = await get("/api/v1/projects?category=nope");
+  const badBody = await bad.json();
+  check(
+    "API: invalid parameter returns RFC 9457 problem+json",
+    bad.status === 400 &&
+      (bad.headers.get("content-type") || "").includes("application/problem+json") &&
+      badBody.code === "invalid_parameter" &&
+      Array.isArray(badBody.allowedValues),
+    `status ${bad.status}, ct=${bad.headers.get("content-type")}, code=${badBody.code}`
+  );
+
+  const missing = await get("/api/v1/does-not-exist");
+  const missingCt = missing.headers.get("content-type") || "";
+  check(
+    "API: unknown /api path returns JSON 404, not HTML",
+    missing.status === 404 && missingCt.includes("json"),
+    `status ${missing.status}, ct=${missingCt}`
+  );
+
+  const wrongMethod = await fetch(`${BASE}/api/v1/profile`, { method: "DELETE" });
+  check(
+    "API: wrong method returns 405 problem+json",
+    wrongMethod.status === 405 &&
+      (wrongMethod.headers.get("content-type") || "").includes("problem+json"),
+    `status ${wrongMethod.status}`
+  );
+
+  // OpenAPI spec describes what actually exists.
+  const spec = await (await get("/openapi.json")).json();
+  const ops = Object.values(spec.paths).flatMap((p) => Object.values(p));
+  check(
+    "OpenAPI: every operation has an operationId and description",
+    ops.every((o) => o.operationId && o.description),
+    `${ops.filter((o) => o.operationId && o.description).length}/${ops.length}`
+  );
+  check(
+    "OpenAPI: declares path versioning",
+    spec.servers.some((s) => /\/v\d+$/.test(s.url)),
+    `servers: ${spec.servers.map((s) => s.url).join(", ")}`
+  );
+  check(
+    "OpenAPI: documents a deprecation policy",
+    /Sunset/i.test(spec.info.description) &&
+      /Deprecation/i.test(spec.info.description),
+    "no Sunset/Deprecation policy in info.description"
+  );
+  check(
+    "OpenAPI: error responses use a typed Problem schema",
+    Object.values(spec.components.responses).every((r) =>
+      JSON.stringify(r).includes("#/components/schemas/Problem")
+    ),
+    "some error response lacks the Problem schema"
+  );
+}
+
+// 16. Core machine-readable files.
 for (const [path, needle] of [
   ["/robots.txt", "Sitemap:"],
   ["/sitemap.xml", "<urlset"],

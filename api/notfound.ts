@@ -49,11 +49,29 @@ const HTML = `<!DOCTYPE html>
 </html>`;
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
-  res.setHeader("Vary", "Accept, Accept-Encoding");
+  res.setHeader("Vary", "Accept, User-Agent, Accept-Encoding");
   res.setHeader("Cache-Control", "public, max-age=0, s-maxage=60");
   res.setHeader("X-Robots-Tag", "noindex");
 
   const accept = String(req.headers.accept || "");
+  const original = "/" + String(req.query.path || "").replace(/^\/+/, "");
+
+  // Anything under /api answers in JSON — an agent probing the API surface
+  // must never have to parse an HTML error page.
+  if (original.startsWith("/api/") || original === "/api") {
+    res.setHeader("Content-Type", "application/problem+json; charset=utf-8");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    return res.status(404).json({
+      type: "https://www.avivashishta.com/developers#not_found",
+      title: "Endpoint not found",
+      status: 404,
+      code: "not_found",
+      detail: `No API endpoint at ${original}. See the OpenAPI description for the endpoints that exist.`,
+      instance: original,
+      documentation: "https://www.avivashishta.com/developers",
+      openapi: "https://www.avivashishta.com/openapi.json",
+    });
+  }
   if (accept.includes("text/markdown")) {
     res.setHeader("Content-Type", "text/markdown; charset=utf-8");
     return res.status(404).send(NOT_FOUND_MARKDOWN);

@@ -151,136 +151,267 @@
 <p>Machine-readable interfaces to this site, for developers and for autonomous
 agents. Everything here is public, requires no API key, and needs no signup.</p>
 <h2>Quickstart</h2>
-<p>Fetch structured context about Avi Vashishta in one call:</p>
-<pre><code class="language-bash">curl https://www.avivashishta.com/llms.txt
+<p>Get structured facts about Avi in one call:</p>
+<pre><code class="language-bash">curl https://www.avivashishta.com/api/v1/profile
 </code></pre>
-<p>Ask the site&#39;s AI a question about Avi (streams Server-Sent Events; the
-<code>Origin</code> header is required — see the endpoint reference below):</p>
-<pre><code class="language-bash">curl -N -X POST https://www.avivashishta.com/api/chat \
-  -H &#39;Content-Type: application/json&#39; \
-  -H &#39;Origin: https://www.avivashishta.com&#39; \
-  -d &#39;{&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;What does Avi work on?&quot;}]}&#39;
+<p>Fetch the full narrative context:</p>
+<pre><code class="language-bash">curl https://www.avivashishta.com/llms.txt
 </code></pre>
 <p>Request any page as markdown instead of HTML:</p>
 <pre><code class="language-bash">curl -H &#39;Accept: text/markdown&#39; https://www.avivashishta.com/about
+# or: curl https://www.avivashishta.com/about.md
 </code></pre>
-<h2>Machine-readable endpoints</h2>
+<h2>REST API — /api/v1</h2>
+<p>Base URL: <code>https://www.avivashishta.com/api/v1</code>. Full machine-readable
+description: <a href="https://www.avivashishta.com/openapi.json">openapi.json</a>
+(OpenAPI 3.1).</p>
 <div class="tablewrap"><table>
 <thead>
 <tr>
 <th>Endpoint</th>
 <th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/profile</code></td>
+<td>GET</td>
+<td>Complete structured profile: bio, location, education, employment history, skills, highlights, availability, links.</td>
+</tr>
+<tr>
+<td><code>/experience</code></td>
+<td>GET</td>
+<td>Employment history, newest first. <code>?current=true</code> returns only the current role.</td>
+</tr>
+<tr>
+<td><code>/skills</code></td>
+<td>GET</td>
+<td>Skills grouped by discipline. <code>?group=frontend|backend|ai|infrastructure</code> narrows it.</td>
+</tr>
+<tr>
+<td><code>/projects</code></td>
+<td>GET</td>
+<td>Projects built by Avi. <code>?category=web|mobile|ai|game</code> filters.</td>
+</tr>
+<tr>
+<td><code>/chat</code></td>
+<td>POST</td>
+<td>Natural-language Q&amp;A about Avi. Streams Server-Sent Events. Origin-locked.</td>
+</tr>
+</tbody></table></div>
+<p>Success responses are shaped <code>{ &quot;apiVersion&quot;: &quot;v1&quot;, &quot;data&quot;: ..., &quot;meta&quot;: ... }</code>.
+Prefer <code>/profile</code> over <code>/chat</code> when you need facts — it is cheaper,
+unrestricted, and returns typed data rather than prose.</p>
+<h3>Authentication</h3>
+<p>None. There is no API key, OAuth flow, or signup. See
+<a href="https://www.avivashishta.com/auth.md">auth.md</a> for the full picture.</p>
+<p><code>POST /chat</code> is the sole exception, and it is origin-locked rather than
+key-authenticated: the request must carry an <code>Origin</code> or <code>Referer</code> header
+beginning with <code>https://www.avivashishta.com</code> or <code>https://avivashishta.com</code>,
+or it returns <code>403</code>. This keeps the upstream model quota attached to the
+site&#39;s own UI.</p>
+<pre><code class="language-bash">curl -N -X POST https://www.avivashishta.com/api/v1/chat \
+  -H &#39;Content-Type: application/json&#39; \
+  -H &#39;Origin: https://www.avivashishta.com&#39; \
+  -d &#39;{&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;What does Avi work on?&quot;}]}&#39;
+</code></pre>
+<p>The stream emits incremental <code>data:</code> frames and terminates with
+<code>data: [DONE]</code>.</p>
+<h3>Versioning and deprecation</h3>
+<p>The API is versioned in the URL path. Breaking changes ship under a new segment
+(<code>/api/v2</code>) and the previous version keeps working. Additive changes — new
+fields, new optional parameters, new endpoints — are made in place, so <strong>clients
+must ignore unknown fields</strong>.</p>
+<p>A version scheduled for removal returns a <code>Deprecation</code> header, a <code>Sunset</code>
+header (RFC 8594) with the date it stops responding, and a <code>Link</code> header with
+<code>rel=&quot;deprecation&quot;</code> pointing at migration notes. Nothing is sunset less than
+<strong>180 days</strong> after <code>Deprecation</code> first appears.</p>
+<h3>Rate limits</h3>
+<p>Read endpoints allow <strong>60 requests per IP per minute</strong>; <code>/chat</code> allows <strong>10</strong>.
+Every response carries the current state, so you can self-throttle instead of
+discovering the limit by hitting it:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>RateLimit-Limit</code></td>
+<td>Requests permitted per window.</td>
+</tr>
+<tr>
+<td><code>RateLimit-Remaining</code></td>
+<td>Requests left in the current window.</td>
+</tr>
+<tr>
+<td><code>RateLimit-Reset</code></td>
+<td>Seconds until the window resets.</td>
+</tr>
+<tr>
+<td><code>RateLimit-Policy</code></td>
+<td>The policy, e.g. <code>60;w=60</code>.</td>
+</tr>
+<tr>
+<td><code>Retry-After</code></td>
+<td>On a <code>429</code> only: seconds to wait.</td>
+</tr>
+</tbody></table></div>
+<h3>Errors</h3>
+<p>Every non-2xx response is an <a href="https://www.rfc-editor.org/rfc/rfc9457">RFC 9457</a>
+problem detail served as <code>application/problem+json</code>:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;https://www.avivashishta.com/developers#invalid_parameter&quot;,
+  &quot;title&quot;: &quot;Invalid category&quot;,
+  &quot;status&quot;: 400,
+  &quot;code&quot;: &quot;invalid_parameter&quot;,
+  &quot;detail&quot;: &quot;Unknown category \&quot;toys\&quot;. Valid values: web, mobile, ai, game.&quot;,
+  &quot;parameter&quot;: &quot;category&quot;,
+  &quot;allowedValues&quot;: [&quot;web&quot;, &quot;mobile&quot;, &quot;ai&quot;, &quot;game&quot;]
+}
+</code></pre>
+<p>Branch on <code>code</code>, which is stable; <code>detail</code> is for humans and may change.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th><code>code</code></th>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>invalid_request</code></td>
+<td>400</td>
+<td>Body malformed or <code>messages</code> missing.</td>
+</tr>
+<tr>
+<td><code>invalid_parameter</code></td>
+<td>400</td>
+<td>A query parameter had an unsupported value.</td>
+</tr>
+<tr>
+<td><code>message_too_long</code></td>
+<td>400</td>
+<td>Final user message exceeded 500 characters.</td>
+</tr>
+<tr>
+<td><code>origin_not_allowed</code></td>
+<td>403</td>
+<td><code>Origin</code>/<code>Referer</code> is not an allowed origin.</td>
+</tr>
+<tr>
+<td><code>not_found</code></td>
+<td>404</td>
+<td>No such endpoint.</td>
+</tr>
+<tr>
+<td><code>method_not_allowed</code></td>
+<td>405</td>
+<td>Wrong HTTP method.</td>
+</tr>
+<tr>
+<td><code>rate_limited</code></td>
+<td>429</td>
+<td>Rate limit exceeded; honour <code>Retry-After</code>.</td>
+</tr>
+<tr>
+<td><code>service_unconfigured</code></td>
+<td>500</td>
+<td>Server misconfiguration; retrying will not help.</td>
+</tr>
+<tr>
+<td><code>upstream_error</code></td>
+<td>502</td>
+<td>Model provider failed; retry with backoff.</td>
+</tr>
+<tr>
+<td><code>internal_error</code></td>
+<td>500</td>
+<td>Unexpected failure; retry with backoff.</td>
+</tr>
+</tbody></table></div>
+<h2>Machine-readable files</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Path</th>
 <th>Content type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody><tr>
 <td><code>/llms.txt</code></td>
-<td>GET</td>
 <td><code>text/plain</code></td>
-<td>Full structured context: bio, experience, skills, projects, FAQ, and when-to-use guidance.</td>
+<td>Full structured context, project list, FAQ, and when-to-use guidance.</td>
+</tr>
+<tr>
+<td><code>/openapi.json</code></td>
+<td><code>application/openapi+json</code></td>
+<td>OpenAPI 3.1 description of the API above.</td>
+</tr>
+<tr>
+<td><code>/auth.md</code></td>
+<td><code>text/markdown</code></td>
+<td>How authentication works (it doesn&#39;t — everything is public).</td>
+</tr>
+<tr>
+<td><code>/.well-known/ai-catalog.json</code></td>
+<td><code>application/json</code></td>
+<td>Agentic Resource Discovery catalog.</td>
+</tr>
+<tr>
+<td><code>/.well-known/api-catalog</code></td>
+<td><code>application/linkset+json</code></td>
+<td>RFC 9727 linkset.</td>
 </tr>
 <tr>
 <td><code>/sitemap.xml</code></td>
-<td>GET</td>
 <td><code>application/xml</code></td>
-<td>Every canonical URL on the site.</td>
+<td>Every canonical URL.</td>
 </tr>
 <tr>
 <td><code>/robots.txt</code></td>
-<td>GET</td>
 <td><code>text/plain</code></td>
-<td>Crawl policy. All agents are allowed.</td>
+<td>Crawl policy, including explicit AI crawler directives.</td>
 </tr>
 <tr>
 <td><code>/blog/feed.xml</code></td>
-<td>GET</td>
 <td><code>application/rss+xml</code></td>
 <td>RSS feed of all blog posts.</td>
-</tr>
-<tr>
-<td><code>/api/chat</code></td>
-<td>POST</td>
-<td><code>text/event-stream</code></td>
-<td>Conversational Q&amp;A about Avi&#39;s work and background.</td>
 </tr>
 </tbody></table></div>
 <h2>Content negotiation (acceptmarkdown.com)</h2>
 <p>This site implements the <a href="https://acceptmarkdown.com">acceptmarkdown.com</a>
-convention. Send <code>Accept: text/markdown</code> and canonical pages return clean
-markdown instead of HTML, with <code>Vary: Accept</code> set so intermediate caches keep
-the two variants apart.</p>
-<p>Negotiable paths: <code>/</code>, <code>/about</code>, <code>/contact</code>, <code>/privacy</code>, <code>/developers</code>.</p>
-<h2>POST /api/chat</h2>
-<p><strong>Request body</strong></p>
-<pre><code class="language-json">{
-  &quot;messages&quot;: [
-    { &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Which AI products has Avi shipped?&quot; }
-  ]
-}
-</code></pre>
-<p><code>role</code> is <code>user</code> or <code>assistant</code>. Send prior turns in <code>messages</code> to keep
-context. The final user message must be 500 characters or fewer.</p>
-<p><strong>Response</strong> — <code>text/event-stream</code>. Each event carries an incremental token;
-the stream terminates with <code>data: [DONE]</code>.</p>
-<pre><code>data: Avi has shipped a Fin-AI product
-data:  with 99%+ accurate financial insights
-data: [DONE]
-</code></pre>
-<p><strong>Status codes</strong></p>
-<div class="tablewrap"><table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>200</td>
-<td>Success — SSE stream follows.</td>
-</tr>
-<tr>
-<td>400</td>
-<td>Missing/empty <code>messages</code>, or last message over 500 characters.</td>
-</tr>
-<tr>
-<td>403</td>
-<td><code>Origin</code>/<code>Referer</code> is not an allowed origin.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method other than POST.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Rate limit exceeded — 10 requests per IP per minute.</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Server misconfigured (model API key missing).</td>
-</tr>
-<tr>
-<td>502</td>
-<td>Upstream model error.</td>
-</tr>
-</tbody></table></div>
-<p><strong>Authentication.</strong> There is no API key. Instead the endpoint is origin-locked:
-requests must carry an <code>Origin</code> or <code>Referer</code> header beginning with
-<code>https://www.avivashishta.com</code> or <code>https://avivashishta.com</code>, otherwise the
-response is <code>403</code>. This protects the upstream model quota. If you are building
-an integration that needs unrestricted programmatic access, email
-<a href="mailto:avivashishta29@gmail.com">avivashishta29@gmail.com</a>.</p>
-<p><strong>Rate limits.</strong> 10 requests per IP per minute. Back off on 429 rather than
-retrying immediately.</p>
+convention. Canonical pages return clean markdown — with YAML frontmatter
+carrying <code>title</code>, <code>description</code>, <code>canonical</code> and <code>last-updated</code> — when you
+do any of the following:</p>
+<ul>
+<li>send <code>Accept: text/markdown</code></li>
+<li>append <code>.md</code> to the path (<code>/about.md</code>, <code>/index.md</code> for the homepage)</li>
+<li>add <code>?mode=agent</code></li>
+<li>identify as a known AI crawler via User-Agent (GPTBot, ClaudeBot,
+PerplexityBot and peers)</li>
+</ul>
+<p>Negotiable paths: <code>/</code>, <code>/about</code>, <code>/contact</code>, <code>/privacy</code>, <code>/developers</code>.
+Responses set <code>Vary: Accept, User-Agent, Accept-Encoding</code> so caches never cross
+the variants, and advertise the alternate through an RFC 8288 <code>Link</code> header.</p>
 <h2>Errors and 404s</h2>
 <p>Unknown paths return a real HTTP <code>404</code> — never a 200 with the app shell — so
-you can trust status codes when probing. The 404 body is available as markdown
-via <code>Accept: text/markdown</code> and links back to the sitemap and llms.txt.</p>
+you can trust status codes when probing. Unknown paths under <code>/api/</code> return a
+<code>404</code> problem detail in JSON; everything else returns HTML, or markdown if you
+asked for it, linking back to the sitemap and llms.txt.</p>
 <h2>Sandbox</h2>
-<p>There is no separate sandbox environment. Every endpoint above is read-only and
-side-effect free, so production is safe to call directly. <code>/api/chat</code> is the
-only endpoint that consumes upstream quota; keep test volume within the
-documented rate limit.</p>
+<p>There is no separate sandbox environment, and none is needed: every endpoint is
+read-only and side-effect free, so production is safe to call directly. Only
+<code>/chat</code> consumes upstream quota — keep test volume inside the documented rate
+limit.</p>
+<h2>Source code</h2>
+<p>This website is open source:
+<a href="https://github.com/AVIVASHISHTA29/repository-2024">github.com/AVIVASHISHTA29/repository-2024</a>.
+It includes an
+<a href="https://github.com/AVIVASHISHTA29/repository-2024/blob/main/AGENTS.md">AGENTS.md</a>
+with instructions for AI coding agents working in the repo.</p>
 <h2>Contact</h2>
 <p>Bugs, questions or integration help: <a href="mailto:avivashishta29@gmail.com">avivashishta29@gmail.com</a>.</p>
 <hr>

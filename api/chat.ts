@@ -10,15 +10,47 @@ const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT = 10;
 const RATE_WINDOW_MS = 60 * 1000;
 
-function isRateLimited(ip: string): boolean {
+function checkRateLimit(ip: string): {
+  limited: boolean;
+  remaining: number;
+  resetSeconds: number;
+} {
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
   if (!entry || now > entry.resetAt) {
     rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
-    return false;
+    return {
+      limited: false,
+      remaining: RATE_LIMIT - 1,
+      resetSeconds: RATE_WINDOW_MS / 1000,
+    };
   }
   entry.count++;
-  return entry.count > RATE_LIMIT;
+  return {
+    limited: entry.count > RATE_LIMIT,
+    remaining: Math.max(0, RATE_LIMIT - entry.count),
+    resetSeconds: Math.max(1, Math.ceil((entry.resetAt - now) / 1000)),
+  };
+}
+
+/** RFC 9457 problem detail, so agents branch on `code` not on prose. */
+function problem(
+  res: VercelResponse,
+  status: number,
+  code: string,
+  title: string,
+  detail: string,
+  extra: Record<string, unknown> = {}
+) {
+  res.setHeader("Content-Type", "application/problem+json; charset=utf-8");
+  return res.status(status).json({
+    type: `https://www.avivashishta.com/developers#${code}`,
+    title,
+    status,
+    code,
+    detail,
+    ...extra,
+  });
 }
 
 const SYSTEM_PROMPT = `You are an AI assistant on Avi Vashishta's portfolio website. You represent Avi and answer questions about him in a helpful, friendly, slightly witty tone.
@@ -48,8 +80,30 @@ Rules:
 - Never make up information not provided above`;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  res.setHeader("X-API-Version", "v1");
+  res.setHeader("Vary", "Accept, Accept-Encoding");
+
+  // Rate limit by IP. Signalled on every response so agents self-throttle
+  // rather than discovering the limit by hitting a 429.
+  const ip =
+    (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() ||
+    req.socket?.remoteAddress ||
+    "unknown";
+  const { limited, remaining, resetSeconds } = checkRateLimit(ip);
+  res.setHeader("RateLimit-Limit", String(RATE_LIMIT));
+  res.setHeader("RateLimit-Remaining", String(remaining));
+  res.setHeader("RateLimit-Reset", String(resetSeconds));
+  res.setHeader("RateLimit-Policy", `${RATE_LIMIT};w=${RATE_WINDOW_MS / 1000}`);
+
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    res.setHeader("Allow", "POST");
+    return problem(
+      res,
+      405,
+      "method_not_allowed",
+      "Method not allowed",
+      `This endpoint accepts POST, not ${req.method}.`
+    );
   }
 
   // Origin check — only allow requests from the portfolio site
@@ -58,37 +112,61 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     process.env.NODE_ENV === "development" ||
     (origin && ALLOWED_ORIGINS.some((o) => origin.startsWith(o)));
   if (!isAllowed) {
-    return res.status(403).json({ error: "Forbidden" });
+    return problem(
+      res,
+      403,
+      "origin_not_allowed",
+      "Forbidden",
+      "This endpoint is origin-locked. Send an Origin or Referer header of https://www.avivashishta.com. See /auth.md.",
+      { documentation: "https://www.avivashishta.com/auth.md" }
+    );
   }
 
-  // Rate limit by IP
-  const ip =
-    (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() ||
-    req.socket?.remoteAddress ||
-    "unknown";
-  if (isRateLimited(ip)) {
-    return res
-      .status(429)
-      .json({ error: "Too many requests. Try again in a minute." });
+  if (limited) {
+    res.setHeader("Retry-After", String(resetSeconds));
+    return problem(
+      res,
+      429,
+      "rate_limited",
+      "Too many requests",
+      `Rate limit exceeded. Retry after ${resetSeconds} seconds.`,
+      { retryAfterSeconds: resetSeconds }
+    );
   }
 
-  const { messages } = req.body;
+  const { messages } = req.body ?? {};
   if (!messages || !Array.isArray(messages) || messages.length === 0) {
-    return res.status(400).json({ error: "Messages array is required" });
+    return problem(
+      res,
+      400,
+      "invalid_request",
+      "Invalid request body",
+      "`messages` must be a non-empty array of { role, content } objects.",
+      { parameter: "messages" }
+    );
   }
 
   const lastMsg = messages[messages.length - 1]?.content;
   if (typeof lastMsg === "string" && lastMsg.length > 500) {
-    return res
-      .status(400)
-      .json({ error: "Message too long. Keep it under 500 characters." });
+    return problem(
+      res,
+      400,
+      "message_too_long",
+      "Message too long",
+      "The final user message must be 500 characters or fewer.",
+      { parameter: "messages", maxLength: 500 }
+    );
   }
 
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
-    return res
-      .status(500)
-      .json({ error: "AI service not configured. API key missing." });
+    return problem(
+      res,
+      500,
+      "service_unconfigured",
+      "AI service not configured",
+      "The upstream model API key is missing. This is a server-side misconfiguration; retrying will not help."
+    );
   }
 
   try {
@@ -111,7 +189,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     if (!response.ok) {
-      return res.status(502).json({ error: "AI service returned an error." });
+      return problem(
+        res,
+        502,
+        "upstream_error",
+        "AI service returned an error",
+        "The upstream model provider returned an error. This is usually transient — retry with backoff."
+      );
     }
 
     // Stream SSE back to the client
@@ -121,7 +205,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const reader = response.body?.getReader();
     if (!reader) {
-      return res.status(502).json({ error: "No response body" });
+      return problem(
+        res,
+        502,
+        "upstream_error",
+        "Empty upstream response",
+        "The upstream model provider returned no response body. Retry with backoff."
+      );
     }
 
     const decoder = new TextDecoder();
@@ -156,6 +246,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     res.end();
   } catch {
-    return res.status(500).json({ error: "AI service unavailable." });
+    return problem(
+      res,
+      500,
+      "internal_error",
+      "AI service unavailable",
+      "An unexpected error occurred while generating a response. Retry with backoff."
+    );
   }
 }

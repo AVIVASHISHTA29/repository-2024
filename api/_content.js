@@ -241,105 +241,173 @@ agents. Everything here is public, requires no API key, and needs no signup.
 
 ## Quickstart
 
-Fetch structured context about Avi Vashishta in one call:
+Get structured facts about Avi in one call:
+
+\`\`\`bash
+curl https://www.avivashishta.com/api/v1/profile
+\`\`\`
+
+Fetch the full narrative context:
 
 \`\`\`bash
 curl https://www.avivashishta.com/llms.txt
-\`\`\`
-
-Ask the site's AI a question about Avi (streams Server-Sent Events; the
-\`Origin\` header is required — see the endpoint reference below):
-
-\`\`\`bash
-curl -N -X POST https://www.avivashishta.com/api/chat \\
-  -H 'Content-Type: application/json' \\
-  -H 'Origin: https://www.avivashishta.com' \\
-  -d '{"messages":[{"role":"user","content":"What does Avi work on?"}]}'
 \`\`\`
 
 Request any page as markdown instead of HTML:
 
 \`\`\`bash
 curl -H 'Accept: text/markdown' https://www.avivashishta.com/about
+# or: curl https://www.avivashishta.com/about.md
 \`\`\`
 
-## Machine-readable endpoints
+## REST API — /api/v1
 
-| Endpoint | Method | Content type | Description |
-| --- | --- | --- | --- |
-| \`/llms.txt\` | GET | \`text/plain\` | Full structured context: bio, experience, skills, projects, FAQ, and when-to-use guidance. |
-| \`/sitemap.xml\` | GET | \`application/xml\` | Every canonical URL on the site. |
-| \`/robots.txt\` | GET | \`text/plain\` | Crawl policy. All agents are allowed. |
-| \`/blog/feed.xml\` | GET | \`application/rss+xml\` | RSS feed of all blog posts. |
-| \`/api/chat\` | POST | \`text/event-stream\` | Conversational Q&A about Avi's work and background. |
+Base URL: \`https://www.avivashishta.com/api/v1\`. Full machine-readable
+description: [openapi.json](https://www.avivashishta.com/openapi.json)
+(OpenAPI 3.1).
+
+| Endpoint | Method | Description |
+| --- | --- | --- |
+| \`/profile\` | GET | Complete structured profile: bio, location, education, employment history, skills, highlights, availability, links. |
+| \`/experience\` | GET | Employment history, newest first. \`?current=true\` returns only the current role. |
+| \`/skills\` | GET | Skills grouped by discipline. \`?group=frontend\\|backend\\|ai\\|infrastructure\` narrows it. |
+| \`/projects\` | GET | Projects built by Avi. \`?category=web\\|mobile\\|ai\\|game\` filters. |
+| \`/chat\` | POST | Natural-language Q&A about Avi. Streams Server-Sent Events. Origin-locked. |
+
+Success responses are shaped \`{ "apiVersion": "v1", "data": ..., "meta": ... }\`.
+Prefer \`/profile\` over \`/chat\` when you need facts — it is cheaper,
+unrestricted, and returns typed data rather than prose.
+
+### Authentication
+
+None. There is no API key, OAuth flow, or signup. See
+[auth.md](https://www.avivashishta.com/auth.md) for the full picture.
+
+\`POST /chat\` is the sole exception, and it is origin-locked rather than
+key-authenticated: the request must carry an \`Origin\` or \`Referer\` header
+beginning with \`https://www.avivashishta.com\` or \`https://avivashishta.com\`,
+or it returns \`403\`. This keeps the upstream model quota attached to the
+site's own UI.
+
+\`\`\`bash
+curl -N -X POST https://www.avivashishta.com/api/v1/chat \\
+  -H 'Content-Type: application/json' \\
+  -H 'Origin: https://www.avivashishta.com' \\
+  -d '{"messages":[{"role":"user","content":"What does Avi work on?"}]}'
+\`\`\`
+
+The stream emits incremental \`data:\` frames and terminates with
+\`data: [DONE]\`.
+
+### Versioning and deprecation
+
+The API is versioned in the URL path. Breaking changes ship under a new segment
+(\`/api/v2\`) and the previous version keeps working. Additive changes — new
+fields, new optional parameters, new endpoints — are made in place, so **clients
+must ignore unknown fields**.
+
+A version scheduled for removal returns a \`Deprecation\` header, a \`Sunset\`
+header (RFC 8594) with the date it stops responding, and a \`Link\` header with
+\`rel="deprecation"\` pointing at migration notes. Nothing is sunset less than
+**180 days** after \`Deprecation\` first appears.
+
+### Rate limits
+
+Read endpoints allow **60 requests per IP per minute**; \`/chat\` allows **10**.
+Every response carries the current state, so you can self-throttle instead of
+discovering the limit by hitting it:
+
+| Header | Meaning |
+| --- | --- |
+| \`RateLimit-Limit\` | Requests permitted per window. |
+| \`RateLimit-Remaining\` | Requests left in the current window. |
+| \`RateLimit-Reset\` | Seconds until the window resets. |
+| \`RateLimit-Policy\` | The policy, e.g. \`60;w=60\`. |
+| \`Retry-After\` | On a \`429\` only: seconds to wait. |
+
+### Errors
+
+Every non-2xx response is an [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457)
+problem detail served as \`application/problem+json\`:
+
+\`\`\`json
+{
+  "type": "https://www.avivashishta.com/developers#invalid_parameter",
+  "title": "Invalid category",
+  "status": 400,
+  "code": "invalid_parameter",
+  "detail": "Unknown category \\"toys\\". Valid values: web, mobile, ai, game.",
+  "parameter": "category",
+  "allowedValues": ["web", "mobile", "ai", "game"]
+}
+\`\`\`
+
+Branch on \`code\`, which is stable; \`detail\` is for humans and may change.
+
+| \`code\` | Status | Meaning |
+| --- | --- | --- |
+| \`invalid_request\` | 400 | Body malformed or \`messages\` missing. |
+| \`invalid_parameter\` | 400 | A query parameter had an unsupported value. |
+| \`message_too_long\` | 400 | Final user message exceeded 500 characters. |
+| \`origin_not_allowed\` | 403 | \`Origin\`/\`Referer\` is not an allowed origin. |
+| \`not_found\` | 404 | No such endpoint. |
+| \`method_not_allowed\` | 405 | Wrong HTTP method. |
+| \`rate_limited\` | 429 | Rate limit exceeded; honour \`Retry-After\`. |
+| \`service_unconfigured\` | 500 | Server misconfiguration; retrying will not help. |
+| \`upstream_error\` | 502 | Model provider failed; retry with backoff. |
+| \`internal_error\` | 500 | Unexpected failure; retry with backoff. |
+
+## Machine-readable files
+
+| Path | Content type | Description |
+| --- | --- | --- |
+| \`/llms.txt\` | \`text/plain\` | Full structured context, project list, FAQ, and when-to-use guidance. |
+| \`/openapi.json\` | \`application/openapi+json\` | OpenAPI 3.1 description of the API above. |
+| \`/auth.md\` | \`text/markdown\` | How authentication works (it doesn't — everything is public). |
+| \`/.well-known/ai-catalog.json\` | \`application/json\` | Agentic Resource Discovery catalog. |
+| \`/.well-known/api-catalog\` | \`application/linkset+json\` | RFC 9727 linkset. |
+| \`/sitemap.xml\` | \`application/xml\` | Every canonical URL. |
+| \`/robots.txt\` | \`text/plain\` | Crawl policy, including explicit AI crawler directives. |
+| \`/blog/feed.xml\` | \`application/rss+xml\` | RSS feed of all blog posts. |
 
 ## Content negotiation (acceptmarkdown.com)
 
 This site implements the [acceptmarkdown.com](https://acceptmarkdown.com)
-convention. Send \`Accept: text/markdown\` and canonical pages return clean
-markdown instead of HTML, with \`Vary: Accept\` set so intermediate caches keep
-the two variants apart.
+convention. Canonical pages return clean markdown — with YAML frontmatter
+carrying \`title\`, \`description\`, \`canonical\` and \`last-updated\` — when you
+do any of the following:
+
+- send \`Accept: text/markdown\`
+- append \`.md\` to the path (\`/about.md\`, \`/index.md\` for the homepage)
+- add \`?mode=agent\`
+- identify as a known AI crawler via User-Agent (GPTBot, ClaudeBot,
+  PerplexityBot and peers)
 
 Negotiable paths: \`/\`, \`/about\`, \`/contact\`, \`/privacy\`, \`/developers\`.
-
-## POST /api/chat
-
-**Request body**
-
-\`\`\`json
-{
-  "messages": [
-    { "role": "user", "content": "Which AI products has Avi shipped?" }
-  ]
-}
-\`\`\`
-
-\`role\` is \`user\` or \`assistant\`. Send prior turns in \`messages\` to keep
-context. The final user message must be 500 characters or fewer.
-
-**Response** — \`text/event-stream\`. Each event carries an incremental token;
-the stream terminates with \`data: [DONE]\`.
-
-\`\`\`
-data: Avi has shipped a Fin-AI product
-data:  with 99%+ accurate financial insights
-data: [DONE]
-\`\`\`
-
-**Status codes**
-
-| Code | Meaning |
-| --- | --- |
-| 200 | Success — SSE stream follows. |
-| 400 | Missing/empty \`messages\`, or last message over 500 characters. |
-| 403 | \`Origin\`/\`Referer\` is not an allowed origin. |
-| 405 | Method other than POST. |
-| 429 | Rate limit exceeded — 10 requests per IP per minute. |
-| 500 | Server misconfigured (model API key missing). |
-| 502 | Upstream model error. |
-
-**Authentication.** There is no API key. Instead the endpoint is origin-locked:
-requests must carry an \`Origin\` or \`Referer\` header beginning with
-\`https://www.avivashishta.com\` or \`https://avivashishta.com\`, otherwise the
-response is \`403\`. This protects the upstream model quota. If you are building
-an integration that needs unrestricted programmatic access, email
-avivashishta29@gmail.com.
-
-**Rate limits.** 10 requests per IP per minute. Back off on 429 rather than
-retrying immediately.
+Responses set \`Vary: Accept, User-Agent, Accept-Encoding\` so caches never cross
+the variants, and advertise the alternate through an RFC 8288 \`Link\` header.
 
 ## Errors and 404s
 
 Unknown paths return a real HTTP \`404\` — never a 200 with the app shell — so
-you can trust status codes when probing. The 404 body is available as markdown
-via \`Accept: text/markdown\` and links back to the sitemap and llms.txt.
+you can trust status codes when probing. Unknown paths under \`/api/\` return a
+\`404\` problem detail in JSON; everything else returns HTML, or markdown if you
+asked for it, linking back to the sitemap and llms.txt.
 
 ## Sandbox
 
-There is no separate sandbox environment. Every endpoint above is read-only and
-side-effect free, so production is safe to call directly. \`/api/chat\` is the
-only endpoint that consumes upstream quota; keep test volume within the
-documented rate limit.
+There is no separate sandbox environment, and none is needed: every endpoint is
+read-only and side-effect free, so production is safe to call directly. Only
+\`/chat\` consumes upstream quota — keep test volume inside the documented rate
+limit.
+
+## Source code
+
+This website is open source:
+[github.com/AVIVASHISHTA29/repository-2024](https://github.com/AVIVASHISHTA29/repository-2024).
+It includes an
+[AGENTS.md](https://github.com/AVIVASHISHTA29/repository-2024/blob/main/AGENTS.md)
+with instructions for AI coding agents working in the repo.
 
 ## Contact
 
