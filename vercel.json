@@ -1,7 +1,34 @@
 {
-  "buildCommand": "tsc && vite build",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        { "type": "header", "key": "accept", "value": ".*text/markdown.*" }
+      ],
+      "destination": "/api/markdown?path=/"
+    },
+    {
+      "source": "/:page(about|contact|privacy|developers)",
+      "has": [
+        { "type": "header", "key": "accept", "value": ".*text/markdown.*" }
+      ],
+      "destination": "/api/markdown?path=/:page"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/api/notfound"
+    }
+  ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [{ "key": "Vary", "value": "Accept, Accept-Encoding" }]
+    },
     {
       "source": "/llms.txt",
       "headers": [

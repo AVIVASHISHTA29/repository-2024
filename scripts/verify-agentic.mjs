@@ -1,0 +1,179 @@
+/**
+ * Verifies the agent-readiness contract against a live deployment.
+ *
+ *   npm run verify:agentic                       # checks https://avivashishta.com
+ *   npm run verify:agentic -- https://host       # checks a preview deployment
+ *
+ * Exits non-zero if any check fails, so it can gate a deploy.
+ */
+const BASE = (process.argv[2] || "https://avivashishta.com").replace(/\/+$/, "");
+
+let passed = 0;
+const failures = [];
+
+function check(name, ok, detail) {
+  if (ok) {
+    passed++;
+    console.log(`  \x1b[32mPASS\x1b[0m  ${name}`);
+  } else {
+    failures.push(`${name} — ${detail}`);
+    console.log(`  \x1b[31mFAIL\x1b[0m  ${name}\n        ${detail}`);
+  }
+}
+
+const get = (path, headers = {}) =>
+  fetch(`${BASE}${path}`, { headers, redirect: "follow" });
+
+console.log(`\nVerifying agent readiness of ${BASE}\n`);
+
+// 1. Real 404s for unknown paths (no soft-404 app shell).
+for (const path of ["/definitely-not-a-real-path-9f3a", "/about/nope", "/api/nope"]) {
+  const res = await get(path);
+  check(`404: ${path} returns HTTP 404`, res.status === 404, `got ${res.status}`);
+}
+
+// 2. The 404 body points agents at the machine-readable index.
+{
+  const body = await (await get("/definitely-not-a-real-path-9f3a")).text();
+  check(
+    "404 body links to sitemap and llms.txt",
+    body.includes("llms.txt") && body.includes("sitemap.xml"),
+    "body did not mention llms.txt and sitemap.xml"
+  );
+
+  const md = await get("/definitely-not-a-real-path-9f3a", {
+    Accept: "text/markdown",
+  });
+  check(
+    "404 negotiates markdown",
+    md.status === 404 &&
+      (md.headers.get("content-type") || "").includes("text/markdown"),
+    `got ${md.status} ${md.headers.get("content-type")}`
+  );
+}
+
+// 3. Homepage has real content without JavaScript.
+{
+  const html = await (await get("/")).text();
+  const text = html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  check("Homepage raw HTML has an <h1>", /<h1[\s>]/i.test(html), "no <h1> found");
+  check(
+    "Homepage raw HTML has 500+ chars of text",
+    text.length >= 500,
+    `only ${text.length} chars`
+  );
+}
+
+// 4. acceptmarkdown.com content negotiation on canonical pages.
+for (const path of ["/", "/about", "/contact", "/privacy", "/developers"]) {
+  const res = await get(path, { Accept: "text/markdown" });
+  const ct = res.headers.get("content-type") || "";
+  const vary = res.headers.get("vary") || "";
+  check(
+    `markdown negotiation: ${path}`,
+    res.ok && ct.includes("text/markdown"),
+    `got ${res.status} content-type="${ct}"`
+  );
+  check(
+    `Vary: Accept on ${path}`,
+    /\baccept\b/i.test(vary),
+    `vary="${vary || "none"}"`
+  );
+}
+
+// 5. HTML variant still wins for browsers, and also advertises Vary.
+{
+  const res = await get("/about", { Accept: "text/html" });
+  check(
+    "HTML variant: /about serves HTML",
+    (res.headers.get("content-type") || "").includes("text/html"),
+    `got ${res.headers.get("content-type")}`
+  );
+  check(
+    "HTML variant: /about sets Vary: Accept",
+    /\baccept\b/i.test(res.headers.get("vary") || ""),
+    `vary="${res.headers.get("vary") || "none"}"`
+  );
+}
+
+// 6. Trust anchor pages exist with real content.
+for (const path of ["/about", "/contact", "/privacy", "/developers"]) {
+  const res = await get(path);
+  const text = (await res.text())
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  check(
+    `trust anchor: ${path} is 200 with 500+ chars`,
+    res.status === 200 && text.length >= 500,
+    `status ${res.status}, ${text.length} chars`
+  );
+}
+
+// 7. Organization schema completeness.
+{
+  const html = await (await get("/about")).text();
+  const blocks = [...html.matchAll(
+    /<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi
+  )].map((m) => m[1]);
+  const nodes = blocks.flatMap((b) => {
+    try {
+      const parsed = JSON.parse(b);
+      return parsed["@graph"] || [parsed];
+    } catch {
+      return [];
+    }
+  });
+  const org = nodes.find((n) => n && n["@type"] === "Organization");
+  check("Organization JSON-LD present", !!org, "no Organization node found");
+  check(
+    "Organization has contactPoint",
+    !!org?.contactPoint,
+    "contactPoint missing"
+  );
+  check(
+    "Organization has PostalAddress",
+    org?.address?.["@type"] === "PostalAddress",
+    "address missing or not a PostalAddress"
+  );
+}
+
+// 8. Agent instruction / when-to-use guidance.
+{
+  const res = await get("/llms.txt");
+  const body = await res.text();
+  check("llms.txt is 200", res.status === 200, `got ${res.status}`);
+  check(
+    "llms.txt has a when-to-use section",
+    /when to use/i.test(body),
+    "no 'when to use' heading found"
+  );
+}
+
+// 9. Core machine-readable files.
+for (const [path, needle] of [
+  ["/robots.txt", "Sitemap:"],
+  ["/sitemap.xml", "<urlset"],
+  ["/blog/feed.xml", "<rss"],
+]) {
+  const res = await get(path);
+  const body = await res.text();
+  check(
+    `machine-readable: ${path}`,
+    res.status === 200 && body.includes(needle),
+    `status ${res.status}, missing ${needle}`
+  );
+}
+
+console.log(
+  `\n${passed} passed, ${failures.length} failed\n` +
+    (failures.length ? failures.map((f) => `  · ${f}`).join("\n") + "\n" : "")
+);
+process.exit(failures.length ? 1 : 0);

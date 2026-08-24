@@ -24,8 +24,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build:pages": "node scripts/build-pages.mjs",
+    "build": "npm run build:pages && tsc && vite build",
+    "preview": "vite preview",
+    "verify:agentic": "node scripts/verify-agentic.mjs"
   },
   "devDependencies": {
     "@types/node": "^22",
@@ -33,6 +35,7 @@
     "@types/react-dom": "^19",
     "@vercel/node": "^5.6.6",
     "@vitejs/plugin-react": "^5.1.4",
+    "marked": "^18.0.11",
     "sass": "^1.77.8",
     "typescript": "^5.7",
     "vite": "^7.3.1"

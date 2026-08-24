@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Developer Portal — avivashishta.com</title>
+    <meta name="description" content="Machine-readable interfaces to avivashishta.com: llms.txt, sitemap, RSS, the /api/chat endpoint, and acceptmarkdown.com content negotiation." />
+    <link rel="canonical" href="https://www.avivashishta.com/developers" />
+    <meta name="author" content="Avi Vashishta" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="llms" type="text/plain" href="/llms.txt" title="LLM context about Avi Vashishta" />
+    <link rel="alternate" type="text/markdown" href="https://www.avivashishta.com/developers" title="Markdown version (Accept: text/markdown)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.avivashishta.com/developers" />
+    <meta property="og:title" content="Developer Portal — avivashishta.com" />
+    <meta property="og:description" content="Machine-readable interfaces to avivashishta.com: llms.txt, sitemap, RSS, the /api/chat endpoint, and acceptmarkdown.com content negotiation." />
+    <meta property="og:image" content="https://www.avivashishta.com/logo512.png" />
+    <meta property="og:site_name" content="Avi Vashishta" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Developer Portal — avivashishta.com" />
+    <meta name="twitter:description" content="Machine-readable interfaces to avivashishta.com: llms.txt, sitemap, RSS, the /api/chat endpoint, and acceptmarkdown.com content negotiation." />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.avivashishta.com/#organization",
+      "name": "Avi Vashishta",
+      "alternateName": "avivashishta.com",
+      "url": "https://www.avivashishta.com",
+      "logo": "https://www.avivashishta.com/logo512.png",
+      "image": "https://www.avivashishta.com/logo512.png",
+      "email": "avivashishta29@gmail.com",
+      "description": "Independent fullstack and AI engineering practice of Avi Vashishta — production web, mobile and AI product development, plus developer education.",
+      "founder": {
+        "@id": "https://www.avivashishta.com/#person"
+      },
+      "foundingDate": "2021-10",
+      "knowsLanguage": [
+        "en",
+        "hi"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New Delhi",
+        "addressRegion": "Delhi",
+        "addressCountry": "IN"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "avivashishta29@gmail.com",
+          "url": "https://www.avivashishta.com/contact",
+          "availableLanguage": [
+            "English",
+            "Hindi"
+          ],
+          "areaServed": "Worldwide"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "avivashishta29@gmail.com",
+          "url": "https://www.avivashishta.com/contact",
+          "availableLanguage": [
+            "English",
+            "Hindi"
+          ],
+          "areaServed": "Worldwide"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "avivashishta29@gmail.com",
+          "url": "https://www.avivashishta.com/developers",
+          "availableLanguage": [
+            "English"
+          ],
+          "areaServed": "Worldwide"
+        }
+      ],
+      "sameAs": [
+        "https://linkedin.com/in/avivashishta",
+        "https://github.com/AVIVASHISHTA29"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.avivashishta.com/developers#webpage",
+      "url": "https://www.avivashishta.com/developers",
+      "name": "Developer Portal — avivashishta.com",
+      "description": "Machine-readable interfaces to avivashishta.com: llms.txt, sitemap, RSS, the /api/chat endpoint, and acceptmarkdown.com content negotiation.",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@id": "https://www.avivashishta.com/#website"
+      },
+      "about": {
+        "@id": "https://www.avivashishta.com/#person"
+      },
+      "publisher": {
+        "@id": "https://www.avivashishta.com/#organization"
+      }
+    }
+  ]
+}
+    </script>
+    <style>
+  :root { color-scheme: light dark; --bg:#fff8f4; --fg:#1a1a2e; --muted:#5a5a6e; --line:#e6ddd6; --code:#f3ece7; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0a0a1a; --fg:#f0f0f5; --muted:#a0a0b5; --line:#23233a; --code:#15152b; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); line-height:1.65;
+         font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+         -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:46rem; margin:0 auto; padding:3rem 1.25rem 5rem; }
+  nav { display:flex; flex-wrap:wrap; gap:1.25rem; padding-bottom:1.5rem;
+        margin-bottom:2.5rem; border-bottom:1px solid var(--line); font-size:.95rem; }
+  nav a { color:var(--muted); text-decoration:none; }
+  nav a:hover { color:var(--fg); }
+  h1 { font-size:clamp(1.9rem,5vw,2.6rem); line-height:1.15; margin:0 0 1.5rem; letter-spacing:-.02em; }
+  h2 { font-size:1.35rem; margin:2.75rem 0 .85rem; letter-spacing:-.01em; }
+  h3 { font-size:1.1rem; margin:2rem 0 .6rem; }
+  p, li { color:var(--fg); }
+  a { color:inherit; text-underline-offset:3px; }
+  ul, ol { padding-left:1.25rem; }
+  li { margin:.35rem 0; }
+  hr { border:0; border-top:1px solid var(--line); margin:3rem 0 1.5rem; }
+  code { background:var(--code); padding:.15em .4em; border-radius:4px;
+         font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.9em; }
+  pre { background:var(--code); padding:1rem; border-radius:8px; overflow-x:auto; }
+  pre code { background:none; padding:0; }
+  .tablewrap { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:.93rem; }
+  th, td { border:1px solid var(--line); padding:.5rem .7rem; text-align:left; vertical-align:top; }
+  footer { margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--line);
+           color:var(--muted); font-size:.9rem; }
+</style>
+  </head>
+  <body>
+    <div class="wrap">
+    <nav>
+      <a href="/">Home</a><a href="/about">About</a><a href="/contact">Contact</a>
+      <a href="/developers">Developers</a><a href="/blog/">Blog</a>
+      <a href="/privacy">Privacy</a><a href="/llms.txt">llms.txt</a>
+    </nav>
+    <main>
+<h1>Developer Portal — avivashishta.com</h1>
+<p>Machine-readable interfaces to this site, for developers and for autonomous
+agents. Everything here is public, requires no API key, and needs no signup.</p>
+<h2>Quickstart</h2>
+<p>Fetch structured context about Avi Vashishta in one call:</p>
+<pre><code class="language-bash">curl https://www.avivashishta.com/llms.txt
+</code></pre>
+<p>Ask the site&#39;s AI a question about Avi (streams Server-Sent Events; the
+<code>Origin</code> header is required — see the endpoint reference below):</p>
+<pre><code class="language-bash">curl -N -X POST https://www.avivashishta.com/api/chat \
+  -H &#39;Content-Type: application/json&#39; \
+  -H &#39;Origin: https://www.avivashishta.com&#39; \
+  -d &#39;{&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;What does Avi work on?&quot;}]}&#39;
+</code></pre>
+<p>Request any page as markdown instead of HTML:</p>
+<pre><code class="language-bash">curl -H &#39;Accept: text/markdown&#39; https://www.avivashishta.com/about
+</code></pre>
+<h2>Machine-readable endpoints</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Method</th>
+<th>Content type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/llms.txt</code></td>
+<td>GET</td>
+<td><code>text/plain</code></td>
+<td>Full structured context: bio, experience, skills, projects, FAQ, and when-to-use guidance.</td>
+</tr>
+<tr>
+<td><code>/sitemap.xml</code></td>
+<td>GET</td>
+<td><code>application/xml</code></td>
+<td>Every canonical URL on the site.</td>
+</tr>
+<tr>
+<td><code>/robots.txt</code></td>
+<td>GET</td>
+<td><code>text/plain</code></td>
+<td>Crawl policy. All agents are allowed.</td>
+</tr>
+<tr>
+<td><code>/blog/feed.xml</code></td>
+<td>GET</td>
+<td><code>application/rss+xml</code></td>
+<td>RSS feed of all blog posts.</td>
+</tr>
+<tr>
+<td><code>/api/chat</code></td>
+<td>POST</td>
+<td><code>text/event-stream</code></td>
+<td>Conversational Q&amp;A about Avi&#39;s work and background.</td>
+</tr>
+</tbody></table></div>
+<h2>Content negotiation (acceptmarkdown.com)</h2>
+<p>This site implements the <a href="https://acceptmarkdown.com">acceptmarkdown.com</a>
+convention. Send <code>Accept: text/markdown</code> and canonical pages return clean
+markdown instead of HTML, with <code>Vary: Accept</code> set so intermediate caches keep
+the two variants apart.</p>
+<p>Negotiable paths: <code>/</code>, <code>/about</code>, <code>/contact</code>, <code>/privacy</code>, <code>/developers</code>.</p>
+<h2>POST /api/chat</h2>
+<p><strong>Request body</strong></p>
+<pre><code class="language-json">{
+  &quot;messages&quot;: [
+    { &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Which AI products has Avi shipped?&quot; }
+  ]
+}
+</code></pre>
+<p><code>role</code> is <code>user</code> or <code>assistant</code>. Send prior turns in <code>messages</code> to keep
+context. The final user message must be 500 characters or fewer.</p>
+<p><strong>Response</strong> — <code>text/event-stream</code>. Each event carries an incremental token;
+the stream terminates with <code>data: [DONE]</code>.</p>
+<pre><code>data: Avi has shipped a Fin-AI product
+data:  with 99%+ accurate financial insights
+data: [DONE]
+</code></pre>
+<p><strong>Status codes</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>200</td>
+<td>Success — SSE stream follows.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Missing/empty <code>messages</code>, or last message over 500 characters.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>Origin</code>/<code>Referer</code> is not an allowed origin.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method other than POST.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Rate limit exceeded — 10 requests per IP per minute.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server misconfigured (model API key missing).</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Upstream model error.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Authentication.</strong> There is no API key. Instead the endpoint is origin-locked:
+requests must carry an <code>Origin</code> or <code>Referer</code> header beginning with
+<code>https://www.avivashishta.com</code> or <code>https://avivashishta.com</code>, otherwise the
+response is <code>403</code>. This protects the upstream model quota. If you are building
+an integration that needs unrestricted programmatic access, email
+<a href="mailto:avivashishta29@gmail.com">avivashishta29@gmail.com</a>.</p>
+<p><strong>Rate limits.</strong> 10 requests per IP per minute. Back off on 429 rather than
+retrying immediately.</p>
+<h2>Errors and 404s</h2>
+<p>Unknown paths return a real HTTP <code>404</code> — never a 200 with the app shell — so
+you can trust status codes when probing. The 404 body is available as markdown
+via <code>Accept: text/markdown</code> and links back to the sitemap and llms.txt.</p>
+<h2>Sandbox</h2>
+<p>There is no separate sandbox environment. Every endpoint above is read-only and
+side-effect free, so production is safe to call directly. <code>/api/chat</code> is the
+only endpoint that consumes upstream quota; keep test volume within the
+documented rate limit.</p>
+<h2>Contact</h2>
+<p>Bugs, questions or integration help: <a href="mailto:avivashishta29@gmail.com">avivashishta29@gmail.com</a>.</p>
+<hr>
+<p>Machine-readable index for this site:</p>
+<ul>
+<li>Full context: <a href="https://www.avivashishta.com/llms.txt">https://www.avivashishta.com/llms.txt</a></li>
+<li>Sitemap: <a href="https://www.avivashishta.com/sitemap.xml">https://www.avivashishta.com/sitemap.xml</a></li>
+<li>Developer portal: <a href="https://www.avivashishta.com/developers">https://www.avivashishta.com/developers</a></li>
+<li>Blog feed: <a href="https://www.avivashishta.com/blog/feed.xml">https://www.avivashishta.com/blog/feed.xml</a></li>
+</ul>
+<p>Every page listed above also responds to <code>Accept: text/markdown</code>.</p>
+
+    </main>
+    <footer>
+      <p>Avi Vashishta — New Delhi, India · <a href="mailto:avivashishta29@gmail.com">avivashishta29@gmail.com</a></p>
+      <p>Agents: start at <a href="/llms.txt">/llms.txt</a>. This page is also available as markdown via <code>Accept: text/markdown</code>.</p>
+    </footer>
+    </div>
+  </body>
+</html>
