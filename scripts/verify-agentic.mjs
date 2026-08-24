@@ -157,7 +157,90 @@ for (const path of ["/about", "/contact", "/privacy", "/developers"]) {
   );
 }
 
-// 9. Core machine-readable files.
+// 9. Markdown via .md URL suffix.
+for (const [path, key] of [
+  ["/index.md", "/"],
+  ["/about.md", "/about"],
+  ["/developers.md", "/developers"],
+]) {
+  const res = await get(path);
+  check(
+    `.md suffix: ${path} -> markdown`,
+    res.ok && (res.headers.get("content-type") || "").includes("text/markdown"),
+    `got ${res.status} ${res.headers.get("content-type")} (for ${key})`
+  );
+}
+
+// 10. Markdown via ?mode=agent and via AI crawler User-Agent.
+{
+  const modeRes = await get("/?mode=agent");
+  check(
+    "?mode=agent returns markdown",
+    (modeRes.headers.get("content-type") || "").includes("text/markdown"),
+    `got ${modeRes.headers.get("content-type")}`
+  );
+
+  const botRes = await get("/", { "User-Agent": "GPTBot/1.2" });
+  check(
+    "AI crawler UA receives markdown",
+    (botRes.headers.get("content-type") || "").includes("text/markdown"),
+    `got ${botRes.headers.get("content-type")}`
+  );
+
+  // A real browser must still get the app, not markdown.
+  const browser = await get("/", {
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "User-Agent":
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/131 Safari/537.36",
+  });
+  check(
+    "browsers still receive HTML",
+    (browser.headers.get("content-type") || "").includes("text/html"),
+    `got ${browser.headers.get("content-type")}`
+  );
+}
+
+// 11. RFC 8288 Link headers and markdown alternate advertisement.
+{
+  const res = await get("/");
+  const link = res.headers.get("link") || "";
+  check("Link header present on /", !!link, "no Link header");
+  check(
+    'Link header advertises a text/markdown alternate',
+    /type="?text\/markdown/.test(link),
+    `link="${link.slice(0, 120)}"`
+  );
+  const html = await res.text();
+  check(
+    "homepage advertises <link rel=alternate type=text/markdown>",
+    /rel="alternate"[^>]*type="text\/markdown"|type="text\/markdown"[^>]*rel="alternate"/.test(
+      html
+    ),
+    "no markdown alternate link tag"
+  );
+}
+
+// 12. robots.txt AI crawler policy.
+{
+  const body = await (await get("/robots.txt")).text();
+  check(
+    "robots.txt allows answer-engine crawlers",
+    /GPTBot/.test(body) && /ClaudeBot/.test(body) && /PerplexityBot/.test(body),
+    "missing GPTBot/ClaudeBot/PerplexityBot directives"
+  );
+  check(
+    "robots.txt restricts training-only crawlers",
+    /CCBot/.test(body) && /Bytespider/i.test(body),
+    "missing CCBot/Bytespider directives"
+  );
+  check(
+    "robots.txt declares Content-Signal",
+    /Content-Signal:/i.test(body),
+    "no Content-Signal directive"
+  );
+}
+
+// 13. Core machine-readable files.
 for (const [path, needle] of [
   ["/robots.txt", "Sitemap:"],
   ["/sitemap.xml", "<urlset"],

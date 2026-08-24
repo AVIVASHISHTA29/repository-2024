@@ -39,6 +39,10 @@
     />
     <meta name="author" content="Avi Vashishta" />
     <link rel="llms" type="text/plain" href="/llms.txt" title="LLM context about Avi Vashishta" />
+    <link rel="alternate" type="text/markdown" href="/index.md" title="Markdown version (also via Accept: text/markdown)" />
+    <link rel="help" href="/developers" title="Developer portal — machine-readable endpoints" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" href="/blog/feed.xml" title="Avi Vashishta — Blog" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@avivashishta" />
@@ -167,6 +171,57 @@
               }
             }
           ]
+        },
+        {
+          "@type": "Service",
+          "@id": "https://www.avivashishta.com/#service",
+          "name": "Fullstack and AI product engineering",
+          "description": "Contract and freelance engineering by Avi Vashishta: fullstack web applications (Next.js, React, TypeScript, Node.js, NestJS, GraphQL), AI product development (LangChain, Vercel AI SDK, OpenAI), React Native mobile apps, and interactive 3D web interfaces (Three.js, React Three Fiber, GSAP, MediaPipe).",
+          "provider": { "@id": "https://www.avivashishta.com/#organization" },
+          "areaServed": "Worldwide",
+          "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://www.avivashishta.com/contact",
+            "availableLanguage": ["English", "Hindi"]
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Engineering services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Fullstack web application development",
+                  "description": "Production Next.js, React, TypeScript, Node.js, NestJS and GraphQL applications."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI product development",
+                  "description": "LLM integration, retrieval pipelines, agent tooling and AI feature design using LangChain, the Vercel AI SDK and OpenAI APIs."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Interactive and 3D web development",
+                  "description": "Three.js, React Three Fiber, GSAP and MediaPipe gesture-driven interfaces."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Developer education and workshops",
+                  "description": "Frontend and MERN-stack curriculum, technical content and speaking."
+                }
+              }
+            ]
+          }
         },
         {
           "@type": "WebSite",

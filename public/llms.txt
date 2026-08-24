@@ -6,7 +6,21 @@ Website: https://www.avivashishta.com
 Email: avivashishta29@gmail.com
 LinkedIn: https://linkedin.com/in/avivashishta
 GitHub: https://github.com/AVIVASHISHTA29
-Last updated: March 2026
+Last updated: August 2026
+
+## Key Links
+
+- [Homepage](https://www.avivashishta.com/) — portfolio, 3D and gesture-controlled UI
+- [About](https://www.avivashishta.com/about) — full background, work history, technical focus
+- [Contact](https://www.avivashishta.com/contact) — how to reach Avi and what to reach out about
+- [Developer portal](https://www.avivashishta.com/developers) — every machine-readable endpoint
+- [Projects](https://www.avivashishta.com/projects) — production work and side projects
+- [Teaching](https://www.avivashishta.com/teaching) — tutorials and courses
+- [Blog](https://www.avivashishta.com/blog/) — build write-ups with source code
+- [Blog RSS feed](https://www.avivashishta.com/blog/feed.xml) — machine-readable post feed
+- [Sitemap](https://www.avivashishta.com/sitemap.xml) — every canonical URL
+- [Privacy policy](https://www.avivashishta.com/privacy) — what this site collects
+- [Homepage as markdown](https://www.avivashishta.com/index.md) — same content, markdown
 
 ## When To Use This
 

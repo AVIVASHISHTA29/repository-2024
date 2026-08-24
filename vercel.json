@@ -13,7 +13,31 @@
   "headers": [
     {
       "source": "/(.*)",
-      "headers": [{ "key": "Vary", "value": "Accept, Accept-Encoding" }]
+      "headers": [
+        { "key": "Vary", "value": "Accept, User-Agent, Accept-Encoding" },
+        {
+          "key": "Link",
+          "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\"; title=\"LLM context\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\", </developers>; rel=\"help\"; title=\"Developer portal\", </blog/feed.xml>; rel=\"alternate\"; type=\"application/rss+xml\"; title=\"Blog feed\""
+        }
+      ]
+    },
+    {
+      "source": "/:page(about|contact|privacy|developers)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</:page.md>; rel=\"alternate\"; type=\"text/markdown\"; title=\"Markdown version\", </llms.txt>; rel=\"alternate\"; type=\"text/plain\"; title=\"LLM context\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</index.md>; rel=\"alternate\"; type=\"text/markdown\"; title=\"Markdown version\", </llms.txt>; rel=\"alternate\"; type=\"text/plain\"; title=\"LLM context\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\", </developers>; rel=\"help\"; title=\"Developer portal\""
+        }
+      ]
     },
     {
       "source": "/llms.txt",
