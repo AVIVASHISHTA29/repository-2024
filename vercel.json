@@ -6,20 +6,6 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/",
-      "has": [
-        { "type": "header", "key": "accept", "value": ".*text/markdown.*" }
-      ],
-      "destination": "/api/markdown?path=/"
-    },
-    {
-      "source": "/:page(about|contact|privacy|developers)",
-      "has": [
-        { "type": "header", "key": "accept", "value": ".*text/markdown.*" }
-      ],
-      "destination": "/api/markdown?path=/:page"
-    },
-    {
       "source": "/((?!api/).*)",
       "destination": "/api/notfound"
     }
