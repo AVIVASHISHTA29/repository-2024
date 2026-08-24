@@ -240,7 +240,65 @@ for (const [path, key] of [
   );
 }
 
-// 13. Core machine-readable files.
+// 13. Markdown frontmatter metadata.
+{
+  const body = await (await get("/about.md")).text();
+  check(
+    "served markdown opens with YAML frontmatter",
+    body.startsWith("---\n"),
+    `starts with ${JSON.stringify(body.slice(0, 20))}`
+  );
+  for (const field of ["title:", "description:", "canonical:", "last-updated:"]) {
+    check(
+      `frontmatter carries ${field}`,
+      body.slice(0, 600).includes(field),
+      "field missing from frontmatter"
+    );
+  }
+}
+
+// 14. Well-known manifests and API description.
+{
+  const specs = [
+    ["/openapi.json", "openapi"],
+    ["/.well-known/ai-catalog.json", "specVersion"],
+    ["/.well-known/api-catalog", "linkset"],
+  ];
+  for (const [path, key] of specs) {
+    const res = await get(path);
+    let json = null;
+    try {
+      json = JSON.parse(await res.text());
+    } catch {
+      /* handled below */
+    }
+    check(
+      `${path} is 200 and valid JSON with "${key}"`,
+      res.status === 200 && json && key in json,
+      `status ${res.status}, ${json ? `missing ${key}` : "invalid JSON"}`
+    );
+  }
+
+  const catalogCt =
+    (await get("/.well-known/api-catalog")).headers.get("content-type") || "";
+  check(
+    "api-catalog uses the RFC 9727 linkset content type",
+    catalogCt.includes("application/linkset+json"),
+    `content-type="${catalogCt}"`
+  );
+
+  const auth = await get("/auth.md");
+  const authBody = await auth.text();
+  check(
+    "/auth.md is markdown with real content",
+    auth.status === 200 &&
+      (auth.headers.get("content-type") || "").includes("text/markdown") &&
+      authBody.length > 200,
+    `status ${auth.status}, ${auth.headers.get("content-type")}, ${authBody.length} chars`
+  );
+}
+
+// 15. Core machine-readable files.
 for (const [path, needle] of [
   ["/robots.txt", "Sitemap:"],
   ["/sitemap.xml", "<urlset"],

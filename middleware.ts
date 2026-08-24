@@ -63,14 +63,15 @@ export default function middleware(request: Request) {
     return next({ headers: { Vary: VARY } });
   }
 
+  // A known AI crawler gets markdown regardless of its Accept header — these
+  // crawlers send a browser-like "text/html,...;q=0.9,*/*;q=0.8" by default,
+  // so gating on Accept would never serve them markdown. Only the UA list
+  // triggers this, so real browsers are unaffected.
   const wantsMarkdown =
     suffixed ||
     /\btext\/markdown\b/i.test(accept) ||
     url.searchParams.get("mode") === "agent" ||
-    // A browser sends "text/html,...;q=0.9,*/*;q=0.8" and must keep getting
-    // HTML, so only treat a bot UA as markdown-seeking when it is not
-    // explicitly asking for HTML.
-    (AI_BOTS.test(ua) && !/\btext\/html\b/i.test(accept));
+    AI_BOTS.test(ua);
 
   if (!wantsMarkdown) {
     return next({ headers: { Vary: VARY } });

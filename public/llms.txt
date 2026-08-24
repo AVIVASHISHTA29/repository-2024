@@ -21,6 +21,13 @@ Last updated: August 2026
 - [Sitemap](https://www.avivashishta.com/sitemap.xml) — every canonical URL
 - [Privacy policy](https://www.avivashishta.com/privacy) — what this site collects
 - [Homepage as markdown](https://www.avivashishta.com/index.md) — same content, markdown
+- [OpenAPI spec](https://www.avivashishta.com/openapi.json) — machine-readable API description
+- [Authentication guide](https://www.avivashishta.com/auth.md) — short version: no credentials needed
+- [AI catalog](https://www.avivashishta.com/.well-known/ai-catalog.json) — Agentic Resource Discovery
+- [API catalog](https://www.avivashishta.com/.well-known/api-catalog) — RFC 9727 linkset
+- [Source repository](https://github.com/AVIVASHISHTA29/repository-2024) — this website's code, with
+  [AGENTS.md](https://github.com/AVIVASHISHTA29/repository-2024/blob/main/AGENTS.md) instructions
+  for AI coding agents
 
 ## When To Use This
 

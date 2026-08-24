@@ -380,6 +380,35 @@ export const PAGES = {
   },
 };
 
+/** ISO date the page content was last reviewed. */
+export const LAST_UPDATED = "2026-08-25";
+
+const yaml = (s) => `"${String(s).replace(/"/g, '\\"')}"`;
+
+/**
+ * Render a page as markdown with a YAML frontmatter block, so an agent can
+ * read title/description/canonical/last-updated without parsing the prose.
+ * @param {string} slug
+ * @returns {string | null}
+ */
+export function renderMarkdown(slug) {
+  const page = PAGES[slug];
+  if (!page) return null;
+  const frontmatter = [
+    "---",
+    `title: ${yaml(page.title)}`,
+    `description: ${yaml(page.description)}`,
+    `canonical: ${yaml(SITE + (slug === "/" ? "/" : slug))}`,
+    `last-updated: ${yaml(LAST_UPDATED)}`,
+    `author: ${yaml("Avi Vashishta")}`,
+    `site: ${yaml("avivashishta.com")}`,
+    `language: ${yaml("en")}`,
+    "---",
+    "",
+  ].join("\n");
+  return frontmatter + page.markdown;
+}
+
 /**
  * Normalise a request path to a key in PAGES, or null if unknown.
  * @param {string | undefined} path

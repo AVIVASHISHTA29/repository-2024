@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { PAGES, resolvePage } from "./_content.js";
+import { renderMarkdown, resolvePage } from "./_content.js";
 
 /**
  * acceptmarkdown.com content negotiation.
@@ -27,5 +27,5 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Cache-Control", "public, max-age=0, s-maxage=3600");
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("X-Robots-Tag", "noarchive");
-  return res.status(200).send(PAGES[key].markdown);
+  return res.status(200).send(renderMarkdown(key));
 }

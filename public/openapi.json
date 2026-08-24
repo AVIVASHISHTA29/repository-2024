@@ -1,0 +1,207 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "avivashishta.com public API",
+    "version": "1.0.0",
+    "summary": "Machine-readable interfaces to Avi Vashishta's portfolio.",
+    "description": "Read-only, side-effect-free endpoints for agents and developers. There is no API key and no signup. The conversational endpoint is origin-locked and rate limited; every other endpoint is open. See https://www.avivashishta.com/developers for prose documentation.",
+    "contact": {
+      "name": "Avi Vashishta",
+      "email": "avivashishta29@gmail.com",
+      "url": "https://www.avivashishta.com/contact"
+    },
+    "license": {
+      "name": "Content © Avi Vashishta. Reuse with attribution.",
+      "url": "https://www.avivashishta.com/privacy"
+    }
+  },
+  "servers": [{ "url": "https://www.avivashishta.com" }],
+  "tags": [
+    { "name": "context", "description": "Structured background about Avi Vashishta." },
+    { "name": "chat", "description": "Conversational question answering." }
+  ],
+  "paths": {
+    "/llms.txt": {
+      "get": {
+        "operationId": "getLlmsTxt",
+        "tags": ["context"],
+        "summary": "Structured context about Avi Vashishta",
+        "description": "Biography, work history, skills, projects, teaching record, FAQ, and explicit when-to-use guidance for agents.",
+        "responses": {
+          "200": {
+            "description": "Plain-text context document.",
+            "content": { "text/plain": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    },
+    "/index.md": {
+      "get": {
+        "operationId": "getHomepageMarkdown",
+        "tags": ["context"],
+        "summary": "Homepage as markdown",
+        "description": "Equivalent to GET / with `Accept: text/markdown`. Returns markdown with a YAML frontmatter block carrying title, description, canonical and last-updated.",
+        "responses": {
+          "200": {
+            "description": "Markdown document with YAML frontmatter.",
+            "content": { "text/markdown": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    },
+    "/{page}.md": {
+      "get": {
+        "operationId": "getPageMarkdown",
+        "tags": ["context"],
+        "summary": "Any canonical page as markdown",
+        "description": "Equivalent to requesting the same path with `Accept: text/markdown` or `?mode=agent`. Responses set `Vary: Accept, User-Agent, Accept-Encoding`.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "description": "Canonical page slug.",
+            "schema": {
+              "type": "string",
+              "enum": ["about", "contact", "privacy", "developers"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Markdown document with YAML frontmatter.",
+            "content": { "text/markdown": { "schema": { "type": "string" } } }
+          },
+          "404": {
+            "description": "Unknown page.",
+            "content": { "text/markdown": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "operationId": "getSitemap",
+        "tags": ["context"],
+        "summary": "Every canonical URL",
+        "responses": {
+          "200": {
+            "description": "XML sitemap.",
+            "content": { "application/xml": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    },
+    "/blog/feed.xml": {
+      "get": {
+        "operationId": "getBlogFeed",
+        "tags": ["context"],
+        "summary": "Blog RSS feed",
+        "responses": {
+          "200": {
+            "description": "RSS 2.0 feed.",
+            "content": { "application/rss+xml": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    },
+    "/api/chat": {
+      "post": {
+        "operationId": "askAboutAvi",
+        "tags": ["chat"],
+        "summary": "Ask a question about Avi Vashishta",
+        "description": "Answers questions about Avi's work, skills, projects and background. Responds with a Server-Sent Event stream of incremental text, terminated by `data: [DONE]`.\n\nAuthentication: none, but the request must carry an `Origin` or `Referer` header beginning with `https://www.avivashishta.com` or `https://avivashishta.com`, otherwise the response is 403. Rate limit: 10 requests per IP per minute.",
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "description": "Must be https://www.avivashishta.com or https://avivashishta.com.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ChatRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Server-Sent Event stream of incremental response text.",
+            "content": {
+              "text/event-stream": {
+                "schema": { "type": "string" },
+                "example": "data: Avi is a fullstack developer\ndata:  at Dock.us.\ndata: [DONE]\n"
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/Error" },
+          "403": { "$ref": "#/components/responses/Error" },
+          "405": { "$ref": "#/components/responses/Error" },
+          "429": { "$ref": "#/components/responses/Error" },
+          "500": { "$ref": "#/components/responses/Error" },
+          "502": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "Error": {
+        "description": "Error response.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "ChatRequest": {
+        "type": "object",
+        "required": ["messages"],
+        "properties": {
+          "messages": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Conversation so far, oldest first.",
+            "items": { "$ref": "#/components/schemas/Message" }
+          }
+        }
+      },
+      "Message": {
+        "type": "object",
+        "required": ["role", "content"],
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": ["user", "assistant"],
+            "description": "Who produced this turn."
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Message text. The final user message must be 500 characters or fewer."
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": ["error"],
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Human-readable description of what went wrong."
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Developer portal",
+    "url": "https://www.avivashishta.com/developers"
+  }
+}

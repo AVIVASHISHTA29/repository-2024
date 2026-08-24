@@ -1,0 +1,44 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.avivashishta.com",
+      "service-desc": [
+        {
+          "href": "https://www.avivashishta.com/openapi.json",
+          "type": "application/openapi+json",
+          "title": "avivashishta.com public API — OpenAPI 3.1 description"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.avivashishta.com/developers",
+          "type": "text/html",
+          "title": "Developer portal"
+        },
+        {
+          "href": "https://www.avivashishta.com/developers.md",
+          "type": "text/markdown",
+          "title": "Developer portal (markdown)"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://www.avivashishta.com/llms.txt",
+          "type": "text/plain",
+          "title": "Structured context for LLM agents"
+        },
+        {
+          "href": "https://www.avivashishta.com/.well-known/ai-catalog.json",
+          "type": "application/json",
+          "title": "Agentic Resource Discovery catalog"
+        }
+      ],
+      "author": [
+        {
+          "href": "https://www.avivashishta.com/contact",
+          "title": "Avi Vashishta"
+        }
+      ]
+    }
+  ]
+}
