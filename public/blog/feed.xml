@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -249,6 +249,20 @@
       <category>React</category>
       <category>CSS</category>
       <category>Web Audio</category>
+    </item>
+
+    <item>
+      <title>Motion Gallery: A 3D Painting Orb You Rotate With Your Hands (MediaPipe + React Three Fiber)</title>
+      <link>https://www.avivashishta.com/blog/motion-gallery-gesture-controlled-3d-painting-orb</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/motion-gallery-gesture-controlled-3d-painting-orb</guid>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Thirteen famous paintings on a Fibonacci sphere you spin by pinching the air — the object-fit: cover maths Three.js makes you write yourself, MediaPipe pinch-and-drag over an alpha WebGL canvas on a live webcam, and two passes of taking the interface away until only one button was left.</description>
+      <category>MediaPipe</category>
+      <category>Three.js</category>
+      <category>React Three Fiber</category>
+      <category>Gesture Control</category>
+      <category>WebGL</category>
     </item>
 
   </channel>
