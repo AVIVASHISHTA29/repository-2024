@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -263,6 +263,20 @@
       <category>React Three Fiber</category>
       <category>Gesture Control</category>
       <category>WebGL</category>
+    </item>
+
+    <item>
+      <title>Top 5 Design Trends To Make Your Website 10x (Product and E-commerce, 2026)</title>
+      <link>https://www.avivashishta.com/blog/top-5-design-trends-website-10x-2026</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/top-5-design-trends-website-10x-2026</guid>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Story before product, hyperrealism instead of AI minimalism, walkthroughs and trials in place of demo forms, Gen-Z-fication, and proof built for humans and the AI agents now shopping for them. Five trends, with the conversion data behind each.</description>
+      <category>Design</category>
+      <category>UI UX</category>
+      <category>E-commerce</category>
+      <category>Conversion</category>
+      <category>Branding</category>
     </item>
 
   </channel>
