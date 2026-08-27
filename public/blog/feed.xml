@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -277,6 +277,20 @@
       <category>E-commerce</category>
       <category>Conversion</category>
       <category>Branding</category>
+    </item>
+
+    <item>
+      <title>Pinch Time Travel: Scrubbing Video With Your Fingers in 300 Lines of Python (MediaPipe + OpenCV)</title>
+      <link>https://www.avivashishta.com/blog/pinch-time-travel-scrub-video-with-your-fingers-mediapipe</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/pinch-time-travel-scrub-video-with-your-fingers-mediapipe</guid>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Spread your thumb and index finger and a timelapse runs forward; squeeze and it rewinds. Building a pinch-to-scrub video player with MediaPipe and OpenCV — scale-invariant pinch measurement, a self-calibrating gesture range, and the four bugs only a real camera finds.</description>
+      <category>MediaPipe</category>
+      <category>Python</category>
+      <category>OpenCV</category>
+      <category>Computer Vision</category>
+      <category>Gesture Control</category>
     </item>
 
   </channel>
