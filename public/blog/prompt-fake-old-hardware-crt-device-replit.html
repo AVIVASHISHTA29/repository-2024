@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Prompt I Used to Build a Fake Old Computer on Replit (Beige Plastic, a CRT Screen, and Buttons That Actually Travel) | Avi Vashishta</title>
+    <meta name="description" content="A copy-pasteable Replit Agent prompt for a skeuomorphic site where the whole page is one piece of 90s beige hardware — chunky bezel, green phosphor CRT with scanlines and bloom, a fake POST boot sequence, and knobs, switches and buttons that physically move." />
+    <link rel="canonical" href="https://www.avivashishta.com/blog/prompt-fake-old-hardware-crt-device-replit" />
+    <meta name="author" content="Avi Vashishta" />
+    <meta property="og:title" content="The Prompt I Used to Build a Fake Old Computer on Replit (Beige Plastic, a CRT Screen, and Buttons That Actually Travel)" />
+    <meta property="og:description" content="The whole page is the device. Scanlines, bloom, a boot sequence, and controls that move — the full Replit Agent prompt, plus why I let the agent decide what the thing does." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.avivashishta.com/blog/prompt-fake-old-hardware-crt-device-replit" />
+    <meta property="article:published_time" content="2026-08-29T00:00:00Z" />
+    <meta property="article:author" content="Avi Vashishta" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Prompt I Used to Build a Fake Old Computer on Replit (Beige Plastic, a CRT Screen, and Buttons That Actually Travel)",
+        "author": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "datePublished": "2026-08-29",
+        "url": "https://www.avivashishta.com/blog/prompt-fake-old-hardware-crt-device-replit"
+      }
+    </script>
+    <!-- PostHog -->
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement('script')).type = 'text/javascript'),
+              (p.crossOrigin = 'anonymous'),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') +
+                '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return (
+                    'posthog' !== a && (e += '.' + a),
+                    t || (e += ' (stub)'),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric'.split(
+                    ' ',
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_cgNNpL9lqLK50jeJICAV6xcGZDmuDnuPVxPeG8Ieg6m', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: true,
+        capture_pageleave: true,
+      });
+      // Fire a named event so this article is easy to filter in PostHog.
+      posthog.capture('article_viewed', {
+        slug: 'prompt-fake-old-hardware-crt-device-replit',
+        title: 'Fake Old Hardware CRT Replit Prompt',
+      });
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.7;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+      }
+      h2 {
+        font-size: 1.4rem;
+        margin-top: 2.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+        margin-top: 1.75rem;
+      }
+      .meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        margin: 1rem 0;
+      }
+      ul,
+      ol {
+        margin: 1rem 0;
+        padding-left: 1.4rem;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+      blockquote {
+        margin: 1.5rem 0;
+        padding: 4px 20px;
+        border-left: 4px solid #0066cc;
+        background: #f0f7ff;
+        border-radius: 0 8px 8px 0;
+        color: #333;
+        font-style: italic;
+      }
+      .highlight {
+        background: #f0f7ff;
+        border-left: 4px solid #0066cc;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 1.5rem 0;
+      }
+      .prompt,
+      .code {
+        background: #1a1a1a;
+        color: #e6e6e6;
+        padding: 20px 22px;
+        border-radius: 10px;
+        margin: 1.5rem 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        overflow-x: auto;
+      }
+      .promptbox {
+        position: relative;
+        margin: 1.5rem 0;
+      }
+      .promptbox .prompt {
+        margin: 0;
+        padding-top: 52px;
+      }
+      .copybtn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        font: 600 0.72rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas,
+          monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #e6e6e6;
+        background: #2b2b2b;
+        border: 1px solid #3d3d3d;
+        border-radius: 6px;
+        padding: 9px 14px;
+        cursor: pointer;
+        min-height: 34px;
+      }
+      .copybtn:hover {
+        background: #3a3a3a;
+      }
+      .copybtn.done {
+        color: #7ee39a;
+        border-color: #2f6b41;
+      }
+      .check {
+        margin: 0.75rem 0 0;
+        font-weight: 600;
+        color: #0a7d33;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: #f2f2f2;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      a {
+        color: #0066cc;
+      }
+      .back {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 24px 16px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        .prompt,
+        .code {
+          font-size: 0.78rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h1>
+        The Prompt I Used to Build a Fake Old Computer on Replit (Beige Plastic,
+        a CRT Screen, and Buttons That Actually Travel)
+      </h1>
+      <p class="meta">
+        Published August 2026 ·
+        <a href="https://www.avivashishta.com">avivashishta.com</a>
+      </p>
+
+      <h2>Overview</h2>
+      <p>
+        The whole page is one piece of fake hardware. Yellowed beige ABS plastic,
+        a chunky moulded bezel, visible screw wells, a parting line running down
+        the case where the two halves of the injection mould met — and set into
+        it, behind glass, a small green phosphor CRT with scanlines, bloom and a
+        slow flicker. You do not scroll it. You operate it: press buttons that
+        travel, drag a knob that snaps to detents, flip a switch with no easing
+        on it at all, and the little screen changes.
+      </p>
+      <p>
+        It boots. That is the part that does the heavy lifting. A fake POST
+        screen, a memory count that ticks up, a model number, and then the home
+        screen — about two and a half seconds of the page pretending to be a
+        machine warming up, and after that the viewer has already agreed to the
+        premise.
+      </p>
+
+      <div class="highlight">
+        <p>
+          <strong>What it produces:</strong> a fixed-aspect device filling the
+          viewport with no browser scrollbar, a CSS-built case with real
+          geometry, a phosphor screen with scanlines, a blurred bloom layer,
+          curvature vignette and a rare horizontal roll, a boot sequence, a state
+          machine behind the screen, physically travelling buttons, a
+          drag-to-rotate knob with detents, a moulded slider, hard-switching
+          toggles, and synthesized click and thunk sounds — muted by default.
+        </p>
+        <p style="margin-bottom: 0">
+          <strong>Stack:</strong> React + Vite + TypeScript, plain CSS, the Web
+          Audio API, and a handful of seamless texture images. No 3D, no canvas,
+          no audio files.
+        </p>
+      </div>
+
+      <h2>I did not tell it what the thing does</h2>
+      <p>
+        This is the part worth copying more than the CSS. I opened Replit Agent
+        with the aesthetic and nothing else:
+      </p>
+      <blockquote>
+        I want to build a website that's one big piece of fake old hardware. Like
+        a 90s handheld — beige plastic, chunky bezel, little CRT screen with
+        scanlines. The whole page IS the device. You click real physical buttons,
+        turn knobs, flip switches, and the little screen changes. I don't know
+        what it should actually do yet. That's the part I want to figure out with
+        you. Ask me whatever you need, go look at what people have already made
+        in this space, and pitch me a few directions.
+      </blockquote>
+      <p>
+        No spec, no feature list. The vagueness was real — I had the look and
+        genuinely had not decided on the function. What came back was the reverse
+        of the usual exchange: it interrogated me. Who is this for, a portfolio,
+        a toy, or a tool? What is actually on the screen — content, or a
+        mechanic? Does the hardware do one thing well or five things badly? Then
+        it went and looked at what already exists in the skeuomorphic-device
+        corner of the web, came back with what is overdone in it, and pitched
+        three directions.
+      </p>
+      <p>
+        I rejected two of them out loud. The portfolio-in-a-device one is boring
+        — every developer has built that, and the device becomes a frame around a
+        list of links rather than a thing you use. The pivot to the third came
+        out of the argument, not out of my spec. If you are going to run this
+        yourself, have an opinion ready to push back with; the useful output is
+        downstream of the disagreement.
+      </p>
+      <p>
+        Everything below is what I fed in <em>after</em> that, in pieces, once
+        the concept was settled. Aesthetic direction from me, function from the
+        conversation.
+      </p>
+
+      <h2>Why beige, and not the white neumorphic thing</h2>
+      <p>
+        The obvious alternative was soft white neumorphism — extruded pale
+        plastic, dual shadows, the whole 2020 dribbble aesthetic. I have built
+        that; it reads as <em>modern design portfolio</em> at a glance, which is
+        the exact opposite of the read I wanted.
+      </p>
+      <p>
+        Yellowed beige with a green CRT reads as <em>old</em> instantly, at
+        thumbnail size, before anyone has processed a single detail. It is also
+        by some distance the cheapest convincing aesthetic to build: scanlines
+        are one repeating gradient, bloom is a duplicated blurred text layer, and
+        a boot sequence is a <code>setTimeout</code> chain. The three things that
+        sell it hardest are all nearly free.
+      </p>
+
+      <h2>The prompt</h2>
+      <p>
+        Paste the whole thing at once, after the concept conversation — not
+        instead of it.
+      </p>
+
+      <div class="promptbox">
+        <button class="copybtn" type="button" data-copy>Copy prompt</button>
+        <div class="prompt" id="hardware-prompt">Build **a website that is one single piece of fake 1990s hardware**. Yellowed beige plastic case, chunky moulded bezel, a small green-phosphor CRT screen behind glass, and physical controls — buttons, a knob, a slider, toggle switches. The *page* is the device: it fills the viewport, there is no scrollbar and no page content outside the case. Every control is real and dispatches into the screen's state machine. It boots before it does anything.
+
+**Stack — use exactly this, no substitutions:**
+- React + Vite + TypeScript
+- Plain CSS (or CSS modules). No Tailwind, no UI library, no icon library.
+- Web Audio API for the button click and power thunk — synthesized, **no audio files**
+- No 3D, no canvas, no WebGL. The case is CSS and SVG geometry.
+- No backend, no router. Fully static SPA.
+- Must pass `tsc` with no errors and run with a clean console.
+
+---
+
+## Step 1 — Textures, not a picture of a device
+
+**Do not render the device as one image.** The case geometry is built in CSS/SVG so it can move and respond. Images are used only as seamless surface textures blended over that geometry.
+
+Expect these in `attached_assets/`, imported as Vite modules:
+1. `plastic.png` — seamless beige ABS plastic grain, subtly yellowed, tiles at 512px
+2. `grain.png` — fine noise overlay for the whole case
+3. `wear.png` — scuffs, edge wear, a scratch or two; one transparent overlay
+4. `glass.png` — dust and fingerprints for the screen glass
+
+Apply as `background-image` over the CSS gradients with `background-blend-mode: multiply`, plastic at full strength, grain at ~0.35, wear at ~0.12, glass dust at ~0.06. If an asset is missing, fall back to the CSS gradient alone — never substitute a drawn SVG of a whole device.
+
+## Step 2 — The case
+
+- Base plastic `#d8d0bc`; second panel (the bezel surround) `#c9c0a8`; recesses `#b8ae95`.
+- **All shadows warm.** `rgba(74, 62, 40, .35)` and similar. Never a grey or blue-grey shadow — cool shadows are what make CSS plastic look like CSS.
+- An injection-mould **parting line** running the full width of the case: a 1px dark line with a 1px light line under it, at about 62% height.
+- **Screw wells** in all four corners: a circular inset recess with a cross-slot head, darker at the top-left of the recess.
+- A **moulded speaker grille**: a dot grid of small inset circles, lower right.
+- **Silkscreen labels** beside every control, in tiny condensed uppercase (~9px, `letter-spacing: .12em`), colour `#6b6250`, `opacity: .75`, and each rotated a hair off-axis (±0.4deg) so the print looks slightly off-register.
+- The case fills the viewport: `body { overflow: hidden }`, no browser chrome, no scrollbar.
+
+## Step 3 — The screen
+
+A rounded rectangle inset into the bezel, `#0a1a0a` base, phosphor `#33ff66`. Layers, bottom to top:
+
+1. **Text layer** — the actual screen content, font `VT323` (Google Fonts) at ~22px. Never a modern sans on this screen.
+2. **Bloom** — a duplicate of the text layer, `filter: blur(6px)`, `opacity: .65`, `mix-blend-mode: screen`, `pointer-events: none`.
+3. **Scanlines** — `repeating-linear-gradient(transparent 0 2px, rgba(0,0,0,.35) 2px 4px)` across the whole screen.
+4. **Curvature** — a radial vignette darkening the corners, generous `border-radius`, and an `inset` box-shadow. Do **not** use SVG `feDisplacementMap` barrel distortion; it costs more than it returns.
+5. **Glass** — one soft diagonal specular highlight across the top-left, plus the dust texture at very low opacity.
+
+Motion:
+- **Flicker** — 3–5% opacity oscillation on the text layer at ~0.15s, via CSS keyframes.
+- **Roll** — every 20–40s (randomised), a horizontal band translates down the screen over ~350ms. Rare enough to be a glitch, not a loop.
+
+## Step 4 — The controls
+
+The controls are where sites like this fail. Each one must move.
+
+- **Buttons** — on `:active`, `transform: translateY(2px)` **and** collapse the drop shadow. A button that only changes colour reads as fake immediately. Give them a moulded cap: light top edge, dark bottom edge, warm shadow beneath.
+- **Knob** — pointer-drag rotates it. Track the pointer with `setPointerCapture`, map vertical drag delta to degrees, clamp to a range, and **snap to detents** (e.g. 8 positions). A tick mark on the cap shows the position. Click a detent sound at each step.
+- **Slider** — a styled `<input type="range">`. The thumb looks like moulded plastic sitting in an inset channel; the track is a recess with an inner shadow.
+- **Toggles** — hard state change, **no transition, no easing**. Physical switches do not ease. The only animation permitted is the shadow swap.
+- Every control has a `:focus-visible` ring and works from the keyboard.
+
+## Step 5 — Sound
+
+Synthesized with the Web Audio API, created inside the first user gesture (not at module load):
+- **Click** on button press — a short filtered noise burst, ~12ms, quiet.
+- **Thunk** on the power switch — a low sine drop, ~90ms.
+- **Detent tick** on knob steps — shorter and higher than the click.
+- **Muted by default**, with a physical mute toggle on the case. Master gain ~0.15.
+
+## Step 6 — Boot sequence
+
+On load, the screen runs a fake POST before anything else is reachable:
+1. A block cursor blinks alone for ~400ms
+2. A model number and a fake ROM revision print
+3. A memory count ticks up rapidly to a total, then `OK`
+4. A short self-test list, each line resolving to `OK` on a delay
+5. `READY.` — then the home screen
+
+Total ~2.5s. Add a `SKIP` affordance (any key or any button) — after the third visit nobody wants it, and a boot sequence you cannot skip is a bad website.
+
+## Step 7 — Screen state
+
+The screen is a plain state machine — one `mode` value plus per-mode state, no router. Every hardware control dispatches into it; the screen never has its own buttons. Keyboard mirrors the hardware, and each mapped key is printed on the screen in the same style as the silkscreen (`OR HIT [P]`).
+
+## Step 8 — Responsive
+
+The device has a fixed aspect ratio. Handle it deliberately, now, not at the end:
+- Wrap the device in a fixed-aspect container and `transform: scale()` it to fit the viewport, transform-origin centre, recalculated on resize.
+- Below ~600px wide, switch to a simplified portrait layout: the same case, controls stacked below the screen, no scaling gymnastics.
+- Never let the case overflow into a scrollbar at any viewport size.
+
+## Step 9 — Pass/fail checks
+
+Before you tell me it is done, verify each:
+- [ ] No scrollbar at 1440x900, 1280x720, or 390x844
+- [ ] A button pressed with the mouse visibly moves down and its shadow collapses
+- [ ] The knob follows the pointer past the edge of the knob itself, and snaps
+- [ ] Toggling a switch has **zero** transition time on the state change
+- [ ] The screen text has a visible halo around it that does not blur the scanlines
+- [ ] The boot sequence runs on load and can be skipped
+- [ ] With sound unmuted, a button press makes a sound; on first load, muted, it does not
+- [ ] Every control is reachable and operable by keyboard alone
+- [ ] `tsc` clean, console clean</div>
+      </div>
+
+      <h2>Why each clause is in there</h2>
+
+      <h3>"Do not render the device as one image"</h3>
+      <p>
+        This is the single most important line in the prompt and it is the first
+        thing an agent will do if you let it. If the case is one generated PNG,
+        nothing moves, nothing is responsive, and every button is a dead hotspot
+        on a picture. That is the failure mode of most "interactive hardware"
+        sites — they are a photograph with an image map, and you can feel it
+        within one click.
+      </p>
+      <p>
+        Generate seamless <em>textures</em>. Build the <em>geometry</em> in
+        CSS. Then blend one over the other and the surface looks real while the
+        object stays live.
+      </p>
+
+      <h3>"All shadows warm"</h3>
+      <p>
+        Beige plastic under a grey shadow reads as a grey rectangle someone
+        tinted. Warm plastic needs warm shadow — the light bouncing off the case
+        into its own recesses is beige light. This one substitution accounts for
+        a startling amount of the difference between "old hardware" and "CSS
+        div".
+      </p>
+
+      <h3>Parting line, screw wells, off-register silkscreen</h3>
+      <p>
+        These are manufacturing artefacts, and they are the tell that something
+        was made in a factory rather than drawn. Nobody consciously notices a
+        parting line; everybody notices its absence as "this looks CG". The
+        silkscreen being fractionally rotated and slightly worn does the same
+        job — perfectly aligned type is a vector file, imperfectly aligned type
+        was printed on a physical object.
+      </p>
+
+      <h3>Bloom as a duplicated blurred layer</h3>
+      <p>
+        Phosphor glows because the light spreads on the glass. A
+        <code>text-shadow</code> gets you a fuzzy edge; a duplicate layer at
+        <code>blur(6px)</code> with <code>mix-blend-mode: screen</code> gets you
+        a halo that reads as emitted light. It also has to sit
+        <em>under</em> the scanlines — bloom over scanlines blurs the lines
+        themselves and the screen instantly goes soft and modern.
+      </p>
+
+      <h3>"Buttons must travel"</h3>
+      <p>
+        Stated as its own clause because a colour change on <code>:active</code>
+        is what you get by default and it feels wrong in a way people cannot name.
+        Two pixels of <code>translateY</code> plus a collapsed shadow is the
+        entire difference between a picture of a button and a button.
+      </p>
+
+      <h3>"No transition, no easing" on the toggles</h3>
+      <p>
+        Real switches snap — there is a spring, and it is over in a frame. An
+        agent will add a 200ms ease to everything unless you forbid it on this
+        one component. A toggle that glides is the most common single break in
+        the illusion, precisely because it looks so good in isolation.
+      </p>
+
+      <h3>The boot sequence</h3>
+      <p>
+        Two and a half seconds of fake POST does more for the "old" feeling than
+        any amount of texture work. It is also the best possible opening shot if
+        you are filming the build — a beige CRT warming up on a full-screen
+        website is surprising within two seconds, which is about how long you
+        have.
+      </p>
+      <p>
+        Make it skippable anyway. It is charming once and an obstacle on the
+        fourth visit.
+      </p>
+
+      <h3>Banning barrel distortion</h3>
+      <p>
+        A real CRT bulges, and you can fake it properly with an SVG
+        <code>feDisplacementMap</code>. It also tanks the frame rate on anything
+        animated behind it, on every machine. A radial vignette plus a big
+        border-radius plus an inset shadow buys you 80% of the read for none of
+        the cost. Say no to it explicitly or you will get it.
+      </p>
+
+      <h2>Knobs to turn first</h2>
+      <ul>
+        <li>
+          <strong>Scanline opacity (0.35).</strong> The number that decides
+          whether this is a CRT or a novelty filter. Below 0.2 it disappears;
+          above 0.5 the screen is unreadable and looks like a jail cell.
+        </li>
+        <li>
+          <strong>Bloom blur (6px) and opacity (0.65).</strong> Raise the blur
+          before the opacity, always. High-opacity tight bloom looks like a drop
+          shadow; wide faint bloom looks like light.
+        </li>
+        <li>
+          <strong>Phosphor brightness.</strong> Green-on-black at low opacity
+          looks incredible in a screenshot and is nearly unreadable in use. Keep
+          body text brighter than instinct says — check it on a laptop at 40%
+          screen brightness, which is where most people are.
+        </li>
+        <li>
+          <strong>Flicker range (3–5%) and period (0.15s).</strong> Past 8% it
+          stops being a CRT and starts being a fault. If it feels weak, slow it
+          down rather than deepen it.
+        </li>
+        <li>
+          <strong>Roll interval (20–40s).</strong> Rare is the whole point. A
+          roll every 5 seconds is a broken television, not an old one.
+        </li>
+        <li>
+          <strong>Button travel (2px).</strong> 1px is invisible, 4px is a
+          trampoline. The shadow collapsing matters as much as the movement.
+        </li>
+        <li>
+          <strong>Knob detent count (8).</strong> Fewer feels chunky and
+          mechanical, more feels like a continuous dial with a stutter. Eight is
+          the sweet spot and it also gives you eight readable screen states.
+        </li>
+        <li>
+          <strong>Grain opacity (~0.35) and wear (~0.12).</strong> The wear layer
+          is the one that gets overcooked. It should be findable, not visible.
+        </li>
+        <li>
+          <strong>Master gain (0.15), muted by default.</strong> Sound doubles
+          the realism for almost no build cost, and autoplaying it loses you the
+          visitor. Both things are true.
+        </li>
+      </ul>
+
+      <h2>If it comes out wrong</h2>
+      <ul>
+        <li>
+          <strong>A grey rounded rectangle.</strong> The first pass always looks
+          like this. It is the cool shadows and the missing texture blend, in
+          that order. Fix the shadow colour before you touch anything else.
+        </li>
+        <li>
+          <strong>The case looks like a gradient, not plastic.</strong> The
+          texture layer is missing or is being drawn with
+          <code>background-blend-mode: normal</code>. It needs
+          <code>multiply</code> over the gradient, not instead of it.
+        </li>
+        <li>
+          <strong>The screen looks soft and modern.</strong> Bloom is stacked
+          above the scanlines and is blurring them. Bloom under, scanlines over.
+        </li>
+        <li>
+          <strong>The text is unreadable.</strong> Phosphor opacity tuned on a
+          bright external monitor. Raise it and re-check the bloom, which will
+          now be too strong.
+        </li>
+        <li>
+          <strong>Buttons feel dead.</strong> They are changing colour, not
+          moving. This is the default output and it needs the
+          <code>translateY</code> clause restated.
+        </li>
+        <li>
+          <strong>The knob jumps when you drag past its edge.</strong> No
+          <code>setPointerCapture</code>. The pointer left the element and the
+          handler stopped firing.
+        </li>
+        <li>
+          <strong>The knob rotates smoothly with no detents.</strong> The snap
+          was applied to the visual rotation but not to the dispatched value, or
+          vice versa. Both have to quantise, together.
+        </li>
+        <li>
+          <strong>The switch glides.</strong> A global
+          <code>transition: all .2s</code> somewhere up the tree. Kill it on the
+          toggle specifically.
+        </li>
+        <li>
+          <strong>A scrollbar appears at some window size.</strong> The scale
+          wrapper is not recalculating on resize, or a shadow is spilling outside
+          the container. Both are common; check the resize handler first.
+        </li>
+        <li>
+          <strong>On a phone it is a tiny unreadable device in the middle of a
+          white page.</strong> The portrait branch was never built.
+          <code>transform: scale()</code> alone does not survive a 390px
+          viewport — this is why the prompt makes you decide in Step 8 rather
+          than at the end.
+        </li>
+        <li>
+          <strong>No sound until you reload.</strong> The
+          <code>AudioContext</code> was created at module load and is suspended.
+          Create it inside the first click handler, or <code>resume()</code> from
+          one.
+        </li>
+        <li>
+          <strong>The boot sequence replays on every state change.</strong> The
+          timer chain is inside a component that remounts. Hoist it, and gate it
+          on a boot-complete flag.
+        </li>
+      </ul>
+
+      <h2>The part the prompt cannot do for you</h2>
+      <p>
+        Do not stop at the first result. The first pass will look like a grey
+        rectangle with rounded corners — that is not a failed prompt, that is
+        pass one. The version worth showing anyone is three or four rounds in,
+        and each round is one specific complaint: the shadows are cool, the
+        plastic has no grain, the buttons don't move, the screen is too dim.
+      </p>
+      <p>
+        The iteration is not overhead on the build. It is the build.
+      </p>
+
+      <h2>Recap</h2>
+      <ul>
+        <li>
+          Bring the aesthetic, let the agent argue you into the function. The
+          reversal — it interrogating you — produces a better concept than a spec
+          written before the conversation.
+        </li>
+        <li>
+          Pick the aesthetic that reads at thumbnail size. Beige and green says
+          "old" in one glance; soft white says "portfolio".
+        </li>
+        <li>
+          Generate textures, build geometry. One image of a whole device is a
+          dead end with hotspots on it.
+        </li>
+        <li>
+          Warm shadows on warm plastic. Cool shadows are the single biggest tell.
+        </li>
+        <li>
+          Manufacturing artefacts sell the object — parting line, screw wells,
+          slightly off-register silkscreen.
+        </li>
+        <li>
+          Controls must physically move, and the movement needs its own clause or
+          you get a colour change.
+        </li>
+        <li>
+          Forbid easing where physics forbids it. Real switches snap.
+        </li>
+        <li>
+          Bloom under the scanlines, or the CRT goes soft.
+        </li>
+        <li>
+          A boot sequence buys more period feeling than any texture, and costs a
+          <code>setTimeout</code> chain. Make it skippable.
+        </li>
+        <li>
+          Ban the expensive effect explicitly. <code>feDisplacementMap</code> is
+          real barrel distortion and it is not worth the frames.
+        </li>
+        <li>
+          Decide the mobile strategy in the prompt, not at the end. A fixed-aspect
+          device in a phone viewport is a genuine design problem.
+        </li>
+        <li>
+          Bright enough to read beats atmospheric. Always.
+        </li>
+        <li>
+          End with observable pass/fail checks — each one a bug you already know
+          the prompt will otherwise produce.
+        </li>
+      </ul>
+
+      <p>
+        If you want more prompts in this shape, there is
+        <a href="/blog/prompt-luma-floor-lamp-lit-hero-replit"
+          >a floor lamp hero with a brass switch that lights the whole page</a
+        >,
+        <a href="/blog/prompt-lumina-interactive-light-gallery-replit"
+          >an interactive light gallery with pull-chain physics</a
+        >, and
+        <a href="/blog/prompt-frosted-glass-refraction-cube-webgl"
+          >a frosted glass refraction cube in WebGL</a
+        >.
+      </p>
+
+      <div class="back">
+        <p>
+          <a href="https://www.avivashishta.com">← Portfolio</a> ·
+          <a href="/blog">Blog</a>
+        </p>
+      </div>
+    </article>
+
+    <script>
+      // Copy the prompt block. Fires straight from the tap so iOS Safari keeps
+      // the gesture context, with an execCommand fallback for older browsers.
+      document.querySelectorAll('[data-copy]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var text = document.getElementById('hardware-prompt').innerText;
+          var done = function () {
+            btn.textContent = 'Copied';
+            btn.classList.add('done');
+            setTimeout(function () {
+              btn.textContent = 'Copy prompt';
+              btn.classList.remove('done');
+            }, 1600);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, fallback);
+          } else {
+            fallback();
+          }
+          function fallback() {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.top = '-1000px';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand('copy');
+              done();
+            } catch (e) {
+              btn.textContent = 'Select and copy';
+            }
+            document.body.removeChild(ta);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

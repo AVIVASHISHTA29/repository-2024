@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -291,6 +291,20 @@
       <category>OpenCV</category>
       <category>Computer Vision</category>
       <category>Gesture Control</category>
+    </item>
+
+    <item>
+      <title>The Prompt I Used to Build a Fake Old Computer on Replit (Beige Plastic, a CRT Screen, and Buttons That Actually Travel)</title>
+      <link>https://www.avivashishta.com/blog/prompt-fake-old-hardware-crt-device-replit</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-fake-old-hardware-crt-device-replit</guid>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable Replit Agent prompt for a skeuomorphic site where the whole page is one piece of 90s beige hardware — chunky bezel, green phosphor CRT with scanlines and bloom, a fake POST boot sequence, and knobs, switches and buttons that physically move.</description>
+      <category>Prompts</category>
+      <category>Replit</category>
+      <category>Skeuomorphism</category>
+      <category>CSS</category>
+      <category>Web Audio</category>
     </item>
 
   </channel>
