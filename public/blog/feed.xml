@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -305,6 +305,20 @@
       <category>Skeuomorphism</category>
       <category>CSS</category>
       <category>Web Audio</category>
+    </item>
+
+    <item>
+      <title>I Built a Rubik&#39;s Cube Solver in One HTML File with Claude (Three.js, a Layer-by-Layer Solver, and Photo Scanning)</title>
+      <link>https://www.avivashishta.com/blog/rubiks-cube-solver-three-js-claude</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/rubiks-cube-solver-three-js-claude</guid>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Cube Lab is a single HTML file: a Three.js 3&#215;3 you can drag-turn, a layer-by-layer solver written from scratch with IDDFS and conjugated generators, and a scanner that reads your real cube from six photos or your webcam.</description>
+      <category>Three.js</category>
+      <category>Claude</category>
+      <category>Algorithms</category>
+      <category>Rubik's Cube</category>
+      <category>Computer Vision</category>
     </item>
 
   </channel>
