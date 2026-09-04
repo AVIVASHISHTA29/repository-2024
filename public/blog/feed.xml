@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -319,6 +319,21 @@
       <category>Algorithms</category>
       <category>Rubik's Cube</category>
       <category>Computer Vision</category>
+    </item>
+
+    <item>
+      <title>Turning Your Webcam Into Liquid Metal With 400 Lines of Python (NumPy, OpenCV, MediaPipe)</title>
+      <link>https://www.avivashishta.com/blog/liquid-metal-webcam-python-opencv</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/liquid-metal-webcam-python-opencv</guid>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A real-time mercury/chrome webcam effect at 77 fps without TouchDesigner and without a GPU: a three-line wave equation, gradient-driven refraction, specular lighting from the same gradient, and a feedback loop that makes the image melt.</description>
+      <category>Python</category>
+      <category>OpenCV</category>
+      <category>NumPy</category>
+      <category>MediaPipe</category>
+      <category>Computer Vision</category>
+      <category>Creative Coding</category>
     </item>
 
   </channel>
