@@ -336,5 +336,20 @@
       <category>Creative Coding</category>
     </item>
 
+    <item>
+      <title>I Built a 3D Car Dealership Without Opening Blender (Tripo AI, Three.js, glTF-Transform)</title>
+      <link>https://www.avivashishta.com/blog/3d-car-dealership-tripo-ai-threejs</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/3d-car-dealership-tripo-ai-threejs</guid>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Every vehicle generated from a single photo with Tripo AI, then made web-ready: the file:// CORS wall, an over-compression mistake that ruined the meshes, weld() before simplify for 35x smaller GLBs, a 164-part exploded view, and a refraction cursor shader.</description>
+      <category>Three.js</category>
+      <category>WebGL</category>
+      <category>3D</category>
+      <category>Tripo AI</category>
+      <category>glTF</category>
+      <category>Creative Coding</category>
+    </item>
+
   </channel>
 </rss>
