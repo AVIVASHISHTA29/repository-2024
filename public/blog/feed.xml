@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -348,6 +348,21 @@
       <category>3D</category>
       <category>Tripo AI</category>
       <category>glTF</category>
+      <category>Creative Coding</category>
+    </item>
+
+    <item>
+      <title>The Design Language of Era Residence: Scroll as Choreography</title>
+      <link>https://www.avivashishta.com/blog/era-residence-scroll-choreography-design-language</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/era-residence-scroll-choreography-design-language</guid>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A breakdown of era-residence.com: split-text reveals with matching exits, a different parallax per section built on sticky rather than GSAP pin, viewport-gated ambient video, continuous theme swapping, and a logo whose spin speed tracks your scroll velocity.</description>
+      <category>Web Design</category>
+      <category>GSAP</category>
+      <category>Animation</category>
+      <category>Scroll</category>
+      <category>Frontend</category>
       <category>Creative Coding</category>
     </item>
 
