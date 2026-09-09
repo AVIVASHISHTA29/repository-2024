@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -363,6 +363,21 @@
       <category>Animation</category>
       <category>Scroll</category>
       <category>Frontend</category>
+      <category>Creative Coding</category>
+    </item>
+
+    <item>
+      <title>Making Rain Splash Off Your Body in Real Time (MediaPipe Segmentation, NumPy, OpenCV)</title>
+      <link>https://www.avivashishta.com/blog/rain-splashing-off-your-body-mediapipe-python</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/rain-splashing-off-your-body-mediapipe-python</guid>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Rain that collides with your silhouette: a thresholded MediaPipe segmentation mask as the collision surface, a rising-edge test so drops burst on contact instead of fogging, a wetness buffer that drips downward &#8212; and the bug where heavier rain produced fewer splashes.</description>
+      <category>Python</category>
+      <category>Computer Vision</category>
+      <category>MediaPipe</category>
+      <category>OpenCV</category>
+      <category>NumPy</category>
       <category>Creative Coding</category>
     </item>
 
