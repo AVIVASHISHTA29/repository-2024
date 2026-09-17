@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -379,6 +379,36 @@
       <category>OpenCV</category>
       <category>NumPy</category>
       <category>Creative Coding</category>
+    </item>
+
+    <item>
+      <title>The Prompt I Used to Build a Premium Property Site on Replit (Scroll as the Medium)</title>
+      <link>https://www.avivashishta.com/blog/prompt-premium-property-site-scroll-choreography-replit</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-premium-property-site-scroll-choreography-replit</guid>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable Replit Agent brief for a luxury property site where scroll is the medium: a masked arch preloader, a sticky hero dive, a word-spacing spread, a horizontal track sized from its own content, clip-path curtains, a page that clips into a card at the footer, and six reveal primitives that each have a mirrored exit &#8212; built on CSS sticky instead of GSAP pin.</description>
+      <category>Web Design</category>
+      <category>GSAP</category>
+      <category>Animation</category>
+      <category>Scroll</category>
+      <category>Replit</category>
+      <category>Prompt Engineering</category>
+    </item>
+
+    <item>
+      <title>The Prompt I Used to Build a pear.no-Style Scroll-Scrubbed Cinematic Site on Replit (WebP Frames, Not Video)</title>
+      <link>https://www.avivashishta.com/blog/prompt-scroll-scrubbed-cinematic-site-webgl-replit</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/prompt-scroll-scrubbed-cinematic-site-webgl-replit</guid>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A copy-pasteable Replit Agent brief for a single-page cinematic WebGL site in the style of pear.no: one sticky stage sixty viewports tall, one normalized progress number, scroll-scrubbed WebP frame sequences instead of seeking a video, a halving-stride loader that never shows a blank frame, six shader transitions with an always-on grain-and-grade pass, and an asset pipeline that generates motion first and decomposes it with ffmpeg &#8212; vanilla TypeScript and hand-written WebGL1, no animation library.</description>
+      <category>Web Design</category>
+      <category>WebGL</category>
+      <category>Animation</category>
+      <category>Scroll</category>
+      <category>Replit</category>
+      <category>Prompt Engineering</category>
     </item>
 
   </channel>
