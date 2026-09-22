@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -407,6 +407,21 @@
       <category>WebGL</category>
       <category>Animation</category>
       <category>Scroll</category>
+      <category>Replit</category>
+      <category>Prompt Engineering</category>
+    </item>
+
+    <item>
+      <title>ASCII Studio: Images, 3D Models and a Live Webcam Turned Into Editable ASCII (Vibe-Coded on Replit)</title>
+      <link>https://www.avivashishta.com/blog/ascii-studio-replit-image-3d-webcam-ascii-art</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/ascii-studio-replit-image-3d-webcam-ascii-art</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A browser studio, built in an afternoon on Replit, that converts images, GLB/OBJ models and a live camera feed into ASCII you can keep editing: why every source has to collapse into one converter, why density is a cell size and not a column count, the 2:1 monospace cell that stretches everything if you ignore it, camera teardown on all four exit paths &#8212; plus the full copy-pasteable Agent brief.</description>
+      <category>Creative Coding</category>
+      <category>ASCII Art</category>
+      <category>Three.js</category>
+      <category>Canvas</category>
       <category>Replit</category>
       <category>Prompt Engineering</category>
     </item>
