@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8 GitHub Repos That Make Claude Code 10x Better | Avi Vashishta</title>
+    <meta name="description" content="Eight open-source repos that change how Claude Code behaves: a skills framework, an agent harness optimizer, tool-output trimming, git worktree management, a parallel-agent fleet runner, cross-tool memory, an anti-over-engineering ruleset, and an answer-first output skill. Star counts verified 23 September 2026." />
+    <link rel="canonical" href="https://www.avivashishta.com/blog/github-repos-that-make-claude-code-better" />
+    <meta name="author" content="Avi Vashishta" />
+    <meta property="og:title" content="8 GitHub Repos That Make Claude Code 10x Better" />
+    <meta property="og:description" content="Skills, memory, context trimming, worktrees and a parallel agent fleet — the eight repos I actually run, and how they fit together as one setup. Works with Codex and Cursor too." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.avivashishta.com/blog/github-repos-that-make-claude-code-better" />
+    <meta property="article:published_time" content="2026-09-23T00:00:00Z" />
+    <meta property="article:author" content="Avi Vashishta" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "8 GitHub Repos That Make Claude Code 10x Better",
+        "description": "Skills, memory, context trimming, worktrees and a parallel agent fleet — the eight repos I actually run, and how they fit together as one setup. Works with Codex and Cursor too.",
+        "author": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "datePublished": "2026-09-23",
+        "url": "https://www.avivashishta.com/blog/github-repos-that-make-claude-code-better"
+      }
+    </script>
+    <!-- PostHog -->
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement('script')).type = 'text/javascript'),
+              (p.crossOrigin = 'anonymous'),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') +
+                '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return (
+                    'posthog' !== a && (e += '.' + a),
+                    t || (e += ' (stub)'),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric'.split(
+                    ' ',
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_cgNNpL9lqLK50jeJICAV6xcGZDmuDnuPVxPeG8Ieg6m', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: true,
+        capture_pageleave: true,
+      });
+      // Fire a named event so this article is easy to filter in PostHog.
+      posthog.capture('article_viewed', {
+        slug: 'github-repos-that-make-claude-code-better',
+        title: '8 GitHub Repos That Make Claude Code Better',
+      });
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.7;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+      }
+      h2 {
+        font-size: 1.4rem;
+        margin-top: 2.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+        margin-bottom: 0.25rem;
+      }
+      .meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        margin: 1rem 0;
+      }
+      ul,
+      ol {
+        margin: 1rem 0;
+        padding-left: 1.4rem;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+      blockquote {
+        margin: 1.5rem 0;
+        padding: 4px 20px;
+        border-left: 4px solid #0066cc;
+        background: #f0f7ff;
+        border-radius: 0 8px 8px 0;
+        color: #333;
+        font-style: italic;
+      }
+      .highlight {
+        background: #f0f7ff;
+        border-left: 4px solid #0066cc;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 1.5rem 0;
+      }
+      .stars {
+        display: inline-block;
+        font: 600 0.72rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas,
+          monospace;
+        letter-spacing: 0.06em;
+        color: #444;
+        background: #f2f2f2;
+        border: 1px solid #e2e2e2;
+        border-radius: 6px;
+        padding: 5px 9px;
+        vertical-align: middle;
+        margin-left: 6px;
+      }
+      .repo-link {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        word-break: break-all;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.92rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+      th {
+        font-weight: 600;
+        color: #444;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: #f2f2f2;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      a {
+        color: #0066cc;
+      }
+      .back {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 24px 16px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h1>8 GitHub Repos That Make Claude Code 10x Better</h1>
+      <p class="meta">
+        Published September 2026 ·
+        <a href="https://www.avivashishta.com">avivashishta.com</a>
+      </p>
+
+      <p>
+        You commented <strong>REPOS</strong>, so here is the list. All eight
+        work with Claude Code, and most of them work with Codex and Cursor too
+        — the useful ones are not tied to a single vendor, they are skills,
+        rules and memory that sit next to whatever agent you happen to be
+        running.
+      </p>
+      <p>
+        Star counts below were read from the GitHub API on 23 September 2026.
+      </p>
+
+      <div class="highlight">
+        <p style="margin-bottom: 0">
+          <strong>The short version:</strong> if you install exactly one of
+          these, install <a href="#superpowers">superpowers</a>. It changes how
+          the agent works rather than what it knows, and every other repo on
+          this list gets more useful once the agent is planning and testing
+          properly.
+        </p>
+      </div>
+
+      <h2>The list</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Repo</th>
+            <th>What it fixes</th>
+            <th>Stars</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#superpowers">obra/superpowers</a></td>
+            <td>Agent skips planning and tests</td>
+            <td>~290K</td>
+          </tr>
+          <tr>
+            <td><a href="#ecc">affaan-m/ECC</a></td>
+            <td>No memory, no safety rails, slow</td>
+            <td>~266K</td>
+          </tr>
+          <tr>
+            <td><a href="#context-mode">mksglu/context-mode</a></td>
+            <td>Tool output eats the context window</td>
+            <td>~24K</td>
+          </tr>
+          <tr>
+            <td><a href="#worktrunk">max-sixty/worktrunk</a></td>
+            <td>Parallel agents fighting over one checkout</td>
+            <td>~8K</td>
+          </tr>
+          <tr>
+            <td><a href="#orca">stablyai/orca</a></td>
+            <td>No way to run a fleet of agents</td>
+            <td>~76K</td>
+          </tr>
+          <tr>
+            <td><a href="#ai-memory">akitaonrails/ai-memory</a></td>
+            <td>Switching tools resets everything</td>
+            <td>~8K</td>
+          </tr>
+          <tr>
+            <td><a href="#ponytail">DietrichGebert/ponytail</a></td>
+            <td>Over-engineered solutions</td>
+            <td>~145K</td>
+          </tr>
+          <tr>
+            <td><a href="#adhd">ayghri/i-have-adhd</a></td>
+            <td>The answer buried under filler</td>
+            <td>~51K</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="superpowers">1. obra/superpowers <span class="stars">~290K ★</span></h2>
+      <p class="repo-link">
+        <a href="https://github.com/obra/superpowers"
+          >github.com/obra/superpowers</a
+        >
+      </p>
+      <p>
+        A skills framework and a development methodology in one. It gets the
+        agent to plan before it writes, write the test first, and review its
+        own work before it tells you it is done. That last part is the one that
+        matters — the default failure mode of every coding agent is declaring
+        victory on code it never ran.
+      </p>
+      <p><strong>Start here.</strong> It is the highest-leverage install on the list.</p>
+
+      <h2 id="ecc">2. affaan-m/ECC <span class="stars">~266K ★</span></h2>
+      <p class="repo-link">
+        <a href="https://github.com/affaan-m/ECC">github.com/affaan-m/ECC</a>
+      </p>
+      <p>
+        A harness optimization system: memory, instincts, security rails and
+        research-first development bolted onto Claude Code, Codex, Opencode and
+        Cursor. Where superpowers gives the agent a method, ECC gives it an
+        environment — the things you would otherwise rebuild by hand in every
+        repo.
+      </p>
+
+      <h2 id="context-mode">3. mksglu/context-mode <span class="stars">~24K ★</span></h2>
+      <p class="repo-link">
+        <a href="https://github.com/mksglu/context-mode"
+          >github.com/mksglu/context-mode</a
+        >
+      </p>
+      <p>
+        Sandboxes large tool output — logs, test runs, diffs — so it does not
+        spend your context window. This is the least glamorous repo here and
+        the one you notice fastest. A single failing test suite can dump tens
+        of thousands of tokens of stack traces into a session; three of those
+        and your agent has forgotten what you asked for. Trimming the output at
+        the tool boundary is what keeps long sessions useful.
+      </p>
+      <p>It works through MCP plus hooks, so it applies across agents rather than inside one.</p>
+
+      <h2 id="worktrunk">4. max-sixty/worktrunk <span class="stars">~8K ★</span></h2>
+      <p class="repo-link">
+        <a href="https://github.com/max-sixty/worktrunk"
+          >github.com/max-sixty/worktrunk</a
+        >
+      </p>
+      <p>
+        A CLI for git worktree management, built for parallel agent workflows.
+        Give each agent its own branch and its own folder, and run several at
+        once without them trampling each other's edits or colliding on merge.
+      </p>
+      <p>
+        Running more than one agent in a single checkout is the mistake
+        everyone makes once. Worktrees are the boring, correct fix, and this
+        wraps the ceremony.
+      </p>
+
+      <h2 id="orca">5. stablyai/orca <span class="stars">~76K ★</span></h2>
+      <p class="repo-link">
+        <a href="https://github.com/stablyai/orca">github.com/stablyai/orca</a>
+      </p>
+      <p>
+        An agent development environment for running a fleet of agents in
+        parallel — desktop, mobile and a remote runtime, using your own
+        subscription and whichever coding agent you prefer. Pairs naturally
+        with worktrunk: worktrunk isolates the filesystem, orca gives you
+        somewhere to watch all of it at once.
+      </p>
+
+      <h2 id="ai-memory">6. akitaonrails/ai-memory <span class="stars">~8K ★</span></h2>
+      <p class="repo-link">
+        <a href="https://github.com/akitaonrails/ai-memory"
+          >github.com/akitaonrails/ai-memory</a
+        >
+      </p>
+      <p>
+        Long-term memory for agent CLIs, explicitly designed for handoff
+        between vendors. Everything you taught Claude Code about your codebase
+        carries over when you open the same project in Codex or Cursor instead
+        of starting from zero.
+      </p>
+
+      <h2 id="ponytail">7. DietrichGebert/ponytail <span class="stars">~145K ★</span></h2>
+      <p class="repo-link">
+        <a href="https://github.com/DietrichGebert/ponytail"
+          >github.com/DietrichGebert/ponytail</a
+        >
+      </p>
+      <p>
+        Rules that steer the agent toward the simplest thing that works. The
+        project describes it as making your agent think like the laziest senior
+        dev in the room, which is exactly right: the best code is the code you
+        never wrote.
+      </p>
+      <p>
+        Left alone, agents reach for abstraction — a factory where a function
+        would do, a config layer for a value that changes once a year. This is
+        the counterweight.
+      </p>
+
+      <h2 id="adhd">8. ayghri/i-have-adhd <span class="stars">~51K ★</span></h2>
+      <p class="repo-link">
+        <a href="https://github.com/ayghri/i-have-adhd"
+          >github.com/ayghri/i-have-adhd</a
+        >
+      </p>
+      <p>
+        A skill that stops the agent burying the answer. Answer first, filler
+        cut. Small, and it changes every single response you read for the rest
+        of the day.
+      </p>
+
+      <h2>My setup — how they fit together</h2>
+      <p>
+        These are not eight separate installs so much as four layers. This is
+        the order I would add them in:
+      </p>
+      <ol>
+        <li>
+          <strong>superpowers</strong> — how the agent works. Plan, test,
+          self-review.
+        </li>
+        <li>
+          <strong>worktrunk + orca</strong> — three to five agents running in
+          parallel, each in its own worktree.
+        </li>
+        <li>
+          <strong>context-mode</strong> — so those long parallel sessions do
+          not drown in their own tool output.
+        </li>
+        <li>
+          <strong>ai-memory</strong> — so switching tools does not reset what
+          the agent knows about the project.
+        </li>
+      </ol>
+      <p>
+        ECC overlaps with a few of these and is worth taking as a whole rather
+        than piecemeal. Ponytail and i-have-adhd are rule files — add them last,
+        once the rest is working, and judge them on whether the output reads
+        better.
+      </p>
+
+      <h2>The pattern worth noticing</h2>
+      <p>
+        Not one of these repos makes the model smarter. They fix the harness
+        around it: what the agent can remember, how much of the window it
+        wastes, whether two of them can run without colliding, and whether it
+        checks its own work before claiming it is finished. That is where the
+        10x is — the model has been good enough for a while; the scaffolding
+        around it is what has been thin.
+      </p>
+
+      <p>
+        If you want more in this shape, there is
+        <a href="/blog/25-projects-to-build-to-get-hired-2026"
+          >25 projects to build to get hired in 2026</a
+        >,
+        <a href="/blog/rubiks-cube-solver-three-js-claude"
+          >a Rubik's cube solver built with Claude and Three.js</a
+        >, and
+        <a href="/blog/gesture-controlled-portfolio-mediapipe-threejs"
+          >the gesture-controlled portfolio this blog lives on</a
+        >.
+      </p>
+
+      <p>
+        Follow
+        <a href="https://www.instagram.com/avi_vashishta29/"
+          >@avi_vashishta29</a
+        >
+        for more setups like this.
+      </p>
+
+      <div class="back">
+        <p>
+          <a href="https://www.avivashishta.com">← Portfolio</a> ·
+          <a href="/blog">Blog</a>
+        </p>
+      </div>
+    </article>
+  </body>
+</html>

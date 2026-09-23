@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -424,6 +424,20 @@
       <category>Canvas</category>
       <category>Replit</category>
       <category>Prompt Engineering</category>
+    </item>
+
+    <item>
+      <title>8 GitHub Repos That Make Claude Code 10x Better</title>
+      <link>https://www.avivashishta.com/blog/github-repos-that-make-claude-code-better</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/github-repos-that-make-claude-code-better</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Eight open-source repos that change how Claude Code behaves &#8212; a skills framework that makes the agent plan, test and self-review, a harness optimizer, tool-output trimming that keeps long sessions alive, git worktree management for parallel agents, a fleet runner, memory that survives switching tools, an anti-over-engineering ruleset, and an answer-first output skill. Star counts read from the GitHub API on 23 September 2026.</description>
+      <category>Claude Code</category>
+      <category>AI Agents</category>
+      <category>Developer Tools</category>
+      <category>Open Source</category>
+      <category>GitHub</category>
     </item>
 
   </channel>
