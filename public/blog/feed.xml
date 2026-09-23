@@ -440,5 +440,19 @@
       <category>GitHub</category>
     </item>
 
+    <item>
+      <title>What 2027 Interviews Will Actually Ask You</title>
+      <link>https://www.avivashishta.com/blog/what-2027-interviews-will-actually-ask</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/what-2027-interviews-will-actually-ask</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Fifteen questions software engineering interviews are moving toward in 2027 &#8212; working alongside an AI assistant and checking what it wrote, reading and debugging an unfamiliar codebase, defending the architecture decisions in your own projects, and explaining how an AI system remembers, gets evaluated and gets cheaper &#8212; plus a four-week plan that turns half the list into answers you have actually lived. Sourced from Google's AI-assisted pilot, Meta's AI-enabled format, HackerRank's interview modes and CoderPad's 2026 hiring survey.</description>
+      <category>Interviews</category>
+      <category>Careers</category>
+      <category>AI</category>
+      <category>System Design</category>
+      <category>Hiring</category>
+    </item>
+
   </channel>
 </rss>
