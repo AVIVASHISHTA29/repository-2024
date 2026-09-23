@@ -454,5 +454,18 @@
       <category>Hiring</category>
     </item>
 
+    <item>
+      <title>One Desk Photo, Three AI Clips: Building a Cinematic Agent Command Center With Replit's Video Generator</title>
+      <link>https://www.avivashishta.com/blog/replit-ai-video-desk-photo-agent-command-center</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/replit-ai-video-desk-photo-agent-command-center</guid>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>How one rear-view desk photo became a continuous 24-second sequence on Replit's video generator: a first concept clip that showed what not to do, a second clip with a four-colour palette, a 'do not include' list and terminals that come online one by one like independent agents, and a third clip chained from the second's last frame so the scene never resets. Plus the generator's limits and three copy-pasteable prompts.</description>
+      <category>AI Video</category>
+      <category>Generative AI</category>
+      <category>Replit</category>
+      <category>Prompt Engineering</category>
+    </item>
+
   </channel>
 </rss>
