@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -465,6 +465,48 @@
       <category>Generative AI</category>
       <category>Replit</category>
       <category>Prompt Engineering</category>
+    </item>
+
+    <item>
+      <title>Claude Opus 5.5 vs GPT-6 Sol: Which One to Use for Coding</title>
+      <link>https://www.avivashishta.com/blog/claude-opus-5-5-vs-gpt-6-sol-coding</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/claude-opus-5-5-vs-gpt-6-sol-coding</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Claude Opus 5.5 and GPT-6 Sol launched on the same day. Pricing, context windows and model IDs from the official pages, the benchmarks each company chose and why you can't compare them, GPT-6 Luna as the cheap option Free users get in Codex, and a 20-minute test on your own code to pick a default. Checked 24 September 2026.</description>
+      <category>AI Models</category>
+      <category>Claude</category>
+      <category>OpenAI</category>
+      <category>Codex</category>
+      <category>Claude Code</category>
+    </item>
+
+    <item>
+      <title>career-ops: The Open-Source Repo That Runs Your Job Search</title>
+      <link>https://www.avivashishta.com/blog/career-ops-open-source-ai-job-search</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/career-ops-open-source-ai-job-search</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>An open-source job search system (72.5K stars, MIT) that runs inside Claude Code or Codex: it scores each listing against your CV from 1 to 5, flags ghost jobs, drafts tailored CVs and cover letters, and never applies for you. Setup, India job boards to point it at, and how to use it when only 5.9% of Indian tech postings are entry level.</description>
+      <category>Careers</category>
+      <category>Jobs</category>
+      <category>Open Source</category>
+      <category>Claude Code</category>
+      <category>GitHub</category>
+    </item>
+
+    <item>
+      <title>YC Summer 2027 Internships: Where to Apply (and What to Do From India)</title>
+      <link>https://www.avivashishta.com/blog/yc-summer-2027-internships-where-to-apply</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/yc-summer-2027-internships-where-to-apply</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>Y Combinator's Summer 2027 internship page is live. The official page, Simplify, TrueUp and startup.jobs for YC and startup intern roles, India AI internship listings to apply to now, and how to write an application a small startup will actually read. Checked 24 September 2026.</description>
+      <category>Internships</category>
+      <category>Careers</category>
+      <category>Startups</category>
+      <category>Y Combinator</category>
+      <category>Hiring</category>
     </item>
 
   </channel>

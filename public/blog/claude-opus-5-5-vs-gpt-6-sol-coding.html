@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claude Opus 5.5 vs GPT-6 Sol: Which One to Use for Coding | Avi Vashishta</title>
+    <meta name="description" content="Claude Opus 5.5 and GPT-6 Sol launched the same day. Pricing, context windows and benchmarks from the official pages, why the launch benchmarks can&#x27;t be compared, the cheap GPT-6 Luna option, and a 20-minute test to pick your own default. Checked 24 September 2026." />
+    <link rel="canonical" href="https://www.avivashishta.com/blog/claude-opus-5-5-vs-gpt-6-sol-coding" />
+    <meta name="author" content="Avi Vashishta" />
+    <meta property="og:title" content="Claude Opus 5.5 vs GPT-6 Sol: Which One to Use for Coding" />
+    <meta property="og:description" content="Opus 5.5 is $4/$20 per 1M tokens, GPT-6 Sol is $2/$10, Luna is $0.10/$0.50. What each is for, why launch benchmarks don&#x27;t settle it, and how to test both on your own code." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.avivashishta.com/blog/claude-opus-5-5-vs-gpt-6-sol-coding" />
+    <meta property="article:published_time" content="2026-09-24T00:00:00Z" />
+    <meta property="article:author" content="Avi Vashishta" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Claude Opus 5.5 vs GPT-6 Sol: Which One to Use for Coding",
+        "description": "Opus 5.5 is $4/$20 per 1M tokens, GPT-6 Sol is $2/$10, Luna is $0.10/$0.50. What each is for, why launch benchmarks don't settle it, and how to test both on your own code.",
+        "author": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "datePublished": "2026-09-24",
+        "url": "https://www.avivashishta.com/blog/claude-opus-5-5-vs-gpt-6-sol-coding"
+      }
+    </script>
+    <!-- PostHog -->
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement('script')).type = 'text/javascript'),
+              (p.crossOrigin = 'anonymous'),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') +
+                '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return (
+                    'posthog' !== a && (e += '.' + a),
+                    t || (e += ' (stub)'),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric'.split(
+                    ' ',
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_cgNNpL9lqLK50jeJICAV6xcGZDmuDnuPVxPeG8Ieg6m', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: true,
+        capture_pageleave: true,
+      });
+      // Fire a named event so this article is easy to filter in PostHog.
+      posthog.capture('article_viewed', {
+        slug: 'claude-opus-5-5-vs-gpt-6-sol-coding',
+        title: "Claude Opus 5.5 vs GPT-6 Sol: Which One to Use for Coding",
+      });
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.7;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+      }
+      h2 {
+        font-size: 1.4rem;
+        margin-top: 2.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+        margin-bottom: 0.25rem;
+      }
+      .meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        margin: 1rem 0;
+      }
+      ul,
+      ol {
+        margin: 1rem 0;
+        padding-left: 1.4rem;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+      blockquote {
+        margin: 1.5rem 0;
+        padding: 4px 20px;
+        border-left: 4px solid #0066cc;
+        background: #f0f7ff;
+        border-radius: 0 8px 8px 0;
+        color: #333;
+        font-style: italic;
+      }
+      .highlight {
+        background: #f0f7ff;
+        border-left: 4px solid #0066cc;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 1.5rem 0;
+      }
+      .stars {
+        display: inline-block;
+        font: 600 0.72rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas,
+          monospace;
+        letter-spacing: 0.06em;
+        color: #444;
+        background: #f2f2f2;
+        border: 1px solid #e2e2e2;
+        border-radius: 6px;
+        padding: 5px 9px;
+        vertical-align: middle;
+        margin-left: 6px;
+      }
+      .repo-link {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        word-break: break-all;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.92rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+      th {
+        font-weight: 600;
+        color: #444;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: #f2f2f2;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      a {
+        color: #0066cc;
+      }
+      .back {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 24px 16px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h1>Claude Opus 5.5 vs GPT-6 Sol: Which One to Use for Coding</h1>
+      <p class="meta">
+        Published September 2026 ·
+        <a href="https://www.avivashishta.com">avivashishta.com</a>
+      </p>
+
+      <p>
+        You commented <strong>MODELS</strong>, so here's the breakdown.
+        Anthropic released Claude Opus 5.5 and OpenAI released GPT-6 Sol and
+        GPT-6 Luna on the same day, 22 September 2026. Both companies cut prices
+        and both pitched their model at coding agents.
+      </p>
+      <p>
+        Every number below comes from the official model pages. I checked them
+        on 24 September 2026.
+      </p>
+
+      <div class="highlight">
+        <p style="margin-bottom: 0">
+          <strong>The short version:</strong> Sol costs half as much as Opus 5.5
+          per token. Luna is the one most students should look at first, because
+          Free and Go users get it in the Codex desktop app. Don't pick between
+          Opus and Sol from launch-day benchmarks. Give both the same task on
+          your own code.
+        </p>
+      </div>
+
+      <h2>The numbers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Claude Opus 5.5</th>
+            <th>GPT-6 Sol</th>
+            <th>GPT-6 Luna</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Input, per 1M tokens</td><td>$4</td><td>$2</td><td>$0.10</td></tr>
+          <tr><td>Output, per 1M tokens</td><td>$20</td><td>$10</td><td>$0.50</td></tr>
+          <tr><td>Cached input, per 1M tokens</td><td>$0.20</td><td>$0.20</td><td>&nbsp;</td></tr>
+          <tr><td>Context window</td><td>1M tokens</td><td>1.05M tokens</td><td>&nbsp;</td></tr>
+          <tr><td>Max output</td><td>128K tokens</td><td>128K tokens</td><td>&nbsp;</td></tr>
+          <tr><td>Model ID</td><td><code>claude-opus-5-5</code></td><td><code>gpt-6-sol</code></td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Sources:
+        <a href="https://platform.claude.com/docs/en/models/overview">Claude models overview</a>,
+        <a href="https://developers.openai.com/api/docs/models/gpt-6-sol">GPT-6 Sol model page</a>,
+        <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna/">OpenAI's launch post</a>.
+        The blank cells are numbers I couldn't find on an official page, so I
+        didn't fill them in.
+      </p>
+
+      <h2 id="opus">1. Claude Opus 5.5</h2>
+      <p class="repo-link">
+        <a href="https://www.anthropic.com/claude-opus-5-5">anthropic.com/claude-opus-5-5</a>
+      </p>
+      <p>
+        Anthropic says Opus 5.5 is 30% faster than Opus 5 and costs about 40%
+        less to run on typical workloads. Per-token prices dropped 20% and
+        cached reads dropped 60%. The numbers they highlight for coding and
+        agents: Terminal-Bench 4.0 at 66.4%, CursorBench 4.0 at 57.8% and
+        OSWorld 2.0 at 81.8%.
+      </p>
+      <p>
+        If you use Claude Code you already have it. Opus 5.5 became the default
+        model in Claude Code 2.1.280
+        (<a href="https://releasebot.io/updates/anthropic">release notes</a>).
+      </p>
+
+      <h2 id="sol">2. GPT-6 Sol</h2>
+      <p class="repo-link">
+        <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna/">openai.com/index/introducing-gpt-6-sol-and-luna</a>
+      </p>
+      <p>
+        OpenAI's model for coding and agent work. It costs 50% less than the
+        GPT-5.6 generation it replaces. It's in Codex for Plus, Pro, Business,
+        Enterprise and Edu plans, and in GitHub Copilot on Pro+ and higher plans
+        (<a href="https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available/">GitHub changelog</a>).
+      </p>
+      <p>
+        OpenAI's headline claim is that Sol comes within 1.1 points of Claude
+        Fable 5's best score on DeepSWE v1.1 at roughly 80% lower cost.
+      </p>
+
+      <h2 id="luna">3. GPT-6 Luna, the cheap one people are missing</h2>
+      <p>
+        Luna costs $0.10 per million input tokens. Free and Go users get it in
+        the Codex desktop app
+        (<a href="https://community.openai.com/t/announcing-gpt-6-sol-and-gpt-6-luna-in-the-api-codex-and-chatgpt/1399925">OpenAI's announcement</a>),
+        and it's on Copilot Pro. It's good enough for small scripts, tests,
+        boilerplate and explaining code, which covers most of what you do in a
+        college project.
+      </p>
+
+      <h2>Why the benchmarks don't settle it</h2>
+      <p>
+        Look at the numbers above again. Anthropic reports Terminal-Bench, OpenAI
+        reports DeepSWE and AutomationBench. Neither launch post reports the
+        other's benchmarks, so you can't put them side by side. Each company
+        picked the tests it wins. The only comparison that tells you anything is
+        one you run on your own code.
+      </p>
+
+      <!-- TODO(Avi): add your own test result here (task, which model won, cost) before you promote this post. -->
+
+      <h2>How to run your own test in 20 minutes</h2>
+      <ol>
+        <li>Pick one real bug or small feature from a project you've already built.</li>
+        <li>Make two branches from the same commit, one per model.</li>
+        <li>Give both the exact same prompt, once in Claude Code and once in Codex.</li>
+        <li>
+          Compare three things: the diff, how many times you had to correct it,
+          and what it cost.
+        </li>
+        <li>Keep the branch you'd actually merge. That's your answer.</li>
+      </ol>
+
+      <h2>How I'd use them on a student budget</h2>
+      <ul>
+        <li><strong>Luna</strong> for the small everyday jobs: tests, renames, docs, quick scripts.</li>
+        <li><strong>Opus 5.5 or Sol</strong> only for the hard parts: a migration, a gnarly bug, a feature that touches many files.</li>
+        <li>
+          <strong>Whichever wins your test</strong> as the default. Switching
+          costs you a model menu, not a rewrite.
+        </li>
+      </ul>
+
+      <p>
+        If you want the harness side of this, read
+        <a href="/blog/github-repos-that-make-claude-code-better">8 GitHub repos that make Claude Code 10x better</a>.
+        A better model helps less than you'd think if the setup around it is
+        weak.
+      </p>
+
+      <p>
+        Follow
+        <a href="https://www.instagram.com/avi_vashishta29/">@avi_vashishta29</a>
+        for one practical AI dev tool a day.
+      </p>
+
+      <div class="back">
+        <p>
+          <a href="https://www.avivashishta.com">← Portfolio</a> ·
+          <a href="/blog">Blog</a>
+        </p>
+      </div>
+    </article>
+  </body>
+</html>

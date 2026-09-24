@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>career-ops: The Open-Source Repo That Runs Your Job Search | Avi Vashishta</title>
+    <meta name="description" content="career-ops (72.5K GitHub stars, MIT) runs inside Claude Code or Codex to score job listings against your CV, flag ghost jobs, and draft tailored CVs and cover letters without ever applying for you. Setup, India job boards to point it at, and how to use it well when only 5.9% of Indian tech postings are entry level." />
+    <link rel="canonical" href="https://www.avivashishta.com/blog/career-ops-open-source-ai-job-search" />
+    <meta name="author" content="Avi Vashishta" />
+    <meta property="og:title" content="career-ops: The Open-Source Repo That Runs Your Job Search" />
+    <meta property="og:description" content="An open-source job search agent that scores listings against your CV, flags scams and drafts tailored applications, and never hits send for you. Setup and how I&#x27;d use it." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.avivashishta.com/blog/career-ops-open-source-ai-job-search" />
+    <meta property="article:published_time" content="2026-09-24T00:00:00Z" />
+    <meta property="article:author" content="Avi Vashishta" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "career-ops: The Open-Source Repo That Runs Your Job Search",
+        "description": "An open-source job search agent that scores listings against your CV, flags scams and drafts tailored applications, and never hits send for you. Setup and how I'd use it.",
+        "author": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "datePublished": "2026-09-24",
+        "url": "https://www.avivashishta.com/blog/career-ops-open-source-ai-job-search"
+      }
+    </script>
+    <!-- PostHog -->
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement('script')).type = 'text/javascript'),
+              (p.crossOrigin = 'anonymous'),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') +
+                '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return (
+                    'posthog' !== a && (e += '.' + a),
+                    t || (e += ' (stub)'),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric'.split(
+                    ' ',
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_cgNNpL9lqLK50jeJICAV6xcGZDmuDnuPVxPeG8Ieg6m', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: true,
+        capture_pageleave: true,
+      });
+      // Fire a named event so this article is easy to filter in PostHog.
+      posthog.capture('article_viewed', {
+        slug: 'career-ops-open-source-ai-job-search',
+        title: "career-ops: The Open-Source Repo That Runs Your Job Search",
+      });
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.7;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+      }
+      h2 {
+        font-size: 1.4rem;
+        margin-top: 2.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+        margin-bottom: 0.25rem;
+      }
+      .meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        margin: 1rem 0;
+      }
+      ul,
+      ol {
+        margin: 1rem 0;
+        padding-left: 1.4rem;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+      blockquote {
+        margin: 1.5rem 0;
+        padding: 4px 20px;
+        border-left: 4px solid #0066cc;
+        background: #f0f7ff;
+        border-radius: 0 8px 8px 0;
+        color: #333;
+        font-style: italic;
+      }
+      .highlight {
+        background: #f0f7ff;
+        border-left: 4px solid #0066cc;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 1.5rem 0;
+      }
+      .stars {
+        display: inline-block;
+        font: 600 0.72rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas,
+          monospace;
+        letter-spacing: 0.06em;
+        color: #444;
+        background: #f2f2f2;
+        border: 1px solid #e2e2e2;
+        border-radius: 6px;
+        padding: 5px 9px;
+        vertical-align: middle;
+        margin-left: 6px;
+      }
+      .repo-link {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        word-break: break-all;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.92rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+      th {
+        font-weight: 600;
+        color: #444;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: #f2f2f2;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      a {
+        color: #0066cc;
+      }
+      .back {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 24px 16px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h1>career-ops: The Open-Source Repo That Runs Your Job Search</h1>
+      <p class="meta">
+        Published September 2026 ·
+        <a href="https://www.avivashishta.com">avivashishta.com</a>
+      </p>
+
+      <p>
+        You commented <strong>JOBS</strong>, so here's the setup. career-ops is
+        an open-source job search system that runs inside the AI coding CLI you
+        already use: Claude Code, Codex, OpenCode or Gemini CLI. It had 72,559
+        stars on GitHub on 24 September 2026.
+      </p>
+
+      <h2>Why this matters right now</h2>
+      <p>
+        Only <strong>5.9%</strong> of Indian tech job postings are entry or
+        junior level. That's 908 out of 15,429 LinkedIn and Naukri postings
+        between 29 May and 29 July 2026, or about eight senior roles for every
+        entry role. Only 0.4% are remote.
+        (<a href="https://www.prepnplaced.com/india-tech-hiring-report-2026">PrepNPlaced India Tech Hiring Report 2026</a>)
+      </p>
+      <p>
+        With that few openings, sending more applications doesn't help much.
+        Better applications to the right roles do. That's the job this repo does.
+      </p>
+
+      <div class="highlight">
+        <p style="margin-bottom: 0">
+          <strong>The short version:</strong> it scores each job against your CV,
+          flags fake listings and drafts a tailored CV and cover letter. It
+          <em>never</em> applies or sends anything for you. You stay in control
+          of every send.
+        </p>
+      </div>
+
+      <h2 id="repo">The repo: career-ops-hq/career-ops <span class="stars">~72.5K ★</span></h2>
+      <p class="repo-link">
+        <a href="https://github.com/career-ops-hq/career-ops">github.com/career-ops-hq/career-ops</a>
+      </p>
+      <p>
+        MIT licensed, and everything runs on your machine, so your CV doesn't
+        get uploaded to anyone's servers.
+      </p>
+
+      <h2>What it does</h2>
+      <ol>
+        <li>
+          <strong>Scores each listing from 1 to 5</strong> against your CV and
+          shows how it weighted each requirement, so you can see why a role
+          scored low.
+        </li>
+        <li><strong>Flags scams and ghost jobs</strong> before you waste an evening on them.</li>
+        <li>
+          <strong>Drafts an ATS-friendly CV and cover letter</strong> for each
+          role. It rewords what you have and doesn't invent experience.
+        </li>
+        <li><strong>Scans 100+ company job boards</strong> for new roles.</li>
+        <li>
+          <strong>Tracks your pipeline</strong> in a terminal dashboard and
+          generates interview prep in STAR format.
+        </li>
+      </ol>
+      <p>
+        What it won't do: submit applications, send emails, or push you toward
+        roles that score under 4.0 unless you override it.
+      </p>
+
+      <h2>Setup</h2>
+      <p>From the project README:</p>
+      <ol>
+        <li>Install Node.js and one AI CLI, for example Claude Code or Codex.</li>
+        <li>Run <code>npx @santifer/career-ops init</code>.</li>
+        <li>Write your CV as a markdown file.</li>
+        <li>Optional: install Playwright if you want PDF CVs.</li>
+      </ol>
+      <p>
+        No paid AI plan? The README lists OpenRouter's free tier and local
+        models as options.
+      </p>
+
+      <h2>Where to point it if you're in India</h2>
+      <ul>
+        <li>
+          <a href="https://wellfound.com/role/l/ai-engineer/india">Wellfound: AI engineer jobs in India</a>.
+          700+ roles, including AI Engineer Intern listings, mostly in Bengaluru.
+        </li>
+        <li>
+          <a href="https://internshala.com/fresher-jobs/artificial-intelligence-ai-jobs/">Internshala: AI fresher jobs</a>.
+          Around 140 openings.
+        </li>
+      </ul>
+
+      <h2>How I'd use it</h2>
+      <ul>
+        <li>Only apply to roles that score 4 or higher. Read every draft before you send it.</li>
+        <li>Five strong applications a week beat fifty copy-paste ones.</li>
+        <li>
+          Link two shipped projects in every CV: a live URL and a GitHub repo
+          with a real README. The tool can reword your experience, but it can't
+          build projects for you.
+        </li>
+        <li>Use the rejection tracking. If the same gap keeps showing up, that's your next project.</li>
+      </ul>
+
+      <p>
+        Need projects to link? Start with
+        <a href="/blog/25-projects-to-build-to-get-hired-2026">25 projects to build to get hired in 2026</a>,
+        then read
+        <a href="/blog/what-2027-interviews-will-actually-ask">what 2027 interviews will actually ask you</a>.
+      </p>
+
+      <p>
+        Follow
+        <a href="https://www.instagram.com/avi_vashishta29/">@avi_vashishta29</a>
+        for one practical AI dev tool a day.
+      </p>
+
+      <div class="back">
+        <p>
+          <a href="https://www.avivashishta.com">← Portfolio</a> ·
+          <a href="/blog">Blog</a>
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
