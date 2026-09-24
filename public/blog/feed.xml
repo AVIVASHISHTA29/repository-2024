@@ -509,5 +509,19 @@
       <category>Hiring</category>
     </item>
 
+    <item>
+      <title>Cosmo: The Replit Prompt I Used to Polish a 3D Robot Companion (and What Actually Shipped)</title>
+      <link>https://www.avivashishta.com/blog/cosmo-3d-robot-companion-threejs-replit</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/cosmo-3d-robot-companion-threejs-replit</guid>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A single-file Three.js robot you can boop, pet, throw and upset, with 11 moods, two hidden meters, spring physics, synthesised sound and a MediaPipe webcam Mirror mode. The full Replit polish prompt, which parts shipped and which were cut, and the tail-clipping and emote-timing fixes.</description>
+      <category>Prompts</category>
+      <category>Replit</category>
+      <category>Three.js</category>
+      <category>MediaPipe</category>
+      <category>Web Audio</category>
+    </item>
+
   </channel>
 </rss>
