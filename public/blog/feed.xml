@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -521,6 +521,34 @@
       <category>Three.js</category>
       <category>MediaPipe</category>
       <category>Web Audio</category>
+    </item>
+
+    <item>
+      <title>AI Engineering from Scratch: 523 Free Lessons, and the 4 Phases I&apos;d Do First</title>
+      <link>https://www.avivashishta.com/blog/ai-engineering-from-scratch-free-course</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/ai-engineering-from-scratch-free-course</guid>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A free, open-source AI engineering course on GitHub (58K stars, MIT): 523 lessons across 20 phases, where every lesson ships a prompt, skill, agent or MCP server. Three ways to start, including letting Claude Code or Codex tutor you, the four phases I&apos;d do first for an AI app developer job, what to ship after each, and three capstones worth building. Checked 26 September 2026.</description>
+      <category>AI Engineering</category>
+      <category>GitHub</category>
+      <category>Open Source</category>
+      <category>Agents</category>
+      <category>Careers</category>
+    </item>
+
+    <item>
+      <title>Stop Spending 3 Days on One LeetCode Hard: How I&apos;d Practice DSA With AI</title>
+      <link>https://www.avivashishta.com/blog/stop-spending-days-on-leetcode-hard-practice-dsa-with-ai</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/stop-spending-days-on-leetcode-hard-practice-dsa-with-ai</guid>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>AI systems solved ICPC World Finals problems under contest rules in 2025, so spending days on one LeetCode Hard isn&apos;t your edge. The 45-minute rule, three prompts that make Claude a hint-giving tutor instead of an answer machine, pattern-based practice with the NeetCode roadmap, and what to build with the time you save.</description>
+      <category>LeetCode</category>
+      <category>DSA</category>
+      <category>AI</category>
+      <category>Claude</category>
+      <category>Careers</category>
     </item>
 
   </channel>

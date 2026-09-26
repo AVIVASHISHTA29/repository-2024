@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop Spending 3 Days on One LeetCode Hard: How I'd Practice DSA With AI | Avi Vashishta</title>
+    <meta name="description" content="AI systems solved ICPC World Finals problems under contest rules in 2025, so grinding one LeetCode Hard for days isn&#x27;t your edge. The 45-minute rule, three prompts that make Claude a tutor instead of an answer machine, pattern-based practice, and what to build with the time you save." />
+    <link rel="canonical" href="https://www.avivashishta.com/blog/stop-spending-days-on-leetcode-hard-practice-dsa-with-ai" />
+    <meta name="author" content="Avi Vashishta" />
+    <meta property="og:title" content="Stop Spending 3 Days on One LeetCode Hard: How I&#x27;d Practice DSA With AI" />
+    <meta property="og:description" content="AI now solves ICPC World Finals problems, so solving speed isn&#x27;t your edge. The 45-minute rule, three tutor prompts for Claude, and what to build with the time you save." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.avivashishta.com/blog/stop-spending-days-on-leetcode-hard-practice-dsa-with-ai" />
+    <meta property="article:published_time" content="2026-09-26T00:00:00Z" />
+    <meta property="article:author" content="Avi Vashishta" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Stop Spending 3 Days on One LeetCode Hard: How I'd Practice DSA With AI",
+        "description": "AI now solves ICPC World Finals problems, so solving speed isn't your edge. The 45-minute rule, three tutor prompts for Claude, and what to build with the time you save.",
+        "author": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "datePublished": "2026-09-26",
+        "url": "https://www.avivashishta.com/blog/stop-spending-days-on-leetcode-hard-practice-dsa-with-ai"
+      }
+    </script>
+    <!-- PostHog -->
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement('script')).type = 'text/javascript'),
+              (p.crossOrigin = 'anonymous'),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') +
+                '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return (
+                    'posthog' !== a && (e += '.' + a),
+                    t || (e += ' (stub)'),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric'.split(
+                    ' ',
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_cgNNpL9lqLK50jeJICAV6xcGZDmuDnuPVxPeG8Ieg6m', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: true,
+        capture_pageleave: true,
+      });
+      // Fire a named event so this article is easy to filter in PostHog.
+      posthog.capture('article_viewed', {
+        slug: 'stop-spending-days-on-leetcode-hard-practice-dsa-with-ai',
+        title: "Stop Spending 3 Days on One LeetCode Hard: How I'd Practice DSA With AI",
+      });
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.7;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+      }
+      h2 {
+        font-size: 1.4rem;
+        margin-top: 2.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+        margin-bottom: 0.25rem;
+      }
+      .meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        margin: 1rem 0;
+      }
+      ul,
+      ol {
+        margin: 1rem 0;
+        padding-left: 1.4rem;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+      blockquote {
+        margin: 1.5rem 0;
+        padding: 4px 20px;
+        border-left: 4px solid #0066cc;
+        background: #f0f7ff;
+        border-radius: 0 8px 8px 0;
+        color: #333;
+        font-style: italic;
+      }
+      .highlight {
+        background: #f0f7ff;
+        border-left: 4px solid #0066cc;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 1.5rem 0;
+      }
+      .stars {
+        display: inline-block;
+        font: 600 0.72rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas,
+          monospace;
+        letter-spacing: 0.06em;
+        color: #444;
+        background: #f2f2f2;
+        border: 1px solid #e2e2e2;
+        border-radius: 6px;
+        padding: 5px 9px;
+        vertical-align: middle;
+        margin-left: 6px;
+      }
+      .repo-link {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        word-break: break-all;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.92rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+      th {
+        font-weight: 600;
+        color: #444;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: #f2f2f2;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      a {
+        color: #0066cc;
+      }
+      .back {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 24px 16px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h1>Stop Spending 3 Days on One LeetCode Hard: How I'd Practice DSA With AI</h1>
+      <p class="meta">
+        Published September 2026 ·
+        <a href="https://www.avivashishta.com">avivashishta.com</a>
+      </p>
+
+      <p>
+        You commented <strong>HARD</strong>, so here's the system. The reel
+        said Claude solves a LeetCode Hard in 5 seconds. That's an exaggeration
+        for effect. The real data is still wild, and it changes how you should
+        spend your practice time.
+      </p>
+
+      <div class="highlight">
+        <p style="margin-bottom: 0">
+          <strong>The short version:</strong> give a problem 45 minutes, use AI
+          for hints instead of answers, re-solve it from memory a few days
+          later, and cap DSA at an hour a day. Put the rest into a project you
+          can link.
+        </p>
+      </div>
+
+      <h2>Why grinding one problem for days isn't your edge anymore</h2>
+      <p>
+        At the 2025 ICPC World Finals in Baku, AI systems competed under the
+        same five-hour rules as the 139 university teams, with the same
+        problems, test cases and limits.
+      </p>
+      <ol>
+        <li>
+          <strong>OpenAI's system solved all 12 problems</strong>, a result
+          that would have ranked first among human teams.
+          (<a href="https://www.techrepublic.com/article/openai-deepmind-icpc-2025-results/">TechRepublic</a>)
+        </li>
+        <li>
+          <strong>Google's Gemini 2.5 Deep Think solved 10 of 12</strong>, gold
+          medal level, including one problem that no university team solved.
+          It got 8 of them in the first 45 minutes.
+          (<a href="https://deepmind.google/blog/gemini-achieves-gold-medal-level-at-the-international-collegiate-programming-contest-world-finals/">Google DeepMind</a>)
+        </li>
+      </ol>
+      <p>
+        These are some of the hardest algorithm problems students ever see.
+        Being fast at solving them is no longer what makes you valuable.
+        Understanding the solution, and shipping real things, is.
+      </p>
+
+      <h2>Fundamentals still matter</h2>
+      <p>
+        This isn't "never do DSA". You still need to know why a solution works.
+        Interviews still ask about time and space complexity, and your job will
+        involve reviewing code an AI wrote and spotting when it's wrong. The
+        goal is to learn the patterns faster, not to skip them.
+      </p>
+
+      <h2>The 45-minute rule</h2>
+      <ol>
+        <li>
+          <strong>Give a problem 30 to 45 minutes on your own.</strong> Write
+          down your approach, even if it's wrong. That attempt is where the
+          learning happens.
+        </li>
+        <li><strong>Stuck? Ask Claude for a hint, not the answer.</strong> The prompts are below.</li>
+        <li>
+          <strong>Still stuck after two hints?</strong> Ask for the full
+          explanation, read it, then close it and write the solution yourself
+          from memory.
+        </li>
+        <li>
+          <strong>Re-solve it from scratch two or three days later.</strong> If
+          you can't, it goes back in the queue.
+        </li>
+      </ol>
+      <p>One hour per problem, maximum. Never three days.</p>
+
+      <h2>3 prompts that make Claude a tutor, not an answer machine</h2>
+      <h3>1. Hint</h3>
+      <blockquote>
+        Here's the problem and my approach. Don't give me code or the solution.
+        Give me one hint about what I'm missing.
+      </blockquote>
+      <h3>2. Pattern</h3>
+      <blockquote>
+        Which pattern does this problem use (sliding window, two pointers, DP,
+        graph search...)? Name two easier problems that use the same pattern.
+      </blockquote>
+      <h3>3. Review</h3>
+      <blockquote>
+        Here's my solution. What's the time and space complexity? Find one edge
+        case that breaks it. Don't rewrite it for me.
+      </blockquote>
+
+      <h2>Practice patterns, not problem counts</h2>
+      <p>
+        A 500-day streak means less than knowing 15 patterns cold. Follow a
+        pattern-based list like the
+        <a href="https://neetcode.io/roadmap">NeetCode roadmap</a> and do two or
+        three problems per pattern until you can explain the idea out loud
+        without looking.
+      </p>
+
+      <h2>What to do with the time you save</h2>
+      <p>Build. A shipped project shows a recruiter far more than a streak does.</p>
+      <ul>
+        <li><a href="/blog/ai-engineering-from-scratch-free-course">AI Engineering from Scratch: 523 free lessons, and the 4 phases I'd do first</a></li>
+        <li><a href="/blog/25-projects-to-build-to-get-hired-2026">25 projects to build to get hired in 2026</a></li>
+      </ul>
+
+      <h2>How I'd use it</h2>
+      <ul>
+        <li>One hour of DSA a day, max. The rest goes into a project you can link.</li>
+        <li>Keep a notes file of patterns in your own words. That's your revision sheet before interviews.</li>
+        <li>Recruiters can't see how long you struggled on LeetCode. They can see your GitHub.</li>
+      </ul>
+
+      <p>
+        Follow
+        <a href="https://www.instagram.com/avi_vashishta29/">@avi_vashishta29</a>
+        for one practical AI dev tool a day.
+      </p>
+
+      <div class="back">
+        <p>
+          <a href="https://www.avivashishta.com">← Portfolio</a> ·
+          <a href="/blog">Blog</a>
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
