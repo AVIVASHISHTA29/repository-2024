@@ -537,19 +537,5 @@
       <category>Careers</category>
     </item>
 
-    <item>
-      <title>Stop Spending 3 Days on One LeetCode Hard: How I&apos;d Practice DSA With AI</title>
-      <link>https://www.avivashishta.com/blog/stop-spending-days-on-leetcode-hard-practice-dsa-with-ai</link>
-      <guid isPermaLink="true">https://www.avivashishta.com/blog/stop-spending-days-on-leetcode-hard-practice-dsa-with-ai</guid>
-      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
-      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
-      <description>AI systems solved ICPC World Finals problems under contest rules in 2025, so spending days on one LeetCode Hard isn&apos;t your edge. The 45-minute rule, three prompts that make Claude a hint-giving tutor instead of an answer machine, pattern-based practice with the NeetCode roadmap, and what to build with the time you save.</description>
-      <category>LeetCode</category>
-      <category>DSA</category>
-      <category>AI</category>
-      <category>Claude</category>
-      <category>Careers</category>
-    </item>
-
   </channel>
 </rss>
