@@ -5,7 +5,7 @@
     <link>https://www.avivashishta.com/blog/</link>
     <description>Articles by Avi Vashishta — fullstack developer, AI builder, and instructor at Dock.us (YC 2021). Writing about React, Next.js, AI products, and developer growth.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 27 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.avivashishta.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>avivashishta29@gmail.com (Avi Vashishta)</managingEditor>
     <webMaster>avivashishta29@gmail.com (Avi Vashishta)</webMaster>
@@ -537,5 +537,43 @@
       <category>Careers</category>
     </item>
 
+    <item>
+      <title>209 Free AI Projects to Build Before 2027 (Every Link, Sorted by Level)</title>
+      <link>https://www.avivashishta.com/blog/209-free-ai-projects-to-build</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/209-free-ai-projects-to-build</guid>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>209 free AI projects with code from awesome-llm-apps (140K stars) and ai-engineering-hub (38K stars): RAG, agents, MCP, voice and fine-tuning, sorted from beginner to advanced, with the 10 I&apos;d build first. Every link checked 27 September 2026.</description>
+      <category>AI Engineering</category>
+      <category>Projects</category>
+      <category>GitHub</category>
+      <category>Open Source</category>
+      <category>Careers</category>
+    </item>
+    <item>
+      <title>106 AI Startups to Cold Email for an Internship (India, Remote and Live Openings)</title>
+      <link>https://www.avivashishta.com/blog/106-ai-startups-to-cold-email-for-internship</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/106-ai-startups-to-cold-email-for-internship</guid>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>106 AI startups to cold email for an internship: India YC startups, India AI intern listings, live Summer 2027 postings and early-stage remote-friendly YC AI teams, plus the exact cold email I&apos;d send. Checked 27 September 2026.</description>
+      <category>Internships</category>
+      <category>Startups</category>
+      <category>Careers</category>
+      <category>India</category>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>201 Free System Design Lessons to Crack SDE Interviews in 2027</title>
+      <link>https://www.avivashishta.com/blog/201-free-system-design-lessons</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/201-free-system-design-lessons</guid>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>201 free system design lessons from the System Design Primer (372K stars) and Awesome System Design Resources: concepts, 57 solved and practice problems, engineering blogs and classic papers, plus a 4-week plan for SDE interviews. Every link checked 27 September 2026.</description>
+      <category>System Design</category>
+      <category>Interviews</category>
+      <category>Careers</category>
+      <category>Backend</category>
+    </item>
   </channel>
 </rss>
