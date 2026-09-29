@@ -611,5 +611,18 @@
       <category>Machine Learning</category>
       <category>Careers</category>
     </item>
+    <item>
+      <title>The Descent: A Replit Site Where Scrolling Falls Through Seven Worlds Hidden Inside a Book</title>
+      <link>https://www.avivashishta.com/blog/the-descent-infinite-zoom-book-webgl-replit</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/the-descent-infinite-zoom-book-webgl-replit</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>A scroll-driven infinite zoom through 15 nested illustrations, from a bookshop into a book, a ship, a snow globe and out to a star, then back again. How the hand-written WebGL shader, the slow-down at each world, the loader and the ink-reveal type work, what I removed, and what still has seams.</description>
+      <category>Replit</category>
+      <category>WebGL</category>
+      <category>Scroll Animation</category>
+      <category>Prompts</category>
+    </item>
+
   </channel>
 </rss>
