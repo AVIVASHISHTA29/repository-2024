@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>At My Desk: I Turned My Real Desk Into an Interactive 3D Website With Replit | Avi Vashishta</title>
+    <meta name="description" content="At My Desk is my actual desk setup rebuilt as a 3D website: lamps you can switch on and off, a monitor and laptop you can type on, a globe, a plant to water and a phone that becomes a focus timer. How the scene, the camera, the lights and the live screens work, built with Replit Agent, React Three Fiber and Drei." />
+    <link rel="canonical" href="https://www.avivashishta.com/blog/at-my-desk-interactive-3d-desk-website-replit" />
+    <meta name="author" content="Avi Vashishta" />
+    <meta property="og:title" content="At My Desk: I Turned My Real Desk Into an Interactive 3D Website With Replit" />
+    <meta property="og:description" content="My real desk as a 3D website. One camera over real 3D objects, a spring-damped camera you can interrupt, lights that fade instead of rebuilding, and live web content on the monitor and laptop screens." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.avivashishta.com/blog/at-my-desk-interactive-3d-desk-website-replit" />
+    <meta property="article:published_time" content="2026-10-01T00:00:00Z" />
+    <meta property="article:author" content="Avi Vashishta" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "At My Desk: I Turned My Real Desk Into an Interactive 3D Website With Replit",
+        "description": "My real desk as a 3D website. One camera over real 3D objects, a spring-damped camera you can interrupt, lights that fade instead of rebuilding, and live web content on the monitor and laptop screens.",
+        "author": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "datePublished": "2026-10-01",
+        "url": "https://www.avivashishta.com/blog/at-my-desk-interactive-3d-desk-website-replit"
+      }
+    </script>
+    <!-- PostHog -->
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement('script')).type = 'text/javascript'),
+              (p.crossOrigin = 'anonymous'),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') +
+                '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return (
+                    'posthog' !== a && (e += '.' + a),
+                    t || (e += ' (stub)'),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric'.split(
+                    ' ',
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_cgNNpL9lqLK50jeJICAV6xcGZDmuDnuPVxPeG8Ieg6m', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: true,
+        capture_pageleave: true,
+      });
+      // Fire a named event so this article is easy to filter in PostHog.
+      posthog.capture('article_viewed', {
+        slug: 'at-my-desk-interactive-3d-desk-website-replit',
+        title: 'At My Desk 3D Desk Replit',
+      });
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.7;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+      }
+      h2 {
+        font-size: 1.4rem;
+        margin-top: 2.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+        margin-top: 1.75rem;
+      }
+      .meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        margin: 1rem 0;
+      }
+      ul,
+      ol {
+        margin: 1rem 0;
+        padding-left: 1.4rem;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+      blockquote {
+        margin: 1.5rem 0;
+        padding: 4px 20px;
+        border-left: 4px solid #0066cc;
+        background: #f0f7ff;
+        border-radius: 0 8px 8px 0;
+        color: #333;
+        font-style: italic;
+      }
+      .highlight {
+        background: #f0f7ff;
+        border-left: 4px solid #0066cc;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 1.5rem 0;
+      }
+      .prompt,
+      .code {
+        background: #1a1a1a;
+        color: #e6e6e6;
+        padding: 20px 22px;
+        border-radius: 10px;
+        margin: 1.5rem 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        overflow-x: auto;
+      }
+      .promptbox {
+        position: relative;
+        margin: 1.5rem 0;
+      }
+      .promptbox .prompt {
+        margin: 0;
+        padding-top: 52px;
+      }
+      .copybtn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        font: 600 0.72rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas,
+          monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #e6e6e6;
+        background: #2b2b2b;
+        border: 1px solid #3d3d3d;
+        border-radius: 6px;
+        padding: 9px 14px;
+        cursor: pointer;
+        min-height: 34px;
+      }
+      .copybtn:hover {
+        background: #3a3a3a;
+      }
+      .copybtn.done {
+        color: #7ee39a;
+        border-color: #2f6b41;
+      }
+      .check {
+        margin: 0.75rem 0 0;
+        font-weight: 600;
+        color: #0a7d33;
+      }
+      .tablewrap {
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+      th {
+        font-weight: 600;
+        color: #444;
+      }
+      .sw {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 2px;
+        margin-right: 8px;
+        vertical-align: -1px;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: #f2f2f2;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      a {
+        color: #0066cc;
+      }
+      .back {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 24px 16px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        .prompt,
+        .code {
+          font-size: 0.78rem;
+        }
+      }
+    </style>
+
+
+  </head>
+  <body>
+    <article>
+      <h1>
+        At My Desk: I Turned My Real Desk Into an Interactive 3D Website With
+        Replit
+      </h1>
+      <p class="meta">
+        Published October 2026 ·
+        <a href="https://www.avivashishta.com">avivashishta.com</a>
+      </p>
+
+      <h2>Overview</h2>
+      <p>
+        This is my desk at night. A Dell monitor with a light bar on top, my
+        laptop on a stand to the right, a paper lantern glowing behind it, a
+        clamp lamp on the left throwing orange light up the wall, a small
+        globe and a potted plant on the shelf, a phone on a charging stand
+        under the monitor, and a keyboard and trackpad on a desk mat. I took
+        a photo of it and asked
+        <a href="https://replit.com/">Replit Agent</a> to turn it into a
+        website you can sit at.
+      </p>
+      <p>
+        The result is <strong>At My Desk</strong>: a small 3D scene of that
+        setup where the lamps switch on and off, the monitor and laptop are
+        real screens you can read and type on, the globe spins, the plant
+        can be watered, and putting the phone on its charger starts a focus
+        timer.
+      </p>
+      <p>
+        This post covers what you can do on it, how it's put together, and
+        where each piece lives in the code, in case you want to make one of
+        your own desk.
+      </p>
+
+      <div class="highlight">
+        <p>
+          <strong>What it is:</strong> an interactive 3D desk built from real
+          3D objects, not layered pictures. The desk, lamps, globe, plant,
+          phone, monitor and laptop all sit in one scene under one camera, so
+          the perspective stays consistent wherever you look from.
+        </p>
+        <p style="margin-bottom: 0">
+          <strong>Stack:</strong> React and TypeScript single-page app.
+          Three.js through React Three Fiber and Drei for the 3D scene,
+          Framer Motion for the welcome and the panels. It publishes as a
+          static site: no server, no database, no account.
+        </p>
+      </div>
+
+      <h2>What you can do on it</h2>
+      <ul>
+        <li>
+          <strong>Watch a short welcome, or skip it.</strong> The site opens
+          on an animated intro and then hands you the desk.
+        </li>
+        <li>
+          <strong>Look around.</strong> Drag to orbit, scroll to zoom, or
+          jump to one of three views: <strong>Whole desk</strong>,
+          <strong>Monitor</strong> or <strong>Laptop</strong>.
+        </li>
+        <li>
+          <strong>Click anything on the desk.</strong> The camera glides
+          over to it. For the globe, the plant, the keyboard and the phone,
+          a panel for that object opens once the camera arrives.
+        </li>
+        <li>
+          <strong>Switch the lights.</strong> A lightbulb capsule in the
+          bottom-left corner turns each lamp on or off. Clicking a lamp in
+          the scene itself moves the camera to it instead, so the two never
+          fight over what a click means.
+        </li>
+        <li>
+          <strong>Write on the screens.</strong> The monitor and laptop show
+          live web content mapped onto the 3D screens. It's real text you
+          can select and type into, not text painted into a texture.
+        </li>
+        <li>
+          <strong>Use the props.</strong> Spin the globe, water the plant,
+          and put the phone on its charger to use it as a focus timer.
+        </li>
+        <li>
+          <strong>Open the command menu</strong> with a keyboard shortcut.
+          You can replay the welcome from there.
+        </li>
+      </ul>
+
+      <h2>From a photo to a scene</h2>
+      <p>
+        The photo was the brief. I didn't want a flat illustration with
+        hotspots on it, because the moment you move the camera, a picture
+        gives itself away. Every item had to be an actual 3D object, so you
+        can orbit the desk and the lamp still stands behind the globe, the
+        laptop still sits at an angle to the monitor, and the light from
+        each lamp still lands where it should.
+      </p>
+      <p>
+        That's also what makes clicking feel right. When the camera flies to
+        the plant, it's travelling through the same space you were just
+        looking at, not cutting to a different image.
+      </p>
+
+      <h2>How it's built</h2>
+
+      <h3>The camera</h3>
+      <p>
+        Camera moves use a damped spring rather than a fixed-length tween.
+        It eases in, and if you click a second object while the camera is
+        still moving, it keeps its momentum and curves toward the new target
+        instead of stopping and starting again.
+      </p>
+      <p>
+        While an automatic move is running, the orbit controls are paused so
+        they don't pull against the spring. But you're never locked out:
+        dragging or scrolling mid-flight cancels the move and gives you the
+        camera back.
+      </p>
+
+      <h3>The lights</h3>
+      <p>
+        Turning a lamp off doesn't remove its light from the scene. It fades
+        the intensity down. Removing and re-adding lights in Three.js forces
+        materials to recompile for the new lighting setup, which shows up as
+        a hitch. Keeping every light in place and only changing how bright it
+        is avoids that, and gives you a soft fade for free.
+      </p>
+
+      <h3>Shadows</h3>
+      <p>
+        Nothing on the desk moves while the camera does, so the shadows
+        don't need to change either. During camera-only movement the scene
+        reuses the shadows it already rendered instead of recalculating them
+        every frame. That's most of the time anyone spends on the site.
+      </p>
+
+      <h3>The screens</h3>
+      <p>
+        The monitor and laptop screens are React content placed onto the 3D
+        screens, so they behave like web pages: you can read them, select
+        text and type notes. Drawing the text into a canvas texture would
+        have been simpler, but then you couldn't write on them, and the text
+        would go blurry as soon as you zoomed in.
+      </p>
+
+      <h3>Smaller screens and reduced motion</h3>
+      <p>
+        The scene adapts to phone-sized screens and full-screen mode, and it
+        follows the device's reduced-motion setting.
+      </p>
+
+      <h3>Nothing leaves your browser</h3>
+      <p>
+        Your notes, light settings, the phone timer, and whether you've seen
+        the welcome and found each object are all saved in your own browser.
+        Nothing is uploaded or tied to an account, which is why the whole
+        thing can ship as a static site.
+      </p>
+
+      <h2>Where the code lives</h2>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>File</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>The desk page in <code>src/pages/</code></td>
+              <td>Page state, interactions and overall layout</td>
+            </tr>
+            <tr>
+              <td><code>src/components/desk3d/DeskScene.tsx</code></td>
+              <td>Camera, rendering, lighting and shadows</td>
+            </tr>
+            <tr>
+              <td><code>src/components/desk3d/models.tsx</code></td>
+              <td>The 3D desk objects and what happens when you click them</td>
+            </tr>
+            <tr>
+              <td><code>src/components/LightsCapsule.tsx</code>, <code>src/pages/desk.css</code></td>
+              <td>The light controls and the visual styling</td>
+            </tr>
+            <tr>
+              <td><code>DeskWelcome.tsx</code>, <code>DeskMonitor.tsx</code>, <code>InlineNotes.tsx</code>, <code>Panels.tsx</code></td>
+              <td>The welcome, the screens, notes and the object panels</td>
+            </tr>
+            <tr>
+              <td><code>src/lib/store.ts</code></td>
+              <td>Browser-local saving and shared state</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The app sits at <code>artifacts/immersive-desk/</code> inside the
+        Replit workspace. The workspace also has separate API and canvas
+        projects, but the desk doesn't use either of them.
+      </p>
+
+      <h2>A prompt to build your own</h2>
+      <p>
+        This came together over several rounds with the agent, not one
+        prompt. I wrote this one afterwards from what the finished site
+        does. Attach a photo of your own desk and change the object list to
+        match it.
+      </p>
+
+      <div class="promptbox">
+        <button class="copybtn" type="button" data-copy>Copy prompt</button>
+        <div class="prompt" id="desk-prompt">Turn the attached photo of my desk into an interactive 3D website I can sit at.
+
+Scene
+- React + TypeScript single-page app. Render the desk with Three.js via React Three Fiber and Drei.
+- Build every item as a real 3D object in one scene under one camera, not layered images or a photo with hotspots. Match the photo: [list your objects — e.g. monitor with light bar, laptop on a stand, paper lantern, clamp lamp, globe, potted plant, phone on a charging stand, keyboard, trackpad, desk mat].
+- Warm night-time lighting like the photo, with each lamp as its own light source that casts light where it would in real life.
+
+Camera
+- Drag to orbit, scroll to zoom. Three preset views: Whole desk, Monitor, Laptop.
+- Clicking an object moves the camera to it with a damped spring (eases in, keeps momentum if the target changes mid-move).
+- Pause the orbit controls during an automatic move, but let any drag or scroll interrupt it and hand control back.
+
+Interactions
+- Lights: a lightbulb capsule in the bottom-left toggles each lamp. Fade light intensity instead of adding/removing lights, so materials never recompile. Clicking a lamp in the scene focuses the camera on it; it does not toggle it.
+- Monitor and laptop: show live, selectable, editable web content on the 3D screens (not text drawn into a texture). Let me write notes on them.
+- Globe: spins, opens a panel. Plant: can be watered, opens a panel. Keyboard: opens a panel. Phone: placing it on the charger starts a focus timer. Panels open only once the camera has arrived.
+- A command menu on a keyboard shortcut, with an option to replay the welcome.
+
+Welcome
+- A short, skippable animated welcome with Framer Motion, then hand over the desk.
+
+Performance
+- Nothing on the desk moves during camera-only movement, so reuse the existing shadow map instead of re-rendering shadows every frame.
+
+Responsiveness and accessibility
+- Works on small screens and in full-screen mode. Respect prefers-reduced-motion.
+
+Storage
+- Save notes, light settings, phone/timer state and welcome/discovery progress in localStorage only. No server, no database, no accounts. It must publish as a static site.</div>
+      </div>
+
+      <p>
+        The object list is the part to spend time on. The more closely the
+        3D layout follows your photo, the more it feels like your desk rather
+        than a generic one.
+      </p>
+
+      <h2>Recap</h2>
+      <ul>
+        <li>
+          At My Desk is my real desk setup, rebuilt from a photo as a 3D
+          website with Replit Agent.
+        </li>
+        <li>
+          Every item is a real 3D object under one camera, so the perspective
+          holds up from any angle.
+        </li>
+        <li>
+          The camera moves on a damped spring you can interrupt by dragging
+          or scrolling.
+        </li>
+        <li>
+          Lamps fade instead of being removed, and shadows are reused while
+          only the camera moves, so nothing stutters.
+        </li>
+        <li>
+          The monitor and laptop show live web content you can type on, and
+          everything you change stays in your browser.
+        </li>
+      </ul>
+
+      <p>
+        More 3D Replit builds:
+        <a href="/blog/cosmo-3d-robot-companion-threejs-replit"
+          >Cosmo, a 3D robot companion you can boop and throw</a
+        >,
+        <a href="/blog/prompt-luma-floor-lamp-lit-hero-replit"
+          >the Luma floor lamp hero, where a brass switch lights the page</a
+        >, and
+        <a href="/blog/the-descent-infinite-zoom-book-webgl-replit"
+          >The Descent, an infinite zoom through seven worlds in a book</a
+        >.
+      </p>
+
+      <div class="back">
+        <p>
+          <a href="https://www.avivashishta.com">← Portfolio</a> ·
+          <a href="/blog">Blog</a>
+        </p>
+      </div>
+    </article>
+
+    <script>
+      // Copy the prompt block. Fires straight from the tap so iOS Safari keeps
+      // the gesture context, with an execCommand fallback for older browsers.
+      document.querySelectorAll('[data-copy]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var text = document.getElementById('desk-prompt').innerText;
+          var done = function () {
+            btn.textContent = 'Copied';
+            btn.classList.add('done');
+            setTimeout(function () {
+              btn.textContent = 'Copy prompt';
+              btn.classList.remove('done');
+            }, 1600);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, fallback);
+          } else {
+            fallback();
+          }
+          function fallback() {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.top = '-1000px';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand('copy');
+              done();
+            } catch (e) {
+              btn.textContent = 'Select and copy';
+            }
+            document.body.removeChild(ta);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

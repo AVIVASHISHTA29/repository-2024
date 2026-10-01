@@ -660,5 +660,17 @@
       <category>Interviews</category>
       <category>JavaScript</category>
     </item>
+    <item>
+      <title>At My Desk: I Turned My Real Desk Into an Interactive 3D Website With Replit</title>
+      <link>https://www.avivashishta.com/blog/at-my-desk-interactive-3d-desk-website-replit</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/at-my-desk-interactive-3d-desk-website-replit</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>My real desk setup rebuilt as a 3D website: lamps you can switch on and off, a monitor and laptop you can type on, a globe, a plant to water and a phone that becomes a focus timer. How the scene, the spring-damped camera, the fading lights and the live screens work.</description>
+      <category>Replit</category>
+      <category>Three.js</category>
+      <category>React Three Fiber</category>
+      <category>Prompts</category>
+    </item>
   </channel>
 </rss>
