@@ -648,6 +648,17 @@
       <category>Instagram Reels</category>
       <category>Prompts</category>
     </item>
-
+    <item>
+      <title>446 React Interview Questions to Crack Frontend Placements</title>
+      <link>https://www.avivashishta.com/blog/446-react-interview-questions</link>
+      <guid isPermaLink="true">https://www.avivashishta.com/blog/446-react-interview-questions</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+      <author>avivashishta29@gmail.com (Avi Vashishta)</author>
+      <description>446 React interview questions for frontend placements, each linked to a full written answer with code: hooks, React 18/19 features, core React, Router, Redux and testing. 354 current plus 92 legacy, from sudheerj/reactjs-interview-questions (45K stars, MIT licensed), plus the 4 sections I&apos;d start with.</description>
+      <category>React</category>
+      <category>Frontend</category>
+      <category>Interviews</category>
+      <category>JavaScript</category>
+    </item>
   </channel>
 </rss>
