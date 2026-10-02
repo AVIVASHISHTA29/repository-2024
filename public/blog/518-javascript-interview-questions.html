@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>518 JavaScript Interview Questions to Crack Placements in 2027 | Avi Vashishta</title>
+    <meta name="description" content="518 JavaScript interview questions with written answers, sorted into 11 topics: closures, hoisting, promises, the event loop, prototypes, the DOM and more, plus 87 output-based coding exercises. From sudheerj/javascript-interview-questions (27K stars), with the 4 topics to start with and 3 things to build." />
+    <link rel="canonical" href="https://www.avivashishta.com/blog/518-javascript-interview-questions" />
+    <meta name="author" content="Avi Vashishta" />
+    <meta property="og:title" content="518 JavaScript Interview Questions to Crack Placements in 2027" />
+    <meta property="og:description" content="518 JavaScript interview questions with answers, sorted by topic, plus 87 coding exercises and 3 things to build." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.avivashishta.com/blog/518-javascript-interview-questions" />
+    <meta property="article:published_time" content="2026-10-02T00:00:00Z" />
+    <meta property="article:author" content="Avi Vashishta" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "518 JavaScript Interview Questions to Crack Placements in 2027",
+        "description": "518 JavaScript interview questions with answers, sorted by topic, plus 87 coding exercises and 3 things to build.",
+        "author": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Avi Vashishta",
+          "url": "https://www.avivashishta.com"
+        },
+        "datePublished": "2026-10-02",
+        "url": "https://www.avivashishta.com/blog/518-javascript-interview-questions"
+      }
+    </script>
+    <!-- PostHog -->
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement('script')).type = 'text/javascript'),
+              (p.crossOrigin = 'anonymous'),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') +
+                '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return (
+                    'posthog' !== a && (e += '.' + a),
+                    t || (e += ' (stub)'),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric'.split(
+                    ' ',
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_cgNNpL9lqLK50jeJICAV6xcGZDmuDnuPVxPeG8Ieg6m', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: true,
+        capture_pageleave: true,
+      });
+      // Fire a named event so this article is easy to filter in PostHog.
+      posthog.capture('article_viewed', {
+        slug: '518-javascript-interview-questions',
+        title: "518 JavaScript Interview Questions to Crack Placements in 2027",
+      });
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.7;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+      }
+      h2 {
+        font-size: 1.4rem;
+        margin-top: 2.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+        margin-bottom: 0.25rem;
+      }
+      .meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        margin: 1rem 0;
+      }
+      ul,
+      ol {
+        margin: 1rem 0;
+        padding-left: 1.4rem;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+      blockquote {
+        margin: 1.5rem 0;
+        padding: 4px 20px;
+        border-left: 4px solid #0066cc;
+        background: #f0f7ff;
+        border-radius: 0 8px 8px 0;
+        color: #333;
+        font-style: italic;
+      }
+      .highlight {
+        background: #f0f7ff;
+        border-left: 4px solid #0066cc;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 1.5rem 0;
+      }
+      .stars {
+        display: inline-block;
+        font: 600 0.72rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas,
+          monospace;
+        letter-spacing: 0.06em;
+        color: #444;
+        background: #f2f2f2;
+        border: 1px solid #e2e2e2;
+        border-radius: 6px;
+        padding: 5px 9px;
+        vertical-align: middle;
+        margin-left: 6px;
+      }
+      .repo-link {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        word-break: break-all;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.92rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+      th {
+        font-weight: 600;
+        color: #444;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: #f2f2f2;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      a {
+        color: #0066cc;
+      }
+      .back {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 24px 16px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+      <body>
+    <article>
+      <h1>518 JavaScript Interview Questions to Crack Placements in 2027</h1>
+      <p class="meta">
+        Published October 2026 ·
+        <a href="https://www.avivashishta.com">avivashishta.com</a>
+      </p>
+
+      <p>
+        You commented <strong>js</strong>, so here are all 518 questions.
+        They come from sudheerj/javascript-interview-questions, and every one
+        has a full written answer, most with code, in the repo. Each link below
+        jumps straight to its answer. I pulled the list from the repo's README
+        on 2 October 2026 and sorted the questions by topic myself, so a few
+        could fit in more than one group.
+      </p>
+
+      <div class="highlight">
+        <p style="margin-bottom: 0">
+          <strong>The short version:</strong> 518 questions in 11 topics, plus
+          87 "what's the output?" coding exercises at the end of the repo.
+          Master closures, promises and the event loop first, do the coding
+          exercises, then build the 3 small things below. That's what you talk
+          about in the interview.
+        </p>
+      </div>
+
+      <h2 id="repos">The repo</h2>
+      <h3>sudheerj/javascript-interview-questions <span class="stars">~27K ★</span></h3>
+      <p class="repo-link"><a href="https://github.com/sudheerj/javascript-interview-questions">github.com/sudheerj/javascript-interview-questions</a></p>
+      <p>A long-running list of JavaScript interview questions with written answers and code, from the same author as the React interview questions repo. Free to read on GitHub.</p>
+
+      <h2 id="start">The 4 I'd start with</h2>
+      <ol>
+        <li><strong>Closures and hoisting.</strong> <a href="https://github.com/sudheerj/javascript-interview-questions#what-are-closures">What are closures</a>, <a href="https://github.com/sudheerj/javascript-interview-questions#what-is-hoisting">What is hoisting</a> and the <a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-temporal-dead-zone">Temporal Dead Zone</a>. The first thing every JS round tests.</li>
+        <li><strong>Promises and async/await.</strong> 50 questions in <a href="#async-promises-callbacks-and-the-event-loop">the async section</a>, starting with <a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-promise">What is a promise</a>.</li>
+        <li><strong>The event loop.</strong> <a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-event-loop">What is the event loop</a> and <a href="https://github.com/sudheerj/javascript-interview-questions#what-are-tasks-in-event-loop">tasks in the event loop</a>. If you can draw it, you can answer half the async questions.</li>
+        <li><strong>The 87 coding exercises.</strong> <a href="https://github.com/sudheerj/javascript-interview-questions#coding-exercise">"What's the output?" questions</a> at the end of the repo. The most common JS round in Indian frontend interviews.</li>
+      </ol>
+
+      <h2 id="build">What to build to prove you get it</h2>
+      <ol>
+        <li>Your own <strong>debounce</strong> function, then use it on a search box.</li>
+        <li>Your own version of <strong>bind</strong>, using call or apply.</li>
+        <li>A <strong>fetch wrapper that retries</strong> failed requests with promises.</li>
+      </ol>
+      <p>You don't need all 518. You need to explain closures without saying "it's when a function remembers".</p>
+
+      <h2 id="topics">Jump to a topic</h2>
+      <p><a href="#variables-types-and-operators">Variables, types and operators</a> (59) · <a href="#functions-scope-and-closures">Functions, scope and closures</a> (64) · <a href="#objects-classes-and-prototypes">Objects, classes and prototypes</a> (100) · <a href="#arrays-strings-and-collections">Arrays, strings and collections</a> (60) · <a href="#async-promises-callbacks-and-the-event-loop">Async: promises, callbacks and the event loop</a> (50) · <a href="#es6-syntax-and-modules">ES6+ syntax and modules</a> (19) · <a href="#control-flow-and-syntax">Control flow and syntax</a> (16) · <a href="#browser-dom-and-web-apis">Browser, DOM and web APIs</a> (94) · <a href="#errors-and-debugging">Errors and debugging</a> (7) · <a href="#tooling-engines-and-the-ecosystem">Tooling, engines and the ecosystem</a> (25) · <a href="#everything-else">Everything else</a> (24)</p>
+
+      <h2 id="questions">All 518 questions, by topic (518)</h2>
+      <p class="repo-link">Source: <a href="https://github.com/sudheerj/javascript-interview-questions">github.com/sudheerj/javascript-interview-questions</a></p>
+      <h3 id="variables-types-and-operators">Variables, types and operators (59)</h3>
+      <ol start="1">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between--and--operators">What is the difference between == and === operators</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-the-let-keyword">What is the purpose of the let keyword</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-let-and-var">What is the difference between let and var</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-reason-to-choose-the-name-let-as-a-keyword">What is the reason to choose the name let as a keyword</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-redeclare-variables-in-a-switch-block-without-an-error">How do you redeclare variables in a switch block without an error</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-temporal-dead-zone">What is the Temporal Dead Zone</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-strict-mode-in-javascript">What is a strict mode in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-you-need-strict-mode">Why do you need strict mode</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-declare-strict-mode">How do you declare strict mode</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-double-exclamation">What is the purpose of double exclamation</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-the-delete-operator">What is the purpose of the delete operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-typeof-operator">What is typeof operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-null-value">What is null value</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-null-and-undefined">What is the difference between null and undefined</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-isnan">What is isNaN</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-undeclared-and-undefined-variables">What are the differences between undeclared and undefined variables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-void-0">What is the purpose of void 0</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-javascript-a-case-sensitive-language">Is JavaScript a case-sensitive language</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-validate-an-email-in-javascript">How do you validate an email in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-display-the-current-date-in-javascript">How do you display the current date in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-the----notation-represents-a-special-operator">Is the !-- notation represents a special operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-assign-default-values-to-variables">How do you assign default values to variables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-benefits-of-keeping-declarations-at-the-top">What are the benefits of keeping declarations at the top</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-benefits-of-initializing-variables">What are the benefits of initializing variables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-generate-random-integers">How do you generate random integers</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-would-be-the-result-of-123">What would be the result of 1+2+&#x27;3&#x27;</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#can-i-use-reserved-words-as-identifiers">Can I use reserved words as identifiers</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-convert-date-to-another-timezone-in-javascript">How do you convert date to another timezone in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-conditional-operator-in-javascript">What is a conditional operator in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-various-operators-supported-by-javascript">What are various operators supported by javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-bitwise-operators-available-in-javascript">What are the bitwise operators available in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-spread-operator">What is a spread operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-primitive-data-types">What are primitive data types</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-two-types-of-loops-in-javascript">What are the two types of loops in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-unary-operator">What is an Unary operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-comma-operator">What is the comma operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-advantage-of-the-comma-operator">What is the advantage of the comma operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-typescript">What is typescript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-javascript-and-typescript">What are the differences between javascript and typescript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-advantages-of-typescript-over-javascript">What are the advantages of typescript over javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-void-operator">What is a void operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#can-i-redeclare-let-and-const-variables">Can I redeclare let and const variables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-default-values-in-destructuring-assignment">What are default values in destructuring assignment</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-swap-variables-in-destructuring-assignment">How do you swap variables in destructuring assignment</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-double-tilde-operator">What is the purpose of double tilde operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-list-of-cases-error-thrown-from-non-strict-mode-to-strict-mode">What are the list of cases error thrown from non-strict mode to strict mode</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-output-of-below-console-statement-with-unary-operator">What is the output of below console statement with unary operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-output-of-prepend-additive-operator-on-falsy-values">What is the output of prepend additive operator on falsy values</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-round-numbers-to-certain-decimals">How do you round numbers to certain decimals</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-shortcut-to-get-timestamp">What is the shortcut to get timestamp</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-use-javascript-libraries-in-typescript-file">How do you use javascript libraries in typescript file</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-detect-primitive-or-non-primitive-value-type">How do you detect primitive or non primitive value type</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-isnan-and-numberisnan">What is the difference between isNaN and Number.isNaN?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-nullish-coalescing-operator-">What is nullish coalescing operator (??)?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-primitives-and-non-primitives">What are the differences between primitives and non-primitives?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-bigint-and-how-is-it-different-from-number">What is BigInt and how is it different from Number?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-logical-assignment-operators">What are logical assignment operators?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-temporal-api-and-why-is-it-proposed-as-a-replacement-for-date">What is the Temporal API and why is it proposed as a replacement for Date?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-does-javascript-handle-floating-point-precision-issues">How does JavaScript handle floating point precision issues?</a></li>
+      </ol>
+      <h3 id="functions-scope-and-closures">Functions, scope and closures (64)</h3>
+      <ol start="60">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-call-apply-and-bind">What is the Difference Between call, apply, and bind</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-lambda-expressions-or-arrow-functions">What are lambda expressions or arrow functions</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-first-class-function">What is a first class function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-first-order-function">What is a first order function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-higher-order-function">What is a higher order function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-unary-function">What is a unary function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-currying-function">What is the currying function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-pure-function">What is a pure function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-benefits-of-pure-functions">What are the benefits of pure functions</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-iife-immediately-invoked-function-expression">What is an IIFE (Immediately Invoked Function Expression)</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-memoization">What is memoization</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-hoisting">What is Hoisting</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-closures">What are closures</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-scope-in-javascript">What is scope in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-eval">What is eval</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-global-variables">What are global variables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-problems-with-global-variables">What are the problems with global variables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-isfinite-function">What is the purpose of isFinite function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-arguments-object">What is an arguments object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#can-we-define-properties-for-functions">Can we define properties for functions</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-way-to-find-the-number-of-parameters-expected-by-a-function">What is the way to find the number of parameters expected by a function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-it-recommended-to-use-eval">Is it recommended to use eval</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#can-you-apply-chaining-on-conditional-operator">Can you apply chaining on conditional operator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-rest-parameter">What is a rest parameter</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-happens-if-you-do-not-use-rest-parameter-as-a-last-argument">What happens if you do not use rest parameter as a last argument</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-uneval">What is the purpose of uneval</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-uneval-and-eval">What is the difference between uneval and eval</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-anonymous-function">What is an anonymous function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-precedence-order-between-local-and-global-variables">What is the precedence order between local and global variables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-function-parameter-rules">What are the function parameter rules</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-call-stack">What is the call stack</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-decorator">What is a decorator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-comparefunction-while-sorting-arrays">What is the purpose of compareFunction while sorting arrays</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-find-the-min-and-max-values-without-math-functions">How do you find the min and max values without Math functions</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-call-the-constructor-of-a-parent-class">How do you call the constructor of a parent class</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-we-call-javascript-as-dynamic-language">Why do we call javascript as dynamic language</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-default-parameters">What are default parameters</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-evalerror-object">What is the purpose of EvalError object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-a-parameter-and-an-argument">What is the difference between a parameter and an argument</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-output-of-below-function-calls">What is the output of below function calls</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-verify-that-an-argument-is-a-number-or-not">How do you verify that an argument is a Number or not</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-function-constructor-and-function-declaration">What is the difference between Function constructor and function declaration</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-function-and-class-declarations">What is the difference between function and class declarations</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-proper-tail-call">What is a Proper Tail Call</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-detect-if-a-function-is-called-as-constructor">How to detect if a function is called as constructor</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-arguments-object-and-rest-parameter">What are the differences between arguments object and rest parameter</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-spread-operator-and-rest-parameter">What are the differences between spread operator and rest parameter</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-invoke-an-iife-without-any-extra-brackets">How to invoke an IIFE without any extra brackets?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-global-execution-context">What is global execution context?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-function-execution-context">What is function execution context?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-create-your-own-bind-method-using-either-call-or-apply-method">How do you create your own bind method using either call or apply method?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-pure-and-impure-functions">What are the differences between pure and impure functions?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-compose-and-pipe-functions">What are compose and pipe functions?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-function-composition">What is Function Composition?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-the-this-keyword-in-javascript">What is the purpose of the this keyword in JavaScript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-uses-of-closures">What are the uses of closures?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-phases-of-execution-context">What are the phases of execution context?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-examples-of-built-in-higher-order-functions">What are the examples of built-in higher order functions?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-benefits-higher-order-functions">What are the benefits higher order functions?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-map-and-foreach-functions">What is the difference between map and forEach functions?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-lexical-scope">What is Lexical Scope?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-find-the-number-of-parameters-expected-by-a-function">How to find the number of parameters expected by a function?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-module-scope-in-javascript">What is module scope in JavaScript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-tail-call-optimization-and-does-javascript-support-it">What is tail call optimization and does JavaScript support it?</a></li>
+      </ol>
+      <h3 id="objects-classes-and-prototypes">Objects, classes and prototypes (100)</h3>
+      <ol start="124">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-possible-ways-to-create-objects-in-javascript">What are the possible ways to create objects in JavaScript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-prototype-chain">What is a prototype chain</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-json-and-its-common-operations">What is JSON and its common operations</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-compare-object-and-map">How do you compare Object and Map</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-classes-in-es6">What are classes in ES6</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-undefined-property">What is undefined property</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-nan-property">What is NaN property</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-native-host-and-user-objects">What is the difference between native, host and user objects</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-an-attribute-and-a-property">What is the difference between an attribute and a property</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-json">What is JSON</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-syntax-rules-of-json">What are the syntax rules of JSON</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-json-stringify">What is the purpose JSON stringify</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-parse-json-string">How do you parse JSON string</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-you-need-json">Why do you need JSON</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-check-if-a-key-exists-in-an-object">How do you check if a key exists in an object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-loop-through-or-enumerate-javascript-object">How do you loop through or enumerate javascript object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-test-for-an-empty-object">How do you test for an empty object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-compare-two-date-objects">How do you compare two date objects</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-add-a-key-value-pair-in-javascript">How do you add a key value pair in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-recommendations-to-create-new-object">What are the recommendations to create new object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-define-json-arrays">How do you define JSON arrays</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-regexp-object">What is a RegExp object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-proto-and-prototype">What is the difference between proto and prototype</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-freeze-method">What is the freeze method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-the-freeze-method">What is the purpose of the freeze method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-i-need-to-use-the-freeze-method">Why do I need to use the freeze method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-determine-whether-object-is-frozen-or-not">How do you determine whether object is frozen or not</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-determine-two-values-same-or-not-using-object">How do you determine two values same or not using object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-using-object-is-method">What is the purpose of using object is method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-copy-properties-from-one-object-to-other">How do you copy properties from one object to other</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-applications-of-the-assign-method">What are the applications of the assign method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-proxy-object">What is a proxy object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-the-seal-method">What is the purpose of the seal method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-applications-of-the-seal-method">What are the applications of the seal method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-the-freeze-and-seal-methods">What are the differences between the freeze and seal methods</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-determine-if-an-object-is-sealed-or-not">How do you determine if an object is sealed or not</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-enumerable-key-and-value-pairs">How do you get enumerable key and value pairs</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-main-difference-between-objectvalues-and-objectentries-method">What is the main difference between Object.values and Object.entries method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-can-you-get-the-list-of-keys-of-any-object">How can you get the list of keys of any object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-create-an-object-with-a-prototype">How do you create an object with a prototype</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-javascript-accessors">What are javascript accessors</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-define-property-on-object-constructor">How do you define property on Object constructor</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-get-and-defineproperty">What is the difference between get and defineProperty</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-advantages-of-getters-and-setters">What are the advantages of Getters and Setters</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#can-i-add-getters-and-setters-using-defineproperty-method">Can I add getters and setters using defineProperty method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-different-ways-to-access-object-properties">What are the different ways to access object properties</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-error-object">What is an error object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-different-error-names-from-error-object">What are the different error names from error object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-intl-object">What is the Intl object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-properties-of-the-intl-object">What are the properties of the Intl object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-object-initializer">What is an object initializer</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-constructor-method">What is a constructor method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-happens-if-you-write-constructor-more-than-once-in-a-class">What happens if you write constructor more than once in a class</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-the-prototype-of-an-object">How do you get the prototype of an object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-happens-if-i-pass-string-type-for-getprototype-method">What happens If I pass string type for getPrototype method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-set-the-prototype-of-one-object-to-another">How do you set the prototype of one object to another</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-check-whether-an-object-can-be-extended-or-not">How do you check whether an object can be extended or not</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-prevent-an-object-from-being-extend">How do you prevent an object from being extend</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-different-ways-to-make-an-object-non-extensible">What are the different ways to make an object non-extensible</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-define-multiple-properties-on-an-object">How do you define multiple properties on an object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-validity-properties">What are the validity properties</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#give-an-example-usage-of-the-rangeoverflow-property">Give an example usage of the rangeOverflow property</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#are-enums-available-in-javascript">Are enums available in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-enum">What is an enum</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-list-all-properties-of-an-object">How do you list all properties of an object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-property-descriptors-of-an-object">How do you get property descriptors of an object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-attributes-provided-by-a-property-descriptor">What are the attributes provided by a property descriptor</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-extend-classes">How do you extend classes</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#does-javascript-support-namespaces">Does JavaScript support namespaces</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-declare-a-namespace">How do you declare a namespace</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-the-timezone-offset-of-a-date-object">How do you get the timezone offset of a date object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-enhanced-object-literals">What are enhanced object literals</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-error-object">What is the purpose of Error object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#do-all-objects-have-prototypes">Do all objects have prototypes</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-shallow-and-deep-copy">What is the difference between Shallow and Deep copy</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#does-javascript-uses-mixins">Does javascript uses mixins</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#mixin-example-using-object-composition">Mixin Example using Object composition</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-easiest-way-to-convert-an-array-to-an-object">What is the easiest way to convert an array to an object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-placeholders-from-console-object">What are the placeholders from console object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-dir-method-of-console-object">What is the purpose of dir method of console object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-wrapper-objects">What are wrapper objects</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-make-an-object-iterable-in-javascript">How do you make an object iterable in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-define-instance-and-non-instance-properties">How do you define instance and non-instance properties</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-real-world-use-cases-of-proxy">What are the real world use cases of proxy?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-hidden-classes">What are hidden classes?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-structuredclone-and-how-is-it-used-for-deep-copying-objects">What is structuredClone and how is it used for deep copying objects?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-const-and-objectfreeze">What is the difference between const and Object.freeze</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-private-class-fields-in-javascript">What are private class fields in JavaScript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-arrayprototypeat-method-and-why-is-it-useful">What is the Array.prototype.at() method and why is it useful?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-symbols-and-what-are-their-use-cases">What are Symbols and what are their use cases?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-objectcreate-and-objectassign">What is the difference between Object.create() and Object.assign()?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-reflect-api-and-when-should-you-use-it">What is the Reflect API and when should you use it?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-objectkeys-objectvalues-and-objectentries">What is the difference between Object.keys(), Object.values(), and Object.entries()?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-map-and-object-for-storing-key-value-pairs">What are the differences between Map and Object for storing key-value pairs?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-objectgetownpropertydescriptors">What is the purpose of Object.getOwnPropertyDescriptors()?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-implement-a-custom-error-class-in-javascript">How do you implement a custom error class in JavaScript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-proxy-traps-and-what-operations-can-they-intercept">What are Proxy traps and what operations can they intercept?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-different-ways-to-handle-circular-references-in-json">What are the different ways to handle circular references in JSON?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-implement-a-singleton-pattern-in-javascript">How do you implement a singleton pattern in JavaScript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-prevent-prototype-pollution-attacks-in-javascript">How do you prevent prototype pollution attacks in JavaScript?</a></li>
+      </ol>
+      <h3 id="arrays-strings-and-collections">Arrays, strings and collections (60)</h3>
+      <ol start="224">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-the-array-slice-method">What is the purpose of the array slice method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-the-array-splice-method">What is the purpose of the array splice method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-slice-and-splice">What is the difference between slice and splice</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-check-whether-a-string-contains-a-substring">How do you check whether a string contains a substring</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-query-string-values-in-javascript">How do you get query string values in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-make-first-letter-of-the-string-in-an-uppercase">How do you make first letter of the string in an uppercase</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-check-if-a-string-starts-with-another-string">How do you check if a string starts with another string</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-trim-a-string-in-javascript">How do you trim a string in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-define-multiline-strings">How do you define multiline strings</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-regular-expression">What is a Regular Expression</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-string-methods-that-accept-regular-expression">What are the string methods that accept Regular expression</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-modifiers-in-regular-expression">What are modifiers in regular expression</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-regular-expression-patterns">What are regular expression patterns</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-search-a-string-for-a-pattern">How do you search a string for a pattern</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-exec-method">What is the purpose of exec method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-convert-a-string-to-title-case-with-javascript">How to convert a string to title case with javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-weakset">What is a WeakSet</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-weakset-and-set">What are the differences between WeakSet and Set</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#list-down-the-collection-of-methods-available-on-weakset">List down the collection of methods available on WeakSet</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-weakmap">What is a WeakMap</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-weakmap-and-map">What are the differences between WeakMap and Map</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#list-down-the-collection-of-methods-available-on-weakmap">List down the collection of methods available on WeakMap</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-sort-elements-in-an-array">How do you sort elements in an array</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-reverse-an-array">How do you reverse an array</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-find-the-min-and-max-values-in-an-array">How do you find the min and max values in an array</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-check-whether-or-not-an-array-includes-a-particular-value">How do you check whether or not an array includes a particular value</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-compare-scalar-arrays">How do you compare scalar arrays</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-set-the-cursor-to-wait">How to set the cursor to wait</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-write-multi-line-strings-in-template-literals">How do you write multi-line strings in template literals</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-raw-strings">What are raw strings</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-typed-arrays">What are typed arrays</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-collation">What is collation</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-output-of-below-spread-operator-array">What is the output of below spread operator array</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-convert-character-to-ascii-code">How do you convert character to ASCII code</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-arraybuffer">What is ArrayBuffer</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-output-of-below-string-expression">What is the output of below string expression</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-some-method-in-arrays">What is the purpose of some method in arrays</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-combine-two-or-more-arrays">How do you combine two or more arrays</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-create-specific-number-of-copies-of-a-string">How do you create specific number of copies of a string</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-return-all-matching-strings-against-a-regular-expression">How do you return all matching strings against a regular expression</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-trim-a-string-at-the-beginning-or-ending">How do you trim a string at the beginning or ending</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-remove-all-line-breaks-from-a-string">How to remove all line breaks from a string</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-happens-with-negating-an-array">What happens with negating an array</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-happens-if-we-add-two-arrays">What happens if we add two arrays</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-create-self-string-using-special-characters">How do you create self string using special characters</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-remove-falsy-values-from-an-array">How do you remove falsy values from an array</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-unique-values-of-an-array">How do you get unique values of an array</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-map-the-array-values-without-using-map-method">How do you map the array values without using map method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-empty-an-array">How do you empty an array</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-create-an-array-with-some-data">How do you create an array with some data</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-flattening-multi-dimensional-arrays">How do you flattening multi dimensional arrays</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-easiest-way-to-resize-an-array">What is the easiest way to resize an array</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-dense-and-sparse-arrays">What is the difference between dense and sparse arrays?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-different-ways-to-create-sparse-arrays">What are the different ways to create sparse arrays?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-reverse-an-array-without-modifying-original-array">How do you reverse an array without modifying original array?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-verify-if-a-variable-is-an-array">How to verify if a variable is an array?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-create-polyfills-for-map-filter-and-reduce-methods">How do you create polyfills for map, filter and reduce methods?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-substring-and-substr-methods">What is the difference between substring and substr methods?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-array-mutation-methods">What are the array mutation methods?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-sharedarraybuffer-and-arraybuffer">What are the differences between SharedArrayBuffer and ArrayBuffer?</a></li>
+      </ol>
+      <h3 id="async-promises-callbacks-and-the-event-loop">Async: promises, callbacks and the event loop (50)</h3>
+      <ol start="284">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-promise">What is a promise</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-you-need-a-promise">Why do you need a promise</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#explain-the-three-states-of-promise">Explain the three states of promise</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-callback-function">What is a callback function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-we-need-callbacks">Why do we need callbacks</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-callback-hell">What is a callback hell</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-main-rules-of-promise">What are the main rules of promise</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-callback-in-callback">What is callback in callback</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-promise-chaining">What is promise chaining</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-promiseall">What is promise.all</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#does-promiseall-cancel-the-other-promises">Does Promise.all() cancel the other Promises?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-the-race-method-in-promise">What is the purpose of the race method in promise</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-pros-and-cons-of-promises-over-callbacks">What are the pros and cons of promises over callbacks</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-use-of-settimeout">What is the use of setTimeout</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-use-of-setinterval">What is the use of setInterval</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-is-javascript-treated-as-single-threaded">Why is JavaScript treated as Single threaded</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-cleartimeout-method">What is the purpose of clearTimeout method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-clearinterval-method">What is the purpose of clearInterval method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-make-synchronous-http-request">How do you make synchronous HTTP request</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-make-asynchronous-http-request">How do you make asynchronous HTTP request</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-iterator">What is an Iterator</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-does-synchronous-iteration-works">How does synchronous iteration works</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-event-loop">What is the event loop</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-postmessages-synchronous">Is postMessages synchronous</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-thunk-function">What is a thunk function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-asynchronous-thunks">What are asynchronous thunks</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-different-ways-to-deal-with-asynchronous-code">What are the different ways to deal with Asynchronous Code</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-minimum-timeout-throttling">What is minimum timeout throttling</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-implement-zero-timeout-in-modern-browsers">How do you implement zero timeout in modern browsers</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-tasks-in-event-loop">What are tasks in event loop</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-microtask">What is microtask</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-different-event-loops">What are different event loops</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-queuemicrotask">What is the purpose of queueMicrotask</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-promises-and-observables">What are the differences between promises and observables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-microtask-queue">What is a microTask queue</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-nodejs-completely-single-threaded">Is Node.js completely single threaded</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-async-function">What is an async function</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-prevent-promises-swallowing-errors">How do you prevent promises swallowing errors</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-check-an-object-is-a-promise-or-not">How do you check an object is a promise or not</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-different-kinds-of-generators">What are the different kinds of generators</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-easiest-way-to-ignore-promise-errors">What is the easiest way to ignore promise errors?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-settimeout-setimmediate-and-processnexttick">What is the difference between setTimeout, setImmediate and process.nextTick?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-use-await-outside-of-async-function-prior-to-es2022">How to use await outside of async function prior to ES2022?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-promiseany-and-when-should-it-be-used">What is Promise.any and when should it be used?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-top-level-await-in-javascript-modules">What is top-level await in JavaScript modules?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-generator-functions-and-how-do-they-work">What are generator functions and how do they work?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-symboliterator-and-how-do-you-use-it">What is the purpose of Symbol.iterator and how do you use it?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-async-iterators-and-how-are-they-different-from-regular-iterators">What are async iterators and how are they different from regular iterators?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-does-promiseallsettled-differ-from-promiseall">How does Promise.allSettled() differ from Promise.all()?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-synchronous-and-asynchronous-generators">What is the difference between synchronous and asynchronous generators?</a></li>
+      </ol>
+      <h3 id="es6-syntax-and-modules">ES6+ syntax and modules (19)</h3>
+      <ol start="334">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-modules">What are modules</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-you-need-modules">Why do you need modules</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-ecmascript">What is ECMAScript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-the-metadata-of-a-module">How do you get the metadata of a module</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#list-down-some-of-the-features-of-es6">List down some of the features of ES6</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-es6">What is ES6</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-template-literals">What are template literals</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-nesting-templates">What are nesting templates</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-tagged-templates">What are tagged templates</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-destructuring-assignment">What is destructuring assignment</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-dynamic-imports">What are dynamic imports</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-use-cases-for-dynamic-imports">What are the use cases for dynamic imports</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-advantages-of-module-loaders">What are the advantages of module loaders</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-destructuring-aliases">What is destructuring aliases</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-optional-chaining">What is optional chaining?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-module-pattern">What is module pattern?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-globalthis-and-what-is-the-importance-of-it">What is globalThis, and what is the importance of it?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-tagged-template-literals-and-their-practical-uses">What are tagged template literals and their practical uses?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-implement-a-lazy-loading-pattern-for-modules">How do you implement a lazy loading pattern for modules?</a></li>
+      </ol>
+      <h3 id="control-flow-and-syntax">Control flow and syntax (16)</h3>
+      <ol start="353">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-pros-and-cons-of-for-loops">What are the pros and cons of for loops</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-break-and-continue-statements">What are break and continue statements</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-js-labels">What are js labels</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#can-you-give-an-example-of-when-you-really-need-a-semicolon">Can you give an example of when you really need a semicolon</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-switch-case">What is the purpose of switch-case</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-conventions-to-be-followed-for-the-usage-of-switch-case">What are the conventions to be followed for the usage of switch case</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-empty-statement-and-purpose-of-it">What is an empty statement and purpose of it</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-create-an-infinite-loop">How do you create an infinite loop</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-you-need-to-avoid-with-statement">Why do you need to avoid with statement</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-output-of-the-following-for-loops">What is the output of the following for loops</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-forof-statement">What is for...of statement</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-easiest-multi-condition-checking">What is the easiest multi condition checking</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-forof-and-forin-statements">What are the differences between for...of and for...in statements</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-that-possible-to-use-expressions-in-switch-cases">Is that possible to use expressions in switch cases?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#give-an-example-of-statements-affected-by-automatic-semicolon-insertion">Give an example of statements affected by automatic semicolon insertion?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-for-loop-and-foreach">What is the difference between for loop and forEach</a></li>
+      </ol>
+      <h3 id="browser-dom-and-web-apis">Browser, DOM and web APIs (94)</h3>
+      <ol start="369">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-decode-or-encode-a-url-in-javascript">How do you decode or encode a URL in JavaScript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-service-worker">What is a service worker</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-manipulate-dom-using-a-service-worker">How do you manipulate DOM using a service worker</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-reuse-information-across-service-worker-restarts">How do you reuse information across service worker restarts</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-indexeddb">What is IndexedDB</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-web-storage">What is web storage</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-post-message">What is a post message</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-cookie">What is a Cookie</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-you-need-a-cookie">Why do you need a Cookie</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-options-in-a-cookie">What are the options in a cookie</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-delete-a-cookie">How do you delete a cookie</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-cookie-local-storage-and-session-storage">What are the differences between cookie, local storage and session storage</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-main-difference-between-localstorage-and-sessionstorage">What is the main difference between localStorage and sessionStorage</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-access-web-storage">How do you access web storage</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-methods-available-on-session-storage">What are the methods available on session storage</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-storage-event-and-its-event-handler">What is a storage event and its event handler</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-you-need-web-storage">Why do you need web storage</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-check-web-storage-browser-support">How do you check web storage browser support</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-check-web-workers-browser-support">How do you check web workers browser support</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#give-an-example-of-a-web-worker">Give an example of a web worker</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-restrictions-of-web-workers-on-dom">What are the restrictions of web workers on DOM</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-server-sent-events">What are server-sent events</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-receive-server-sent-event-notifications">How do you receive server-sent event notifications</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-check-browser-support-for-server-sent-events">How do you check browser support for server-sent events</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-events-available-for-server-sent-events">What are the events available for server sent events</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-window-and-document">What is the difference between window and document</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-access-history-in-javascript">How do you access history in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-detect-caps-lock-key-turned-on-or-not">How do you detect caps lock key turned on or not</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-event-flow">What is an event flow</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-event-capturing">What is event capturing</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-event-bubbling">What is event bubbling</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-submit-a-form-using-javascript">How do you submit a form using JavaScript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-find-operating-system-details">How do you find operating system details</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-document-load-and-domcontentloaded-events">What is the difference between document load and DOMContentLoaded events</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-same-origin-policy">What is same-origin policy</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-events">What are events</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-use-of-preventdefault-method">What is the use of preventDefault method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-use-of-stoppropagation-method">What is the use of stopPropagation method</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-steps-involved-in-return-false-usage">What are the steps involved in return false usage</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-bom">What is BOM</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-event-delegation">What is an event delegation</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-pwas">What are PWAs</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-redirect-new-page-in-javascript">How do you redirect new page in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-the-current-url-with-javascript">How do you get the current url with javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-various-url-properties-of-location-object">What are the various url properties of location object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-app-shell-model">What is an app shell model</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#can-you-write-a-random-integers-function-to-print-integers-within-a-range">Can you write a random integers function to print integers within a range</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-change-the-style-of-a-html-element">How do you change the style of a HTML element</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-detect-a-mobile-browser">How do you detect a mobile browser</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-detect-a-mobile-browser-without-regexp">How do you detect a mobile browser without regexp</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-the-image-width-and-height-using-js">How do you get the image width and height using JS</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-properties-used-to-get-size-of-window">What are the properties used to get size of window</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-ways-to-execute-javascript-after-a-page-load">What are the ways to execute javascript after a page load</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-detect-a-browser-language-preference">How do you detect a browser language preference</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-detect-if-javascript-is-disabled-on-the-page">How do you detect if javascript is disabled on the page</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-encode-an-url">How do you encode an URL</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-decode-an-url">How do you decode an URL</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-print-the-contents-of-web-page">How do you print the contents of web page</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-perform-language-specific-date-and-time-formatting">How do you perform language specific date and time formatting</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-event-queue">What is the event queue</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-perform-form-validation-using-javascript">How do you perform form validation using javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-perform-form-validation-without-javascript">How do you perform form validation without javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-dom-methods-available-for-constraint-validation">What are the DOM methods available for constraint validation</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-available-constraint-validation-dom-properties">What are the available constraint validation DOM properties</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-i-modify-the-url-without-reloading-the-page">How do I modify the url without reloading the page</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-get-the-value-from-get-parameters">How to get the value from get parameters</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-print-numbers-with-commas-as-thousand-separators">How do you print numbers with commas as thousand separators</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-invoke-javascript-code-in-an-iframe-from-the-parent-page">How do you invoke javascript code in an iframe from the parent page</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-load-css-and-js-files-dynamically">How do you load CSS and JS files dynamically</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-different-methods-to-find-html-elements-in-dom">What are the different methods to find HTML elements in DOM</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#does-the-const-variable-make-the-value-immutable">Does the const variable make the value immutable</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-postmessage-secure">Is PostMessage secure</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-problems-with-postmessage-target-origin-as-wildcard">What are the problems with postmessage target origin as wildcard</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-avoid-receiving-postmessages-from-attackers">How do you avoid receiving postMessages from attackers</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#can-i-avoid-using-postmessages-completely">Can I avoid using postMessages completely</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-get-the-status-of-a-checkbox">How do you get the status of a checkbox</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-reflow-and-repaint">What is the difference between reflow and repaint</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-it-possible-to-add-css-to-console-messages">Is it possible to add CSS to console messages</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-it-possible-to-debug-html-elements-in-console">Is it possible to debug HTML elements in console</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-display-data-in-a-tabular-format-using-console-object">How do you display data in a tabular format using console object</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-create-copy-to-clipboard-button">How do you create copy to clipboard button</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-capture-browser-back-button">How do you capture browser back button</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-disable-right-click-in-the-web-page">How do you disable right click in the web page</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-ajax">What is AJAX</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-cancel-a-fetch-request">How to cancel a fetch request</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-web-speech-api">What is web speech API</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-event-table">What is an event table</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-style-the-console-output-using-css">How do style the console output using CSS?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-create-custom-html-element">How do you create custom HTML element?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-event-phases-of-a-browser">What are the event phases of a browser?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-is-it-important-to-remove-event-listeners-after-use">Why is it important to remove event listeners after use?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-intlnumberformat-api-and-how-is-it-used">What is the Intl.NumberFormat API and how is it used?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-performance-implications-of-using-try-catch-in-javascript">What are the performance implications of using try-catch in JavaScript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-performance-api-and-how-is-it-used-for-measuring-performance">What is the Performance API and how is it used for measuring performance?</a></li>
+      </ol>
+      <h3 id="errors-and-debugging">Errors and debugging (7)</h3>
+      <ol start="463">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-tools-or-techniques-used-for-debugging-javascript-code">What are the tools or techniques used for debugging JavaScript code</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-debugger-statement">What is a debugger statement</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-breakpoints-in-debugging">What is the purpose of breakpoints in debugging</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#when-do-you-get-a-syntax-error">When do you get a syntax error</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-various-statements-in-error-handling">What are the various statements in error handling</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-mean-stack">What is the MEAN stack</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-group-and-nest-console-output">How do you group and nest console output?</a></li>
+      </ol>
+      <h3 id="tooling-engines-and-the-ecosystem">Tooling, engines and the ecosystem (25)</h3>
+      <ol start="470">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-javascript-a-compiled-or-interpreted-language">Is JavaScript a compiled or interpreted language</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-there-any-relation-between-java-and-javascript">Is there any relation between Java and JavaScript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#who-created-javascript">Who created javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-polyfill">What is a polyfill</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-tree-shaking">What is tree shaking</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-need-of-tree-shaking">What is the need of tree shaking</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-nodejs">What is nodejs</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-obfuscation-in-javascript">What is obfuscation in javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#why-do-you-need-obfuscation">Why do you need Obfuscation</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-minification">What is Minification</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-advantages-of-minification">What are the advantages of minification</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-differences-between-obfuscation-and-encryption">What are the differences between obfuscation and Encryption</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-common-tools-used-for-minification">What are the common tools used for minification</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-java-and-javascript">What is the difference between java and javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-jquery">What is jQuery</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-v8-javascript-engine">What is V8 JavaScript engine</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-paradigm-is-javascript">What paradigm is Javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-internal-and-external-javascript">What is the difference between internal and external javascript</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#is-javascript-faster-than-server-side-script">Is JavaScript faster than server side script</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-difference-between-shim-and-polyfill">What is the difference between shim and polyfill</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-babel">What is babel</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-deno">What is deno</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-possible-reasons-for-memory-leaks">What are the possible reasons for memory leaks?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-optimization-techniques-of-v8-engine">What are the optimization techniques of V8 engine?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-best-practices-for-optimizing-javascript-bundle-size">What are the best practices for optimizing JavaScript bundle size?</a></li>
+      </ol>
+      <h3 id="everything-else">Everything else (24)</h3>
+      <ol start="495">
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#benefits">Benefits</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-heap">What is heap</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-common-use-cases-of-observables">What are the common use cases of observables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-rxjs">What is RxJS</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-a-short-circuit-condition">What is a Short circuit condition</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-observable">What is an observable</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-built-in-iterables">What are the built-in iterables</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-debouncing">What is debouncing?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-throttling">What is throttling?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-an-environment-record">What is an environment record?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-pass-by-value-and-pass-by-reference">What is pass by value and pass by reference?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-referential-transparency">What is referential transparency?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-possible-side-effects-in-javascript">What are the possible side-effects in javascript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-inline-caching">What is inline caching?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-the-different-ways-to-execute-external-scripts">What are the different ways to execute external scripts?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-to-detect-system-dark-mode-in-javascript">How to detect system dark mode in javascript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-purpose-of-requestanimationframe-method">What is the purpose of requestAnimationFrame method?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-shadowing-and-illegal-shadowing">What are shadowing and illegal shadowing?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-are-weakref-and-finalizationregistry-used-for">What are WeakRef and FinalizationRegistry used for?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-do-you-implement-method-chaining-in-javascript">How do you implement method chaining in JavaScript?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-does-the-intersection-observer-api-work">How does the Intersection Observer API work?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-abortcontroller-api-and-how-is-it-used">What is the AbortController API and how is it used?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#how-does-the-mutation-observer-api-work">How does the Mutation Observer API work?</a></li>
+        <li><a href="https://github.com/sudheerj/javascript-interview-questions#what-is-the-atomics-api-and-when-should-it-be-used">What is the Atomics API and when should it be used?</a></li>
+      </ol>
+
+      <h2>How I'd use this</h2>
+      <ul>
+        <li>Answer each question out loud before you open the answer. Interviews test explaining, not recognising.</li>
+        <li>For every output question you get wrong, write a two-line note on why. That list becomes your revision sheet.</li>
+        <li>Do JavaScript before React. Most React bugs in interviews are really closure or async bugs.</li>
+        <li>Build the 3 things above, push them to GitHub, and put the link on your resume.</li>
+      </ul>
+
+      <p>
+        Doing React next? Read
+        <a href="/blog/446-react-interview-questions">446 React interview questions</a>.
+      </p>
+
+      <p>
+        Follow
+        <a href="https://www.instagram.com/avi_vashishta29/">@avi_vashishta29</a>
+        for one practical AI dev resource a day.
+      </p>
+
+      <div class="back">
+        <p>
+          <a href="https://www.avivashishta.com">← Portfolio</a> ·
+          <a href="/blog">Blog</a>
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
