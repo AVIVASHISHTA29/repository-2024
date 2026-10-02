@@ -167,11 +167,16 @@ function renderPage(slug, page) {
     <meta property="og:url" content="${url}" />
     <meta property="og:title" content="${escape(page.title)}" />
     <meta property="og:description" content="${escape(page.description)}" />
-    <meta property="og:image" content="${SITE}/logo512.png" />
+    <meta property="og:image" content="${SITE}/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="I build cool things with AI and show you how — Avi Vashishta" />
     <meta property="og:site_name" content="Avi Vashishta" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escape(page.title)}" />
     <meta name="twitter:description" content="${escape(page.description)}" />
+    <meta name="twitter:image" content="${SITE}/og-image.png" />
+    <meta name="twitter:image:alt" content="I build cool things with AI and show you how — Avi Vashishta" />
     <script type="application/ld+json">
 ${JSON.stringify(pageSchema(slug, page), null, 2)}
     </script>
